@@ -10,16 +10,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../main.dart';
 
-import 'lat_lng.dart';
-
-export 'lat_lng.dart';
-export 'place.dart';
 export 'dart:math' show min, max;
-export 'package:intl/intl.dart';
+
 export 'package:cloud_firestore/cloud_firestore.dart' show DocumentReference;
+export 'package:intl/intl.dart';
 export 'package:page_transition/page_transition.dart';
+
 export 'custom_icons.dart' show FFIcons;
 export 'internationalization.dart' show FFLocalizations;
+export 'lat_lng.dart';
+export 'place.dart';
 
 T valueOrDefault<T>(T value, T defaultValue) =>
     (value is String && value.isEmpty) || value == null ? defaultValue : value;
@@ -99,8 +99,7 @@ String formatNumber(
       break;
     case FormatType.custom:
       final hasLocale = locale != null && locale.isNotEmpty;
-      formattedValue =
-          NumberFormat(format, hasLocale ? locale : null).format(value);
+      formattedValue = NumberFormat(format, hasLocale ? locale : null).format(value);
   }
 
   if (formattedValue.isEmpty) {
@@ -108,9 +107,7 @@ String formatNumber(
   }
 
   if (currency != null) {
-    final currencySymbol = currency.isNotEmpty
-        ? currency
-        : NumberFormat.simpleCurrency().format(0.0).substring(0, 1);
+    final currencySymbol = currency.isNotEmpty ? currency : NumberFormat.simpleCurrency().format(0.0).substring(0, 1);
     formattedValue = '$currencySymbol$formattedValue';
   }
 
@@ -121,8 +118,11 @@ DateTime get getCurrentTimestamp => DateTime.now();
 
 extension DateTimeComparisonOperators on DateTime {
   bool operator <(DateTime other) => isBefore(other);
+
   bool operator >(DateTime other) => isAfter(other);
+
   bool operator <=(DateTime other) => this < other || isAtSameMomentAs(other);
+
   bool operator >=(DateTime other) => this > other || isAtSameMomentAs(other);
 }
 
@@ -136,8 +136,11 @@ dynamic getJsonField(dynamic response, String jsonPath) {
 }
 
 bool get isAndroid => !kIsWeb && Platform.isAndroid;
+
 bool get isiOS => !kIsWeb && Platform.isIOS;
+
 bool get isWeb => kIsWeb;
+
 bool responsiveVisibility({
   @required BuildContext context,
   bool phone = true,
@@ -161,11 +164,9 @@ extension StringDocRef on String {
   DocumentReference get ref => FirebaseFirestore.instance.doc(this);
 }
 
-void setAppLanguage(BuildContext context, String language) =>
-    MyApp.of(context).setLocale(Locale(language, ''));
+void setAppLanguage(BuildContext context, String language) => MyApp.of(context).setLocale(Locale(language, ''));
 
-void setDarkModeSetting(BuildContext context, ThemeMode themeMode) =>
-    MyApp.of(context).setThemeMode(themeMode);
+void setDarkModeSetting(BuildContext context, ThemeMode themeMode) => MyApp.of(context).setThemeMode(themeMode);
 
 void showSnackbar(
   BuildContext context,
@@ -199,7 +200,14 @@ void showSnackbar(
 
 extension FFStringExt on String {
   String maybeHandleOverflow({int maxChars, String replacement = ''}) =>
-      maxChars != null && length > maxChars
-          ? replaceRange(maxChars, null, replacement)
-          : this;
+      maxChars != null && length > maxChars ? replaceRange(maxChars, null, replacement) : this;
+}
+
+TextStyle getDefaultTextStyle() {
+  return TextStyle(
+    fontFamily: 'Poppins',
+    color: Color(0xFF020202),
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
 }

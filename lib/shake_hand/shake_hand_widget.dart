@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../charming/charming_widget.dart';
@@ -5,10 +8,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../post_page_shake_hand/post_page_shake_hand_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ShakeHandWidget extends StatefulWidget {
   const ShakeHandWidget({Key key}) : super(key: key);
@@ -20,8 +19,15 @@ class ShakeHandWidget extends StatefulWidget {
 class _ShakeHandWidgetState extends State<ShakeHandWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim = currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis = currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
   @override
   Widget build(BuildContext context) {
+    print("Log comment =================");
+    print(_herHis);
     return Scaffold(
       key: scaffoldKey,
       appBar: AppBar(
@@ -76,8 +82,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.81, -0.07),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: AuthUserStreamWidget(
                               child: Icon(
                                 FFIcons.kaward4,
@@ -111,11 +116,10 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                         child: Text(
                           'DIFFICULTY',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                              ),
                         ),
                       ),
                       Row(
@@ -179,8 +183,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 final usersUpdateData = createUsersRecordData(
                                   taskShakeHand: 'In Progress',
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
+                                await currentUserReference.update(usersUpdateData);
                                 await Navigator.push(
                                   context,
                                   PageTransition(
@@ -196,9 +199,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 width: 120,
                                 height: 30,
                                 color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
@@ -215,13 +216,11 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 final usersUpdateData = createUsersRecordData(
                                   taskShakeHand: 'Mastered',
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
+                                await currentUserReference.update(usersUpdateData);
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        PostPageShakeHandWidget(),
+                                    builder: (context) => PostPageShakeHandWidget(),
                                   ),
                                 );
                               },
@@ -229,11 +228,8 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                               options: FFButtonOptions(
                                 width: 120,
                                 height: 30,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
+                                color: FlutterFlowTheme.of(context).primaryColor,
+                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
@@ -251,12 +247,11 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Text(
                           'A classic trick where your dog gives you his paws. You can call it shake hand or hi-five. This is a great trick to show off your dog skills in public and make them the center of attraction.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ),
                     ],
@@ -274,12 +269,11 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'STEPS',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                       ),
@@ -298,37 +292,11 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Have ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Have " + _currentUserDisplayName + " sit in front of you",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' sit in front of you',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -341,7 +309,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
-                      mainAxisSize: MainAxisSize.max,
+                      //mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -351,137 +319,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Present ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
+                        Flexible(
+                          child: Text(
+                            'Present ' +
+                                _herHim +
+                                ' your hand and wait until ' +
+                                _sheHe +
+                                ' lifts ' +
+                                _herHis +
+                                ' paw into your hand',
+                            style: getDefaultTextStyle(),
+                            overflow: TextOverflow.clip,
                           ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' your hand and wait until',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' lifts ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' paw into your hand.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -510,231 +359,21 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'If ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            'If ' +
+                                _currentUserDisplayName +
+                                ' doesn\'t try to offer the behaviour gently touch ' +
+                                _herHis +
+                                ' pow to encourage lifting. Once  ' +
+                                _sheHe +
+                                '  offers  ' +
+                                _herHis +
+                                '  paw, be sure to reward  ' +
+                                _herHim +
+                                '  with a treat',
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' doesn\'t try to offer',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'the behaviour, gently touch ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'paw to encourage lifting. Once ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'offers ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' paw, be sure to reward',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' with a treat.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -765,35 +404,32 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         ),
                         Text(
                           'Once',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF020202),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         AuthUserStreamWidget(
                           child: Text(
                             currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                         Text(
                           ' is successfully ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF020202),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -805,21 +441,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                       children: [
                         Text(
                           'offering ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF050505),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         if ((currentUserDocument?.gender) == 'Male')
                           AuthUserStreamWidget(
                             child: Text(
                               'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -831,9 +464,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           AuthUserStreamWidget(
                             child: Text(
                               'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -843,13 +474,12 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           ),
                         Text(
                           ' 9 out of 10 times with a',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Color(0xFF050505),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -861,13 +491,12 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                       children: [
                         Text(
                           'visual cue, begin giving a verbal cue',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -879,21 +508,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                       children: [
                         Text(
                           'such as \"Hi-five\" just before ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         if ((currentUserDocument?.gender) == 'Male')
                           AuthUserStreamWidget(
                             child: Text(
                               'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -905,9 +531,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           AuthUserStreamWidget(
                             child: Text(
                               'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -917,13 +541,12 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           ),
                         Text(
                           '\'s',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -935,21 +558,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                       children: [
                         Text(
                           'about to lift up ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         if ((currentUserDocument?.gender) == 'Male')
                           AuthUserStreamWidget(
                             child: Text(
                               'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -961,9 +581,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           AuthUserStreamWidget(
                             child: Text(
                               'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -973,13 +591,12 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           ),
                         Text(
                           ' paw. Reward the',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -991,21 +608,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                       children: [
                         Text(
                           'moment ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         if ((currentUserDocument?.gender) == 'Male')
                           AuthUserStreamWidget(
                             child: Text(
                               'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -1017,9 +631,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           AuthUserStreamWidget(
                             child: Text(
                               'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -1029,21 +641,18 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           ),
                         Text(
                           ' offers ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                         if ((currentUserDocument?.gender) == 'Male')
                           AuthUserStreamWidget(
                             child: Text(
                               'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -1055,9 +664,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           AuthUserStreamWidget(
                             child: Text(
                               'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
+                              style: FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.black,
                                     fontSize: 16,
@@ -1067,13 +674,12 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           ),
                         Text(
                           ' paw.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ],
                     ),
@@ -1126,13 +732,10 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 'TIPS',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 20,
@@ -1140,8 +743,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1152,9 +754,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                   ),
                                   Text(
                                     'If ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,
@@ -1164,9 +764,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                   AuthUserStreamWidget(
                                     child: Text(
                                       currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
+                                      style: FlutterFlowTheme.of(context).bodyText1.override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,
                                             fontSize: 16,
@@ -1176,9 +774,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                   ),
                                   Text(
                                     ' doesn\'t like ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,
@@ -1189,9 +785,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'his',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1203,9 +797,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'her',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1217,16 +809,13 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
                                     'paws being touched, be sure to play ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,
@@ -1237,16 +826,13 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
                                     'with ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,
@@ -1257,9 +843,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'his',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1271,9 +855,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'her',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1283,9 +865,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     ),
                                   Text(
                                     ' paws to desensitize ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,
@@ -1296,9 +876,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'him',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1310,9 +888,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                     AuthUserStreamWidget(
                                       child: Text(
                                         'her',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.black,
                                               fontSize: 16,
@@ -1324,16 +900,13 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Text(
                                     'to the sensation.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                           fontSize: 16,

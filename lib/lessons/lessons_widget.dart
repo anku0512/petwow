@@ -94,14 +94,25 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'NEW DOG ESSENTIALS',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'NEW DOG ESSENTIALS',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -154,14 +165,25 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'BASICS',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'BASICS',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -214,14 +236,25 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'SKILLFUL',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'SKILLFULL',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -274,14 +307,25 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'CHARMING',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'CHARMING',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -334,14 +378,25 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'PLAYFUL',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'PLAYFULL',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),

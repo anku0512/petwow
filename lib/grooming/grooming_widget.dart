@@ -109,14 +109,25 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'NAIL TRIMMING',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'NAIL TRIMMING',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -169,14 +180,25 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'BRUSH FUR',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'BRUSH FUR',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -229,14 +251,25 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'BRUSH TEETH',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'BRUSH TEETH',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -289,14 +322,25 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 80, 0, 60),
-                          child: Text(
-                            'EAR CLEANING',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).title1.override(
+                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'EAR CLEANING',
+                                style: FlutterFlowTheme.of(context).title2.override(
                                   fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
                                 ),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.white,
+                                size: 24,
+                              ),
+                            ],
                           ),
                         ),
                       ),

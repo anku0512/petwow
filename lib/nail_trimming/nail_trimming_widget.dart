@@ -14,6 +14,14 @@ class NailTrimmingWidget extends StatefulWidget {
 class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim =
+  currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis =
+  currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,18 +88,15 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Text(
-                          'It\'s important to keep your dog\'s nails trimmed so she\'s able to walk and run properly. It helps prevent injuries from running and getting caught in things!',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        child: Flexible(
+                          child: Text(
+                            "It\'s important to keep your dog\'s nails trimmed so " + _sheHe + " able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
+                            style: getDefaultTextStyle(),
+                          ),
                         ),
                       ),
                     ],
@@ -129,6 +134,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -138,167 +144,11 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Introduce ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Introduce " + _currentUserDisplayName + " to the clipper by having " + _herHim + " smell it. Reward every time " + _herHim + " nose touches the clipper.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' to the ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'clipper by having ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' smell it.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Reward every time ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' nose touches ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'the clipper.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -315,6 +165,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -325,175 +176,13 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'After ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'he',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
+                            Flexible(
+                              child: Text(
+                                "After " + _sheHe + "\'s comfortable with step 1, begin gently touching " + _herHis + " paws and nails with the clipper to get " + _herHim + " used to the sensation. Reward every time the clipper touches " + _herHis + " paws.",
+                                style: getDefaultTextStyle(),
                               ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'she',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              '\'s comfortable with step 1,',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'begin gently touching ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'his',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' paws',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'and nails with the cliper to get ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'him',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'used to the sensation. Reward every time the clipper touches the paws.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -516,6 +205,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -526,160 +216,14 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'After ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "After " + _currentUserDisplayName + " is comfortable with step 2, you can begin trimming " + _herHis + " nails. Hold " + _herHis + " paw firmly with one hand while using the other to clip the nail. Clip only a little bit at a time. "
+                                    "Avoid cutting into the \"quick\" (the pinkish area inside the nail that carries blood to it) as the nail will start to bleed! Cut just below the quick. Remember to give lots of praise after the trimming session!",
+                                style: getDefaultTextStyle(),
                               ),
-                            ),
-                            Text(
-                              ' is comfortable ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'with step 2, you can begin trimming',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'his',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' nails. Hold ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'his',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF050505),
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' paw firmly',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'with one hand while using the other to clip the nail. Clip only a little bit at a time.\n\nAvoid cutting into the \"quick\" (the pinkish area inside the nail that carries blood to it) as the nail will start to tbleed! Cut just below the quick. Remember to give lots of praise after the timming session!',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -756,75 +300,18 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'It\'s time for a trim when you start hearing',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'tip tap sounds when ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "It\'s time for a trim when you start hearing tip tap sounds when " + _currentUserDisplayName + " walks around.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'walks around.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
                               ),
@@ -834,63 +321,20 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'If ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "If " + _currentUserDisplayName + " has dark nails that prevent you from seeing the quick, get a clipper that has a safeguard that prevents over-cutting.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                  Text(
-                                    'has dark nails that ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 10, 0),
-                              child: Text(
-                                'prevent you from seeing the quick, get a clipper that has a safeguard that prevents over-cutting.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
                               ),
                             ),
                             Padding(
@@ -898,63 +342,20 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'If ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "If " + _currentUserDisplayName + " is extremely uncomfortable with clippers, filing the nails down with a dremel is a good alternative.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                  Text(
-                                    ' is extremely uncomfortable',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 10, 0),
-                              child: Text(
-                                'with clippers, filing the nails down with a dremel is a good alternative.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
                               ),
                             ),
                             Padding(
@@ -962,63 +363,20 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'Take ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "Take " + _currentUserDisplayName + " to a local groomer if you\'re not comfortable with trimming " + _herHis + " nails.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                  Text(
-                                    ' to a local groomer',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 10, 0),
-                              child: Text(
-                                'if you\'re not comfortable with trimming the nails.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
                               ),
                             ),
                             Padding(
@@ -1026,39 +384,20 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'Have some styptic powder on hand in ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                  Flexible(
+                                    child: Text(
+                                      "Have some styptic powder on hand in case you cut the nail too short and it starts to bleed.",
+                                      style: getDefaultTextStyle(),
+                                    ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 10, 0),
-                              child: Text(
-                                'case you cut the nail too short and it starts to bleed.',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
                               ),
                             ),
                           ],

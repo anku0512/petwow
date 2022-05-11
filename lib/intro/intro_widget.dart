@@ -19,6 +19,13 @@ class IntroWidget extends StatefulWidget {
 class _IntroWidgetState extends State<IntroWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -304,385 +311,27 @@ class _IntroWidgetState extends State<IntroWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Have ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Have " +
+                                _currentUserDisplayName +
+                                " next to you. With a treat, lure " +
+                                _herHim +
+                                " onto the cot. Once " +
+                                _currentUserDisplayName +
+                                "has all four paws on the cot, reward " +
+                                _herHim +
+                                ". (If " +
+                                _currentUserDisplayName +
+                                " isn\'t putting all of " +
+                                _herHis +
+                                " paws onto the cot, reward for one paw at a time and slowly build up " +
+                                _herHis +
+                                "confidence until " +
+                                _sheHe +
+                                "\'s able to get all four paws onto the cot)",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          'next to you.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'With a treat, lure ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' onto the cot.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Once ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                        Text(
-                          ' has all four paws',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'on the cot, reward ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          '(If ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                        Text(
-                          'isn\'t putting all of',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' paws onto the cot, reward for',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'one paw at a time and slowly build up',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' confidence until ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          '\'s able to ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'get all four paws onto the cot)',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -715,44 +364,15 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Repeat step 1 until ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Repeat step 1 until " +
+                                    _currentUserDisplayName +
+                                    " is successfully going onto the cot with confidence.",
+                                style: getDefaultTextStyle(),
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'is successfully going onto the cot with confidence.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                     ],
@@ -779,141 +399,21 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Lure ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Lure " +
+                                    _currentUserDisplayName +
+                                    " onto tho cot and ask " +
+                                    _herHim +
+                                    "to lie down once " +
+                                    _sheHe +
+                                    " has all four paws on the cot. Reward " +
+                                    _herHim +
+                                    "with each success.",
+                                style: getDefaultTextStyle(),
                               ),
-                            ),
-                            Text(
-                              ' onto the cot and',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'ask ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'him',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' to lile down once ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'he',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'she',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'has all four paws on the cot. Reward with each success.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -946,44 +446,17 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Repeat step 3 until ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Repeat step 3 until " +
+                                    _currentUserDisplayName +
+                                    " starts to lie down without asking. Reward " +
+                                    _herHim +
+                                    "with each success.",
+                                style: getDefaultTextStyle(),
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'starts to lie down without asking. Reward with each success.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -1016,119 +489,17 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Once ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Once " +
+                                    _currentUserDisplayName +
+                                    " is successfully going onto the cot and lying down 9 out of 10 times with a lure, begin giving a verbal cue such as \"Place\" just before " +
+                                    _sheHe +
+                                    " gets on the cot. Reward " +
+                                    _herHim +
+                                    " with each success.",
+                                style: getDefaultTextStyle(),
                               ),
-                            ),
-                            Text(
-                              ' is successfully ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'going onto the cot and lying down 9 out of 10 times with a lure, begin giving a verbal cue such as \"Place\" just before',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'he',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'she',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' gets on the cot. Reward with ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'each success.',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                             ),
                           ],
                         ),
@@ -1207,290 +578,21 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'In the beginning, placework may be ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'challenging for ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "In the beginning. placework may be challenging for " +
+                                          _currentUserDisplayName +
+                                          " until " +
+                                          _sheHe +
+                                          " builds up focus and control. Take your time! if " +
+                                          _currentUserDisplayName +
+                                          " is scared of the new place object, make sure " +
+                                          _sheHe +
+                                          "\'s hungry so " +
+                                          _sheHe +
+                                          "\'s extra motivated to earn the treats.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                  Text(
-                                    ' until ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  if ((currentUserDocument?.gender) == 'Male')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'he',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  if ((currentUserDocument?.gender) == 'Female')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'she',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  Text(
-                                    ' builds up focus and control.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'Take your time! If ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
-                                    child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
-                                  Text(
-                                    ' is',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'scared of the new \"place\" object, make',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'sure ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  if ((currentUserDocument?.gender) == 'Male')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'he',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  if ((currentUserDocument?.gender) == 'Female')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'she',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  Text(
-                                    '\'s hungry so ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  if ((currentUserDocument?.gender) == 'Male')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'he',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  if ((currentUserDocument?.gender) == 'Female')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'she',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  Text(
-                                    '\'s extra ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'motivated to earn the treats.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
                               ),

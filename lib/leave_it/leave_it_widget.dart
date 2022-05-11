@@ -1,5 +1,6 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../basic/basic_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -19,6 +20,13 @@ class LeaveItWidget extends StatefulWidget {
 class _LeaveItWidgetState extends State<LeaveItWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +39,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
             await Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => LeaveItWidget(),
+                builder: (context) => BasicWidget(),
               ),
             );
           },
@@ -248,14 +256,11 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Text(
-                          'This is used to keep your pup from engaging an object or individual. It’s generally used for safety so that he dosen’t ingest unwanted objects.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        child: Flexible(
+                          child: Text(
+                            "This is used to keep your pup from engaging an object or individual. It\’s generally used for safety so that he doesn\’t ingest unwanted objects.",
+                            style: getDefaultTextStyle(),
+                          ),
                         ),
                       ),
                     ],
@@ -298,36 +303,10 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                           ),
                         ),
                         Text(
-                          'Have ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                        Text(
-                          ' sit in front of you.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                          "Have " +
+                              _currentUserDisplayName +
+                              " sit in front of you.",
+                          style: getDefaultTextStyle(),
                         ),
                       ],
                     ),
@@ -347,6 +326,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -356,267 +336,19 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Show ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' some treats in your hand',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'and close your hand if ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' tries to',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'get them. Continue to do this without',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'speaking until ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Show " +
+                                _herHim +
+                                " some treats in your hand and close your hand if " +
+                                _sheHe +
+                                " tries to get them. Continue to do this without speaking until " +
+                                _currentUserDisplayName +
+                                " decides to leave your hand alone. When " +
+                                _sheHe +
+                                " leaves it alone and looks at you instead, reward from your other hand.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'decides to leave your hand alone.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'When ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' leaves it alone and looks',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'at you instead, reward from your ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'other hand.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -636,6 +368,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -645,105 +378,11 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'After several repetitions of step 1-2,',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'increase the difficulty by keeping ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'your hand open longer while the treat',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'is in it. Reward with the other hand for',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'leaving the treat alone and maintaining',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'eye contact with you.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        Flexible(
+                          child: Text(
+                            "After several repetitions of step 1-2, increase the difficulty by keeping your hand open longer while the treat is in it. Reward with the other hand for leaving the treat alone and maintaining eye contact with you.",
+                            style: getDefaultTextStyle(),
+                          ),
                         ),
                       ],
                     ),
@@ -763,6 +402,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -772,173 +412,15 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Once ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Once " +
+                                _currentUserDisplayName +
+                                " is successfully leaving the treat alone while your hand is open 9 out of 10 times, begin giving a verbal cue such as \"Leave it\" when you present the treat in your hand. Reward the moment " +
+                                _sheHe +
+                                " looks at you.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' is successfully ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'leaving the treat alone while your ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'hand is open 9 out of 10 times, begin',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'giving a verbal cue such as \"Leave it\"',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'when you present the treat in your',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'hand. Reward the moment ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'looks at you.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -1009,115 +491,23 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'Gradually move on to leaving food ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'around ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "Gradually move on to leaving food around " +
+                                          _currentUserDisplayName +
+                                          " and then ultimately in front of " +
+                                          _herHim +
+                                          ".",
+                                      style: getDefaultTextStyle(),
                                     ),
                                   ),
-                                  Text(
-                                    ' and then',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'ultimately in front of ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  if ((currentUserDocument?.gender) == 'Male')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'him.',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  if ((currentUserDocument?.gender) == 'Female')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'her.',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
                                 ],
                               ),
                             ),

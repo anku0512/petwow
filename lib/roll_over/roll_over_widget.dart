@@ -20,6 +20,13 @@ class RollOverWidget extends StatefulWidget {
 class _RollOverWidgetState extends State<RollOverWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis =
+      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -249,14 +256,11 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Text(
-                          'This is a trick where your dog rolls over. It is a great trick to show off your dogs skill to your freinds and grab attention at a park or your social media.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                        child: Flexible(
+                          child: Text(
+                            "This is a trick where your dog rolls over. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.",
+                            style: getDefaultTextStyle(),
+                          ),
                         ),
                       ),
                     ],
@@ -289,6 +293,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -298,55 +303,13 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Have ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Have " +
+                                _currentUserDisplayName +
+                                " lie down in front of you.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' lie down in ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'front of you.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -360,6 +323,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -369,215 +333,21 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Lure ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' head to ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' shoulder.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'Once ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Lure " +
+                                _herHis +
+                                " head to " +
+                                _herHis +
+                                " shoulder. Once " +
+                                _currentUserDisplayName +
+                                " rolls onto " +
+                                _herHis +
+                                " side, reward " +
+                                _herHim +
+                                " with a treat.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' rolls onto',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' side, reward ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'him',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' with a treat.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -597,6 +367,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -606,99 +377,15 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Continue the above steps until ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
+                        Flexible(
+                          child: Text(
+                            "Continue the above steps until " +
+                                _sheHe +
+                                " is comfortable on " +
+                                _herHis +
+                                " side.",
+                            style: getDefaultTextStyle(),
                           ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'is comfortable on ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'his',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'her',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' side.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -718,6 +405,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -727,91 +415,15 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Continue to lure ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Continue to lure " +
+                                _currentUserDisplayName +
+                                " all the way to the other side so that " +
+                                _sheHe +
+                                " completes a roll.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'all the way to the other side so that',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          ' completes a roll.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -831,6 +443,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 0, 0, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -840,193 +453,17 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Once ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Once " +
+                                _currentUserDisplayName +
+                                " is successfully rolling over 9 out of 10 times with a lure begin giving a verbal cue such as \"Roll over \" just before " +
+                                _sheHe +
+                                "\'s about to roll over. Reward the moment " +
+                                _sheHe +
+                                " completes the roll.",
+                            style: getDefaultTextStyle(),
                           ),
-                        ),
-                        Text(
-                          ' is successfully',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'rolling over 9 out of 10 times with a ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'lure, begin giving a verbal cue such as',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          '\"Roll over\" just before ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        Text(
-                          '\'s about ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'to roll over. Reward the moment ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        if ((currentUserDocument?.gender) == 'Male')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'he',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                        if ((currentUserDocument?.gender) == 'Female')
-                          AuthUserStreamWidget(
-                            child: Text(
-                              'she',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'completes the roll.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ],
                     ),
@@ -1097,134 +534,22 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'If ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  AuthUserStreamWidget(
+                                  Flexible(
                                     child: Text(
-                                      currentUserDisplayName,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyText1
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                          ),
+                                      "If " +
+                                          _currentUserDisplayName +
+                                          " is not comfortable with this behaviour, try again when " +
+                                          _sheHe +
+                                          " is more relaxed. Some dogs tense up with this trick due to their excitement.",
+                                      style: getDefaultTextStyle(),
                                     ),
-                                  ),
-                                  Text(
-                                    ' is not comfortable',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'with this behaviour, try again when ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                  if ((currentUserDocument?.gender) == 'Male')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'he',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                  if ((currentUserDocument?.gender) == 'Female')
-                                    AuthUserStreamWidget(
-                                      child: Text(
-                                        'she',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'is more relaxed. Some dogs tense up',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'with this trick due to their excitement.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
                                   ),
                                 ],
                               ),

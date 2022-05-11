@@ -19,6 +19,13 @@ class DoorbellWidget extends StatefulWidget {
 class _DoorbellWidgetState extends State<DoorbellWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final String _herHim =
+  currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
+  final String _herHis =
+  currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _currentUserDisplayName = currentUserDisplayName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -296,6 +303,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -305,147 +313,15 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          'Stand close to a cot with ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
+                        Flexible(
                           child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                            "Stand close to a cot with " + _currentUserDisplayName +
+    " by your side and play a doorbell sound. When " + _currentUserDisplayName + " hears the sound cue the place command. Feel free to give as much help as " + _currentUserDisplayName +
+    " needs to complete the behaviour successfully. Reward for every successful behaviour.",
+                            style: getDefaultTextStyle(),
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'by your side and play a doorbell sound.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'When ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                        Text(
-                          ' hears the sound,',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'cue the place command. Feel free to',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Text(
-                          'give as much help as ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                        AuthUserStreamWidget(
-                          child: Text(
-                            currentUserDisplayName,
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                    child: Text(
-                      'needs to complete the behaviour successfully. Reward for every successfull behaviour.',
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                          ),
                     ),
                   ),
                   Image.network(
@@ -466,6 +342,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -476,44 +353,14 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Repeat step 1 until ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Repeat step 1 until " + _currentUserDisplayName +
+    " is successfully completing the place behavior 9 out of 10 times with a cue when the doorbell rings.",
+                                style: getDefaultTextStyle()
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'is successfully completing the place behavior 9 out of 10 times with a cue when the doorbell rings.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -536,6 +383,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -546,82 +394,13 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'Once the above steps are mastered, ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'ring the doorbell and wait until ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 0, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "Once the above steps are mastered ring tho doorboll and wait until " + _currentUserDisplayName + " offers to complete the place behavior without a cue. Reward " + _herHim + " for each success.",
+                                style: getDefaultTextStyle(),
                               ),
                             ),
-                            Text(
-                              ' offers to complete',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'the place behavior without a cue. Reward for each success.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -644,6 +423,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -654,76 +434,14 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                 size: 26,
                               ),
                             ),
-                            Text(
-                              'After repeating the previous steps',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF020202),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'slowly increase distance and eventually ',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 8, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Text(
-                              'change locations until  ',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Color(0xFF050505),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                            AuthUserStreamWidget(
+                            Flexible(
                               child: Text(
-                                currentUserDisplayName,
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                "After repeating the previous steps slowly increase distance and eventually change locations until " + _currentUserDisplayName +
+    " is able to go to the cot from anywhere in the house.",
+                                style: getDefaultTextStyle(),
                               ),
                             ),
                           ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(42, 0, 10, 0),
-                        child: Text(
-                          'is able to go to the cot from anywhere in the house.',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
                         ),
                       ),
                       Image.network(
@@ -800,42 +518,18 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'You can also use the steps above for ',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 8, 0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Text(
-                                    'knocking or any similar trigger.',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                  Flexible(
+                                    child: Text(
+                                      "You can also use the steps above for knocking or any similar trigger.",
+                                      style: getDefaultTextStyle(),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -845,39 +539,20 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,
                                     color: Colors.black,
                                     size: 24,
                                   ),
-                                  Text(
-                                    'If it\'s more convenient, you can also use',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.w500,
-                                        ),
+                                  Flexible(
+                                    child: Text(
+                                      "If it\'s more convenient you can also use a bluetooth speaker and a recorded doorbell sound for training!",
+                                      style: getDefaultTextStyle(),
+                                    ),
                                   ),
                                 ],
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(32, 0, 10, 0),
-                              child: Text(
-                                'a bluetooth speaker and a recorded doorbell sound for training!',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w500,
-                                    ),
                               ),
                             ),
                           ],

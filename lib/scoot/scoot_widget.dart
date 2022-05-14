@@ -258,13 +258,15 @@ class _ScootWidgetState extends State<ScootWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              "Does " +
-                                  _currentUserDisplayName +
-                                  " know how to crawl forwards? Make it more fun by teaching " +
-                                  _herHim +
-                                  " how to crawl backwards!",
-                              style: getDefaultTextStyle(),
+                            Flexible(
+                              child: Text(
+                                "Does " +
+                                    _currentUserDisplayName +
+                                    " know how to crawl forwards? Make it more fun by teaching " +
+                                    _herHim +
+                                    " how to crawl backwards!",
+                                style: getDefaultTextStyle(),
+                              ),
                             ),
                           ],
                         ),

@@ -446,7 +446,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 _currentUserDisplayName +
                                 " is successfully weaving through your legs 9 out of 10 times with a lure, begin giving a verbal cue such as \"Weave\" just before " +
                                 _sheHe +
-                                "\'s about to go through your legs the first time. Reward the moment " +
+                                "\'s about to go through your legs for the first time. Reward the moment " +
                                 _sheHe +
                                 " completes the weave.",
                             style: getDefaultTextStyle(),

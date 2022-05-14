@@ -338,7 +338,7 @@ class _CrossPawsWidgetState extends State<CrossPawsWidget> {
                                 ' covered paw. When ' +
                                 _herHis +
                                 ' uncovered paw crosses over the covered one, reward ' +
-                                _herHim,
+                                _herHim + '.',
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF020202),
@@ -378,7 +378,7 @@ class _CrossPawsWidgetState extends State<CrossPawsWidget> {
                         Flexible(
                           child: Text(
                             'Once ' +
-                                _herHis +
+                                _sheHe +
                                 ' is successfully crossing ' +
                                 _herHis +
                                 ' paw 9 out of 10 times with a lure, begin giving a verbal cue such as "cross" just before ' +
@@ -546,7 +546,7 @@ class _CrossPawsWidgetState extends State<CrossPawsWidget> {
                                           _currentUserDisplayName +
                                           ' might try to stand up if you lure ' +
                                           _herHis +
-                                          ' head too quickly. Patience is key!',
+                                          ' head too quickly. Patience is the key!',
                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,

@@ -408,7 +408,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                           child: Text(
                             "Once " +
                                 _currentUserDisplayName +
-                                " is successful spinning 9 out of 10 times with a lure begin giving a verbal cue such as \"Spin right\" (clockwise) just before " +
+                                " is successfully spinning 9 out of 10 times with a lure begin giving a verbal cue such as \"Spin right\" (clockwise) just before " +
                                 _sheHe +
                                 "\'s about to spin. Reward the moment " +
                                 _sheHe +

@@ -15,12 +15,11 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final String _herHim =
-  currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
   final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
   final String _herHis =
-  currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
   final String _currentUserDisplayName = currentUserDisplayName;
-
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +93,9 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                         child: Flexible(
                           child: Text(
-                            "It\'s important to keep your dog\'s nails trimmed so " + _sheHe + " able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
+                            "It\'s important to keep your dog\'s nails trimmed so " +
+                                _sheHe +
+                                " is able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
                             style: getDefaultTextStyle(),
                           ),
                         ),
@@ -146,7 +147,13 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                         ),
                         Flexible(
                           child: Text(
-                            "Introduce " + _currentUserDisplayName + " to the clipper by having " + _herHim + " smell it. Reward every time " + _herHim + " nose touches the clipper.",
+                            "Introduce " +
+                                _currentUserDisplayName +
+                                " to the clipper by having " +
+                                _herHim +
+                                " smell it. Reward every time " +
+                                _herHis +
+                                " nose touches the clipper.",
                             style: getDefaultTextStyle(),
                           ),
                         ),
@@ -178,7 +185,15 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                             ),
                             Flexible(
                               child: Text(
-                                "After " + _sheHe + "\'s comfortable with step 1, begin gently touching " + _herHis + " paws and nails with the clipper to get " + _herHim + " used to the sensation. Reward every time the clipper touches " + _herHis + " paws.",
+                                "After " +
+                                    _sheHe +
+                                    "\'s comfortable with step 1, begin gently touching " +
+                                    _herHis +
+                                    " paws and nails with the clipper to get " +
+                                    _herHim +
+                                    " used to the sensation. Reward every time the clipper touches " +
+                                    _herHis +
+                                    " paws.",
                                 style: getDefaultTextStyle(),
                               ),
                             ),
@@ -218,8 +233,14 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                             ),
                             Flexible(
                               child: Text(
-                                "After " + _currentUserDisplayName + " is comfortable with step 2, you can begin trimming " + _herHis + " nails. Hold " + _herHis + " paw firmly with one hand while using the other to clip the nail. Clip only a little bit at a time. "
-                                    "Avoid cutting into the \"quick\" (the pinkish area inside the nail that carries blood to it) as the nail will start to bleed! Cut just below the quick. Remember to give lots of praise after the trimming session!",
+                                "After " +
+                                    _currentUserDisplayName +
+                                    " is comfortable with step 2, you can begin trimming " +
+                                    _herHis +
+                                    " nails. Hold " +
+                                    _herHis +
+                                    " paw firmly with one hand while using the other to clip the nail. Clip only a little bit at a time. "
+                                        "Avoid cutting into the \"quick\" (the pinkish area inside the nail that carries blood to it) as the nail will start to bleed! Cut just below the quick. Remember to give lots of praise after the trimming session!",
                                 style: getDefaultTextStyle(),
                               ),
                             ),
@@ -309,7 +330,9 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   ),
                                   Flexible(
                                     child: Text(
-                                      "It\'s time for a trim when you start hearing tip tap sounds when " + _currentUserDisplayName + " walks around.",
+                                      "It\'s time for a trim when you start hearing tip tap sounds when " +
+                                          _currentUserDisplayName +
+                                          " walks around.",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),
@@ -330,7 +353,9 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   ),
                                   Flexible(
                                     child: Text(
-                                      "If " + _currentUserDisplayName + " has dark nails that prevent you from seeing the quick, get a clipper that has a safeguard that prevents over-cutting.",
+                                      "If " +
+                                          _currentUserDisplayName +
+                                          " has dark nails that prevent you from seeing the quick, get a clipper that has a safeguard that prevents over-cutting.",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),
@@ -351,7 +376,9 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   ),
                                   Flexible(
                                     child: Text(
-                                      "If " + _currentUserDisplayName + " is extremely uncomfortable with clippers, filing the nails down with a dremel is a good alternative.",
+                                      "If " +
+                                          _currentUserDisplayName +
+                                          " is extremely uncomfortable with clippers, filing the nails down with a dremel is a good alternative.",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),
@@ -372,7 +399,11 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   ),
                                   Flexible(
                                     child: Text(
-                                      "Take " + _currentUserDisplayName + " to a local groomer if you\'re not comfortable with trimming " + _herHis + " nails.",
+                                      "Take " +
+                                          _currentUserDisplayName +
+                                          " to a local groomer if you\'re not comfortable with trimming " +
+                                          _herHis +
+                                          " nails.",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),

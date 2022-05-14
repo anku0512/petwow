@@ -479,7 +479,7 @@ class _SitWidgetState extends State<SitWidget> {
                                     child: Text(
                                       "Have " +
                                           _currentUserDisplayName +
-                                          " sit before giving \"life rewards\" (meantime, going out for a walk, etc.)",
+                                          " sit before giving \"life rewards\" (mealtime, going out for a walk, etc.)",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),

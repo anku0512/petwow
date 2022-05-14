@@ -368,7 +368,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                         ),
                         Flexible(
                           child: Text(
-                            "Raise tho rope so that it's about few inches from tho ground. While holding tho rope still, lure " +
+                            "Raise the rope so that it's about few inches from the ground. While holding the rope still, lure " +
                                 _currentUserDisplayName +
                                 " over to the other side of tho rope. If " +
                                 _sheHe +
@@ -422,7 +422,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                         ),
                       ),
                       Image.network(
-                        'https://media.giphy.com/media/MUzUk8mxXU5T5fMIt1/giphy.giff',
+                        'https://media.giphy.com/media/XhSPC4pWT847RN0IyX/giphy.gif',
                         width: MediaQuery.of(context).size.width,
                         height: 300,
                         fit: BoxFit.cover,
@@ -544,7 +544,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                               child: Text(
                                 "Once " +
                                     _currentUserDisplayName +
-                                    " is successfully jumping the rope 9 out of 10 times with a lure, begin giving a verbal cue such as \"up\", \"Jump\", \"Rope\"just before " +
+                                    " is successfully jumping the rope 9 out of 10 times with a lure, begin giving a verbal cue such as \"up\", \"Jump\", \"Rope\" just before " +
                                     _sheHe +
                                     "\'s about to jump. Reward the moment " +
                                     _sheHe +

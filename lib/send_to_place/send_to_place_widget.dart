@@ -262,7 +262,7 @@ class _SendToPlaceWidgetState extends State<SendToPlaceWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                         child: Text(
-                          'This lesson will help teach your dog to go to her \"place\" from any distance and location nearby. (Not: \"Placework Intro\" should be mastered before moving onto this lesson)',
+                          'This lesson will help teach your dog to go to ' + _herHis + ' \"place\" from any distance and location nearby. (Note: \"Placework Intro\" should be mastered before moving onto this lesson)',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',

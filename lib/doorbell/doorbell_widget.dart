@@ -396,7 +396,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                             ),
                             Flexible(
                               child: Text(
-                                "Once the above steps are mastered ring tho doorboll and wait until " + _currentUserDisplayName + " offers to complete the place behavior without a cue. Reward " + _herHim + " for each success.",
+                                "Once the above steps are mastered ring the doorbell and wait until " + _currentUserDisplayName + " offers to complete the place behavior without a cue. Reward " + _herHim + " for each success.",
                                 style: getDefaultTextStyle(),
                               ),
                             ),

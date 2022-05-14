@@ -49,7 +49,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
           ),
         ),
         title: Text(
-          'SHAKE  HAND',
+          'SHAKE HAND',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,

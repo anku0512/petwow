@@ -447,7 +447,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                     _currentUserDisplayName +
                                     " is successfully holding a down-stay on the cot. If " +
                                     _sheHe +
-                                    " gets up, quickly use the leash to help direct " +
+                                    " gets up quickly, use the leash to help direct " +
                                     _herHim +
                                     " back to the cot. Do not touch " +
                                     _currentUserDisplayName +

@@ -258,7 +258,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
                         child: Text(
-                          'Does your dog gets overly excited when the doorbel rings? Do they jump on people when guest come over? Do they beg at dinner table? Place work teaches your dog how to stay calm in specific spot and is an essential skill that every dog should master. We like starting placework with a cot or elevated dog bed since the raised edges help to establish boundaries within the designated \"place\" location.',
+                          'Does your dog gets overly excited when the doorbell rings? Do they jump on people when guest come over? Do they beg at dinner table? Place work teaches your dog how to stay calm in specific spot and is an essential skill that every dog should master. We like starting placework with a cot or elevated dog bed since the raised edges help to establish boundaries within the designated \"place\" location.',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Poppins',
@@ -302,6 +302,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
@@ -319,7 +320,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 _herHim +
                                 " onto the cot. Once " +
                                 _currentUserDisplayName +
-                                "has all four paws on the cot, reward " +
+                                " has all four paws on the cot, reward " +
                                 _herHim +
                                 ". (If " +
                                 _currentUserDisplayName +
@@ -327,7 +328,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 _herHis +
                                 " paws onto the cot, reward for one paw at a time and slowly build up " +
                                 _herHis +
-                                "confidence until " +
+                                " confidence until " +
                                 _sheHe +
                                 "\'s able to get all four paws onto the cot)",
                             style: getDefaultTextStyle(),
@@ -354,6 +355,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -389,6 +391,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -405,11 +408,11 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     _currentUserDisplayName +
                                     " onto tho cot and ask " +
                                     _herHim +
-                                    "to lie down once " +
+                                    " to lie down once " +
                                     _sheHe +
                                     " has all four paws on the cot. Reward " +
                                     _herHim +
-                                    "with each success.",
+                                    " with each success.",
                                 style: getDefaultTextStyle(),
                               ),
                             ),
@@ -436,6 +439,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -452,7 +456,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     _currentUserDisplayName +
                                     " starts to lie down without asking. Reward " +
                                     _herHim +
-                                    "with each success.",
+                                    " with each success.",
                                 style: getDefaultTextStyle(),
                               ),
                             ),
@@ -479,6 +483,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding:
@@ -572,6 +577,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                   EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Icon(
                                     FFIcons.kcheckmark1,

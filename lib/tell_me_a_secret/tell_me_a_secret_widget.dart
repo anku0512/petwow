@@ -538,7 +538,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                 _currentUserDisplayName +
                                 " is able to keep " +
                                 _herHis +
-                                " nose by your ear even you\'ve removed your hand for the touch.",
+                                " nose by your ear even when you\'ve removed your hand for the touch.",
                             style: getDefaultTextStyle(),
                           ),
                         ),

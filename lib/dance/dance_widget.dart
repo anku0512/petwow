@@ -344,7 +344,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                         Flexible(
                           child: Text(
                             "Lure " +
-                                _herHis +
+                                _herHim +
                                 " into a standing position on " +
                                 _herHis +
                                 " 2 hind legs. Reward once " +
@@ -545,7 +545,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                           _currentUserDisplayName +
                                           " rest on your arm. To fix this, move your arm above " +
                                           _herHis +
-                                          " so " +
+                                          " head so " +
                                           _sheHe +
                                           " can\'t reach your arm for support.",
                                       style: getDefaultTextStyle(),

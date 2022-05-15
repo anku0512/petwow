@@ -335,7 +335,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                         ),
                         Flexible(
                           child: Text(
-                            "Lure " + _currentUserDisplayName + "through your legs to your right side and then back through your legs to your left side to complete the figure 8 motion. While you\'re luring, make sure to lean to the side " + _sheHe + "\'s going in. Reward when " + _sheHe + " goes through.",
+                            "Lure " + _currentUserDisplayName + " through your legs to your right side and then back through your legs to your left side to complete the figure 8 motion. While you\'re luring, make sure to lean to the side " + _sheHe + "\'s going in. Reward when " + _sheHe + " goes through.",
                             style: getDefaultTextStyle(),
                           ),
                         ),

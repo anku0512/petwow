@@ -350,7 +350,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                 _currentUserDisplayName +
                                 " is comfortable with the bar jump structure, move on to teaching " +
                                 _herHim +
-                                " to jump over the the bar, making sure it\'s no higher than " +
+                                " to jump over the bar, making sure it\'s no higher than " +
                                 _herHis +
                                 " shoulders. Have " +
                                 _herHim +

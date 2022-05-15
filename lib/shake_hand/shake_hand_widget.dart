@@ -368,7 +368,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 _currentUserDisplayName +
                                 ' doesn\'t try to offer the behaviour gently touch ' +
                                 _herHis +
-                                ' pow to encourage lifting. Once ' +
+                                ' paw to encourage lifting. Once ' +
                                 _sheHe +
                                 ' offers ' +
                                 _herHis +

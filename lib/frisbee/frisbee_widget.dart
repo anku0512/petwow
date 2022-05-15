@@ -484,7 +484,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     _herHim +
                                     " to run around you first. This sets " +
                                     _herHim +
-                                    " up do that " +
+                                    " up so that " +
                                     _sheHe +
                                     "\'s facing the same direction the frisbee will be thrown, and it also directs " +
                                     _herHis +

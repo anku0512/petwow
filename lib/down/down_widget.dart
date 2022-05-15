@@ -348,8 +348,6 @@ class _DownWidgetState extends State<DownWidget> {
                                 _herHis +
                                 " head into " +
                                 _herHis +
-                                " into " +
-                                _herHis +
                                 " chest. Reward for any bending of the front legs.",
                             style: getDefaultTextStyle(),
                           ),
@@ -516,7 +514,7 @@ class _DownWidgetState extends State<DownWidget> {
                                           _currentUserDisplayName +
                                           " is having trouble lying down all the way, try having " +
                                           _herHim +
-                                          " on elevated surface.",
+                                          " on an elevated surface.",
                                       style: getDefaultTextStyle(),
                                     ),
                                   ),

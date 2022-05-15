@@ -243,62 +243,11 @@ class _ShyWidgetState extends State<ShyWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Text(
-                          'A super charming trick where your dog ',
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            if ((currentUserDocument?.gender) == 'Male')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'his',
-                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            if ((currentUserDocument?.gender) == 'Female')
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  'her',
-                                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            Text(
-                              ' eyes using one paw. Guaranteed to ',
-                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
-                        child: Text(
-                          'get a lot of smiles from people!',
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                        child: Flexible(
+                          child: Text(
+                            'A super charming trick where your dog covers ' + _herHis + ' eyes using one paw. Guaranteed to get a lot of smiles from people!',
+                            style: getDefaultTextStyle(),
+                          ),
                         ),
                       ),
                     ],
@@ -386,7 +335,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                                 _currentUserDisplayName +
                                 ' tries to take the object off ' +
                                 _herHis +
-                                ' face',
+                                ' face.',
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF020202),
@@ -431,7 +380,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                                 _herHis +
                                 ' muzzle. This cue will help to phase out the need for placing an object on ' +
                                 _currentUserDisplayName +
-                                '\s muzzle.',
+                                '\'s muzzle.',
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF020202),
@@ -470,7 +419,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                         ),
                         Flexible(
                           child: Text(
-                            'After several repetitions of the previous step, begin trigger the action using only the nose tap',
+                            'After several repetitions of the previous step, begin trigger the action using only the nose tap.',
                             style: getDefaultTextStyle(),
                           ),
                         ),
@@ -512,7 +461,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                                 _herHis +
                                 ' nose 9 out of 10 times, begin giving a verbal cue such as "Shy" just before ' +
                                 _sheHe +
-                                ' about to put ' +
+                                '\'s about to put ' +
                                 _herHis +
                                 ' paw on ' +
                                 _herHis +
@@ -603,9 +552,9 @@ class _ShyWidgetState extends State<ShyWidget> {
                                           _currentUserDisplayName +
                                           '\'s muzzle for several sessions before taking it off and seeing if ' +
                                           _sheHe +
-                                          ' offer it on ' +
+                                          ' offers it on ' +
                                           _herHis +
-                                          ' own',
+                                          ' own.',
                                       style: FlutterFlowTheme.of(context).bodyText1.override(
                                             fontFamily: 'Poppins',
                                             color: Colors.black,

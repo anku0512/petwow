@@ -372,7 +372,7 @@ class _ChinRestWidgetState extends State<ChinRestWidget> {
                         ),
                         Flexible(
                           child: Text(
-                            'if ' +
+                            'If ' +
                                 _currentUserDisplayName +
                                 ' offers a paw start over and bring your hand closer to ' +
                                 _herHis +
@@ -458,9 +458,9 @@ class _ChinRestWidgetState extends State<ChinRestWidget> {
                                 _herHim +
                                 ' to place ' +
                                 _herHis +
-                                ' on your hand. Reward once ' +
+                                ' chin on your hand. Reward once ' +
                                 _sheHe +
-                                ' does it',
+                                ' does it.',
                             style: FlutterFlowTheme.of(context).bodyText1.override(
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF020202),
@@ -503,7 +503,7 @@ class _ChinRestWidgetState extends State<ChinRestWidget> {
                                 _currentUserDisplayName +
                                 ' is successfully placing ' +
                                 _herHis +
-                                ' chin on your palm 9 out of 10 times, begin giving a verbal cue such as "chin rest"just before ' +
+                                ' chin on your palm 9 out of 10 times, begin giving a verbal cue such as "chin rest" just before ' +
                                 _sheHe +
                                 ' places ' +
                                 _herHis +

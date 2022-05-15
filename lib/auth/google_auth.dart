@@ -11,20 +11,23 @@ Future<User> signInWithGoogle(BuildContext context) async {
   final signInFunc = () async {
     if (kIsWeb) {
       GoogleAuthProvider googleProvider = GoogleAuthProvider();
-      googleProvider
-          .addScope('https://www.googleapis.com/auth/contacts.readonly');
+      googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly');
       // Once signed in, return the UserCredential
       return await FirebaseAuth.instance.signInWithPopup(googleProvider);
     }
 
-    await signOutWithGoogle().catchError((_) => null);
-    final auth = await (await _googleSignIn.signIn())?.authentication;
-    if (auth == null) {
-      return null;
+    try {
+      await signOutWithGoogle().catchError((_) => null);
+      final auth = await (await _googleSignIn.signIn())?.authentication;
+      if (auth == null) {
+        return null;
+      }
+      final credential = GoogleAuthProvider.credential(idToken: auth.idToken, accessToken: auth.accessToken);
+      return FirebaseAuth.instance.signInWithCredential(credential);
+    } catch (e) {
+      print("Error while logging in with google");
+      throw e;
     }
-    final credential = GoogleAuthProvider.credential(
-        idToken: auth.idToken, accessToken: auth.accessToken);
-    return FirebaseAuth.instance.signInWithCredential(credential);
   };
   return signInOrCreateAccount(context, signInFunc);
 }

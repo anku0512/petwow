@@ -22,6 +22,7 @@ import '../post_page_tell_secret_badge/post_page_tell_secret_badge_widget.dart';
 import '../post_page_touch_badge/post_page_touch_badge_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';

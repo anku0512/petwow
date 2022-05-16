@@ -7,6 +7,7 @@ import '../post_page_spin/post_page_spin_widget.dart';
 import '../skillfull/skillfull_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

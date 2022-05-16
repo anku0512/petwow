@@ -7,6 +7,7 @@ import '../roll_over/roll_over_widget.dart';
 import '../spin/spin_widget.dart';
 import '../tell_me_a_secret/tell_me_a_secret_widget.dart';
 import 'package:flutter/material.dart';
+import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

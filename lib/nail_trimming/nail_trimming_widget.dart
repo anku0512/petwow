@@ -2,6 +2,7 @@ import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NailTrimmingWidget extends StatefulWidget {

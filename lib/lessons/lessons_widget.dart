@@ -6,6 +6,7 @@ import '../new_dog/new_dog_widget.dart';
 import '../playful/playful_widget.dart';
 import '../skillfull/skillfull_widget.dart';
 import 'package:flutter/material.dart';
+import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LessonsWidget extends StatefulWidget {

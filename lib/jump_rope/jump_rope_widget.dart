@@ -259,7 +259,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                         child: Flexible(
                           child: Text(
                             'Not only is this trick entertaining, it\'s also great exercise for both you and your pet!',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -311,7 +311,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                         Flexible(
                           child: Text(
                             "Have someone hold one end of the jump rope or tie it to a fixed structure.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -341,7 +341,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " on one side of the rope.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -375,7 +375,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                 " steps or hops over, reward " +
                                 _herHim +
                                 ".",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -415,7 +415,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                 "Repeat steps 1-3 until " +
                                     _currentUserDisplayName +
                                     " is able to jump back and forth over the rope.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -461,7 +461,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                     " jumps, to get " +
                                     _herHim +
                                     " used to the moving rope.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -503,7 +503,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                 "Gradually sway the rope higher back and forth until you\'re able to do complete turns while " +
                                     _currentUserDisplayName +
                                     " is jumping.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -549,7 +549,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                     "\'s about to jump. Reward the moment " +
                                     _sheHe +
                                     " successfully jumps the rope.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -635,7 +635,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                                       "Keep the session short! If " +
                                           _currentUserDisplayName +
                                           " is scared of the sound of the rope, try not to turn the rope so hard or turn it in a way that doesn\'t make it touch the floor.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

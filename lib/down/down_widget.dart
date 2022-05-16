@@ -260,7 +260,7 @@ class _DownWidgetState extends State<DownWidget> {
                             "Teaching your dog to lie down on cue will help to re-focus " +
                                 _herHis +
                                 " attention. It\'s also helpful prep for dogs that need to be left alone for long periods of time.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -312,7 +312,7 @@ class _DownWidgetState extends State<DownWidget> {
                           "Have " +
                               _currentUserDisplayName +
                               " stand in front of you.",
-                          style: getDefaultTextStyle(),
+                          style: getParagraphTextStyle(),
                         ),
                       ],
                     ),
@@ -349,7 +349,7 @@ class _DownWidgetState extends State<DownWidget> {
                                 " head into " +
                                 _herHis +
                                 " chest. Reward for any bending of the front legs.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -389,7 +389,7 @@ class _DownWidgetState extends State<DownWidget> {
                                 " completely lies down. Reward " +
                                 _herHim +
                                 " with a treat again.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -429,7 +429,7 @@ class _DownWidgetState extends State<DownWidget> {
                                 "\'s about to completely lie down. Reward the moment " +
                                 _sheHe +
                                 " completes the lie down motion.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -515,7 +515,7 @@ class _DownWidgetState extends State<DownWidget> {
                                           " is having trouble lying down all the way, try having " +
                                           _herHim +
                                           " on an elevated surface.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -538,7 +538,7 @@ class _DownWidgetState extends State<DownWidget> {
                                       "Another option to help teach \"Down\" is to lure " +
                                           _currentUserDisplayName +
                                           " under your leg.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

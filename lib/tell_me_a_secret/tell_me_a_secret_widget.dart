@@ -267,7 +267,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                     " is telling you! This adorable trick is a crowd pleaser and will invite infinite love for " +
                                     _currentUserDisplayName +
                                     " in public.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -327,7 +327,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                 " your palm and wait for a nose touch. Reward each time " +
                                 _currentUserDisplayName +
                                 " touches your hand.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -363,7 +363,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                             "After several repetitions, gradually increase the duration " +
                                 _currentUserDisplayName +
                                 " holds the nose touch.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -395,7 +395,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                 " is able to touch your hand and hold " +
                                 _herHis +
                                 " nose there until you reward.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -437,7 +437,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                 "\'s about to touch your hand. Reward the moment " +
                                 _sheHe +
                                 " touches your hand.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -465,7 +465,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                         Flexible(
                           child: Text(
                             "Place your hand in different places such as above your head or next to your body and give verbal cue. Reward after multiple touches.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -501,7 +501,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                             "Once you have practiced step 5 several times, move your hand to your ear and cue the behaviour. Reward the moment " +
                                 _currentUserDisplayName +
                                 " touches your hand.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -539,7 +539,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                 " is able to keep " +
                                 _herHis +
                                 " nose by your ear even when you\'ve removed your hand for the touch.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -629,7 +629,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
                                       "This trick is all about a long duration nose touch. Patience is key to building duration to any behaviour. Keep any talking to minimum and be sure to reward with a treat when " +
                                           _currentUserDisplayName +
                                           " offers the behaviour.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

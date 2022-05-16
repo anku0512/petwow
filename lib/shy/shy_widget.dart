@@ -246,7 +246,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                         child: Flexible(
                           child: Text(
                             'A super charming trick where your dog covers ' + _herHis + ' eyes using one paw. Guaranteed to get a lot of smiles from people!',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -420,7 +420,7 @@ class _ShyWidgetState extends State<ShyWidget> {
                         Flexible(
                           child: Text(
                             'After several repetitions of the previous step, begin trigger the action using only the nose tap.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],

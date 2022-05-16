@@ -1,3 +1,4 @@
+import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -259,7 +260,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                         child: Flexible(
                           child: Text(
                             'The bar jump is a great obstacle for beginners! It can either be done with horizontal pipes or any other structure that allows your pet to pass through.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -319,7 +320,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                 " when " +
                                 _sheHe +
                                 " shows any interest in it such as sniffing or just looking at it.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -355,7 +356,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                 " shoulders. Have " +
                                 _herHim +
                                 " sit and stay a few feet from the structure on one side of the bar while you move to the other.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -387,7 +388,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                 " to jump over the bar with a happy and positive tone. Reward once " +
                                 _sheHe +
                                 " successfully jumps over.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -425,7 +426,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                 "  is successfully jumping over the bar at least 9 out of 10 times with a lure, begin giving a verbal cue such as \"jump\" just before " +
                                 _sheHe +
                                 "\'s about to jump over the bar.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -511,7 +512,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                           " keeps going around the structure instead of jumping over it, try keeping " +
                                           _herHim +
                                           " on a leash.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -536,7 +537,7 @@ class _BarJumpWidgetState extends State<BarJumpWidget> {
                                           " is still having trouble jumping while being led on a leash, try practicing in a narrow space, such as a hallway so there\'s no opportunity for " +
                                           _herHim +
                                           " to go around.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:pet_wow/_pw_files/pw_constant.dart';
 
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
@@ -247,11 +248,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Text(
                           'A classic trick where your dog gives you his paws. You can call it shake hand or hi-five. This is a great trick to show off your dog skills in public and make them the center of attraction.',
-                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500,
-                              ),
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],
@@ -296,7 +293,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                         Flexible(
                           child: Text(
                             "Have " + _currentUserDisplayName + " sit in front of you",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -330,7 +327,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 ' lifts ' +
                                 _herHis +
                                 ' paw into your hand',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                             overflow: TextOverflow.clip,
                           ),
                         ),
@@ -375,7 +372,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 ' paw, be sure to reward ' +
                                 _herHim +
                                 ' with a treat',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -421,7 +418,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                 ' offers ' +
                                 _herHis +
                                 ' paw',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -507,7 +504,7 @@ class _ShakeHandWidgetState extends State<ShakeHandWidget> {
                                           ' paws to desensitize ' +
                                           _herHim +
                                           ' to the sensation.',
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

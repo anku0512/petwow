@@ -149,7 +149,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
                         Flexible(
                           child: Text(
                             "Get " + _currentUserDisplayName + " comfortable with the brush by having " + _herHim + " sniff and touch it. Reward every time " + _herHis + " nose touches the brush.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -187,7 +187,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
                             Flexible(
                               child: Text(
                                 "Once " + _currentUserDisplayName + " is comfortable with the brush, lure " + _herHim + " forward with one hand while using the other to brush " + _herHis + " body. Be gentle and brush in the direction that " + _herHis + " coat grows.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -277,7 +277,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
                                   Flexible(
                                     child: Text(
                                       "Choose the right brush for " + _currentUserDisplayName + ". Use a pin brush for breeds with long coats, a rubber or natural-bristle brush for medium coats, and a slicker brush for short coats.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -298,7 +298,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
                                   Flexible(
                                     child: Text(
                                       "Never brush against the direction that " + _currentUserDisplayName + "\'s coat grows!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -319,7 +319,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
                                   Flexible(
                                     child: Text(
                                       "Be gentle and take it slow to make it a nice and relaxing experience for " + _currentUserDisplayName + "!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

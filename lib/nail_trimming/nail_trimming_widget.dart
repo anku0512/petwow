@@ -96,7 +96,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                             "It\'s important to keep your dog\'s nails trimmed so " +
                                 _sheHe +
                                 " is able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -154,7 +154,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                 " smell it. Reward every time " +
                                 _herHis +
                                 " nose touches the clipper.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -194,7 +194,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                     " used to the sensation. Reward every time the clipper touches " +
                                     _herHis +
                                     " paws.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -241,7 +241,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                     _herHis +
                                     " paw firmly with one hand while using the other to clip the nail. Clip only a little bit at a time. "
                                         "Avoid cutting into the \"quick\" (the pinkish area inside the nail that carries blood to it) as the nail will start to bleed! Cut just below the quick. Remember to give lots of praise after the trimming session!",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -333,7 +333,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                       "It\'s time for a trim when you start hearing tip tap sounds when " +
                                           _currentUserDisplayName +
                                           " walks around.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -356,7 +356,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " has dark nails that prevent you from seeing the quick, get a clipper that has a safeguard that prevents over-cutting.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -379,7 +379,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " is extremely uncomfortable with clippers, filing the nails down with a dremel is a good alternative.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -404,7 +404,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                           " to a local groomer if you\'re not comfortable with trimming " +
                                           _herHis +
                                           " nails.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -425,7 +425,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                                   Flexible(
                                     child: Text(
                                       "Have some styptic powder on hand in case you cut the nail too short and it starts to bleed.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

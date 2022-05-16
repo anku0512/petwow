@@ -310,7 +310,7 @@ class _SitWidgetState extends State<SitWidget> {
                             "Have a treat close to " +
                                 _currentUserDisplayName +
                                 "\'s nose.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -354,7 +354,7 @@ class _SitWidgetState extends State<SitWidget> {
                                 " butt touches the floor, reward " +
                                 _herHim +
                                 " with a treat.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -396,7 +396,7 @@ class _SitWidgetState extends State<SitWidget> {
                                 " with a treat the moment " +
                                 _sheHe +
                                 " completes the sit.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -480,7 +480,7 @@ class _SitWidgetState extends State<SitWidget> {
                                       "Have " +
                                           _currentUserDisplayName +
                                           " sit before giving \"life rewards\" (mealtime, going out for a walk, etc.)",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -503,7 +503,7 @@ class _SitWidgetState extends State<SitWidget> {
                                       "Hold the treat low enough so " +
                                           _sheHe +
                                           " doesn\'t try to jump and get it.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

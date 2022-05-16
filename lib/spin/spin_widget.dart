@@ -258,7 +258,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                         child: Flexible(
                           child: Text(
                             'This is a trick where your dog spins clockwise or counter-clockwise. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -307,7 +307,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " stand in front of you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -339,7 +339,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                                 " nose and lure " +
                                 _herHim +
                                 " in a circle. Work on one direction at a time and be sure to reward at the end of each successful rotation",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -373,7 +373,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                         Flexible(
                           child: Text(
                             "After a few successful spins with the treat as a lure, begin to use your finger as the lure. This will help to phase out the treat.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -413,7 +413,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                                 "\'s about to spin. Reward the moment " +
                                 _sheHe +
                                 " completes the spin.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -497,7 +497,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                                       "Assign a different verbal cue for clockwise and counter-clockwise spin so " +
                                           _currentUserDisplayName +
                                           " can perform different spins on command.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -520,7 +520,7 @@ class _SpinWidgetState extends State<SpinWidget> {
                                       "Some dogs will sit or lie down when teaching this trick. You can fix this by luring slower and moving around with " +
                                           _currentUserDisplayName +
                                           ".",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

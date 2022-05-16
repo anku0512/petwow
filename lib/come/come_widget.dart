@@ -260,7 +260,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                             "This is one of the most important lessons to teach your pup! It's the most useful when you want " +
                                 _herHis +
                                 " attention in a busy area like the city or the dog park.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -309,7 +309,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " sit in front of you, then take a few steps back.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -349,7 +349,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                                 " approaches, reward " +
                                 _herHim +
                                 " with a treat.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -387,7 +387,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                                 "\'s about to come to you. Reward the moment " +
                                 _sheHe +
                                 " gets to you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -471,7 +471,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " is distracted, try working in more secluded area with less noise and activity.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -496,7 +496,7 @@ class _ComeWidgetState extends State<ComeWidget> {
                                           " runs after it, run in the opposite direction and use your verbal cue. Reward when " +
                                           _sheHe +
                                           " gets to you.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

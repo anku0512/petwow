@@ -741,16 +741,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                   if (user == null) {
                                                     return;
                                                   }
-                                                  await Navigator
-                                                      .pushAndRemoveUntil(
+                                                  await Navigator.push(
                                                     context,
                                                     MaterialPageRoute(
                                                       builder: (context) =>
-                                                          NavBarPage(
-                                                              initialPage:
-                                                                  'home'),
+                                                          CompleteProfileWidget(),
                                                     ),
-                                                    (r) => false,
+                                                    //(r) => false,
                                                   );
                                                 },
                                                 text: 'Sign up with Google',

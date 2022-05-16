@@ -259,7 +259,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                         child: Flexible(
                           child: Text(
                             'This is a trick where your dog weaves through your legs as you walk forward. This is a super awesome trick to show off your dogs smartness.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -313,7 +313,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " sit on your left side.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -345,7 +345,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 " through your legs. Reward after " +
                                 _sheHe +
                                 " successfully goes through your legs.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -379,7 +379,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                         Flexible(
                           child: Text(
                             "Repeat step 2 several times before taking a step forward with your left leg.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -415,7 +415,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                             "Continue to take steps forward rewarding each time " +
                                 _currentUserDisplayName +
                                 " goes through your legs.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -449,7 +449,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 "\'s about to go through your legs for the first time. Reward the moment " +
                                 _sheHe +
                                 " completes the weave.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -533,7 +533,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " is having trouble going through your legs, slow down! Lure slower and reward more often.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

@@ -1,3 +1,4 @@
+import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -259,7 +260,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                         child: Flexible(
                           child: Text(
                             "This is a trick where your dog rolls over. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -308,7 +309,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " lie down in front of you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -346,7 +347,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                 " side, reward " +
                                 _herHim +
                                 " with a treat.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -384,7 +385,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                 " is comfortable on " +
                                 _herHis +
                                 " side.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -422,7 +423,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                 " all the way to the other side so that " +
                                 _sheHe +
                                 " completes a roll.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -462,7 +463,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                 "\'s about to roll over. Reward the moment " +
                                 _sheHe +
                                 " completes the roll.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -548,7 +549,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                                           " is not comfortable with this behaviour, try again when " +
                                           _sheHe +
                                           " is more relaxed. Some dogs tense up with this trick due to their excitement.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

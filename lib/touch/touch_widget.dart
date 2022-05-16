@@ -1,3 +1,4 @@
+import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../basic/basic_widget.dart';
@@ -262,7 +263,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                                 " to where you want " +
                                 _herHim +
                                 " to go.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -311,7 +312,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                               "Have " +
                                   _currentUserDisplayName +
                                   " sit in front of you.",
-                              style: getDefaultTextStyle()),
+                              style: getParagraphTextStyle()),
                         ),
                       ],
                     ),
@@ -350,7 +351,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                                 " presses " +
                                 _herHis +
                                 " nose against it.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -384,7 +385,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                         Flexible(
                           child: Text(
                             "After several repetitions of step 1-2, increase the difficulty by moving your palm higher or lower.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -416,7 +417,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                                 " is successfully touching your palm 9 out of 10 times, begin giving a verbal cue such as \"Touch\" when you present your palm. Reward the moment " +
                                 _sheHe +
                                 " touches your palm.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -500,7 +501,7 @@ class _TouchWidgetState extends State<TouchWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " is having trouble figuring out what to do, try rubbing a treat on your palm.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

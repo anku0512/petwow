@@ -258,7 +258,7 @@ class _StayWidgetState extends State<StayWidget> {
                         child: Flexible(
                           child: Text(
                             'Stay is used when you need your dog to stay put. For example, have your dog “stay” in a room while you greet a guest at the outdoor.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -305,7 +305,7 @@ class _StayWidgetState extends State<StayWidget> {
                           "Have " +
                               _currentUserDisplayName +
                               " sit in front of you.",
-                          style: getDefaultTextStyle(),
+                          style: getParagraphTextStyle(),
                         ),
                       ],
                     ),
@@ -344,7 +344,7 @@ class _StayWidgetState extends State<StayWidget> {
                                 " and reward if " +
                                 _sheHe +
                                 " stayed put.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -380,7 +380,7 @@ class _StayWidgetState extends State<StayWidget> {
                             "Repeat steps 1-2 until you can move farther and farther away from " +
                                 _currentUserDisplayName +
                                 ".",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -470,7 +470,7 @@ class _StayWidgetState extends State<StayWidget> {
                                       "Once " +
                                           _currentUserDisplayName +
                                           " is getting good at stay, try switching between a sit-stay & down-stay.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -493,7 +493,7 @@ class _StayWidgetState extends State<StayWidget> {
                                       "To strengthen this behaviour, try running, skipping, and doing jumping jacks away from " +
                                           _currentUserDisplayName +
                                           ".",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -516,7 +516,7 @@ class _StayWidgetState extends State<StayWidget> {
                                       "Once " +
                                           _currentUserDisplayName +
                                           " has a strong handle on \"Stay\" try training in different environment outside the home. Start in a plane with little distraction and work your way up to busier places.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

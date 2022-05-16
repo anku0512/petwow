@@ -155,7 +155,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                 " smell it. Reward every time " +
                                 _herHis +
                                 " nose touches the bottle.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -191,7 +191,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                     "\'s ears to get " +
                                     _herHim +
                                     " used to the sensation. Reward after every few touches.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -228,7 +228,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                     " ear, squeeze some solution inside and massage the base of " +
                                     _herHis +
                                     " ear while giving some treats.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -265,7 +265,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                   " shake " +
                                   _herHis +
                                   " head.",
-                              style: getDefaultTextStyle(),
+                              style: getParagraphTextStyle(),
                             ),
                           ],
                         ),
@@ -301,7 +301,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                 "Wipe inside " +
                                     _herHis +
                                     " ears to get rid of the solution, wax, and debris. Give lots of praise and treats after the cleaning!",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -391,7 +391,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                   Flexible(
                                     child: Text(
                                       "Breeds with floppy ears are more prone to ear infections because the ear flap prevents sufficient airflow inside. If your dog has flappy ears, watch out for signs of infections such as odor, inflammation, or itchiness.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -412,7 +412,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
                                   Flexible(
                                     child: Text(
                                       "Never use a Q-tip to clean the ears! It can push wax and debris further down the canal.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

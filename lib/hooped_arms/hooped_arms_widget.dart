@@ -259,7 +259,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                         child: Flexible(
                           child: Text(
                             'This is a trick where your dog jumps through your hooped arms. It\'s a fun trick to impress your friends and family with!',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -319,7 +319,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                 " to get the treat. Reward after " +
                                 _sheHe +
                                 " jumps over successfully.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -357,7 +357,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                 " is comfortable with jumping over your arm, begin creating a circle with your arms and repeat the above steps, having " +
                                 _herHim +
                                 " jump through your arms instead of over them.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -395,7 +395,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                 " is getting the hang of the above steps, move on to having " +
                                 _herHim +
                                 " jump through your arms without using a wall.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -435,7 +435,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                 "\'s about to jump through. Reward the moment " +
                                 _sheHe +
                                 " jumps through.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -519,7 +519,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                       "Take your time! Continue using the wall until " +
                                           _currentUserDisplayName +
                                           " is consistently jumping over your arm.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -546,7 +546,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                           " will quickly learn that the hoop won\'t break and will be encouraged to lift " +
                                           _herHis +
                                           " back paws.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -569,7 +569,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                                       "Rear and awareness gems like teaching \"Orbit\" or \"back up\" will also improve " +
                                           _currentUserDisplayName +
                                           "\'s coordination and help in mastering this trick.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

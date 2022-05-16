@@ -323,7 +323,7 @@ class _SendToPlaceWidgetState extends State<SendToPlaceWidget> {
                                 " to go to " +
                                 _herHis +
                                 " cot and lie down.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -365,7 +365,7 @@ class _SendToPlaceWidgetState extends State<SendToPlaceWidget> {
                                     " repeat step 1. Reward " +
                                     _herHim +
                                     " for each succes.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -409,7 +409,7 @@ class _SendToPlaceWidgetState extends State<SendToPlaceWidget> {
                                     "\'s cot until " +
                                     _sheHe +
                                     " is able to consistently go to the cot on Cue.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -453,7 +453,7 @@ class _SendToPlaceWidgetState extends State<SendToPlaceWidget> {
                                     " is having challenges going to the cot from a distance, you can try the following: Have " +
                                     _currentUserDisplayName +
                                     " stay next to you in a \"Sit\" position. Go over to the cot. Return back and give the \"Place\" cue and reward for each success.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],

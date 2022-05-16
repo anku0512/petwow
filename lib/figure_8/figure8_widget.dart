@@ -259,7 +259,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                         child: Flexible(
                           child: Text(
                             'A super cool trick where your dog goes back and forth between your legs in a figure 8 motion.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -309,7 +309,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                         ),
                         Text(
                           "Have " + _currentUserDisplayName + " sit to your left.",
-                          style: getDefaultTextStyle(),
+                          style: getParagraphTextStyle(),
                         ),
                       ],
                     ),
@@ -336,7 +336,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                         Flexible(
                           child: Text(
                             "Lure " + _currentUserDisplayName + " through your legs to your right side and then back through your legs to your left side to complete the figure 8 motion. While you\'re luring, make sure to lean to the side " + _sheHe + "\'s going in. Reward when " + _sheHe + " goes through.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -374,7 +374,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                             Flexible(
                               child: Text(
                                 "Once " + _currentUserDisplayName + " is successfully going back and forth between your legs 9 out of 10 times with a lure, begin giving a verbal cue such as \"Eight\" just before " + _sheHe + "\'s about to go through your legs. Reward the moment he completes the figure 8.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -408,7 +408,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                             Flexible(
                               child: Text(
                                 "Once " + _currentUserDisplayName + " is familiar with the verbal cue, begin to phase out the lure by leaning toward the direction you want " + _herHim + " to move in while giving the verbal cue.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -498,7 +498,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                                   Flexible(
                                     child: Text(
                                       "Make sure to go slow and reward frequently!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

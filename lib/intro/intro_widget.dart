@@ -331,7 +331,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 " confidence until " +
                                 _sheHe +
                                 "\'s able to get all four paws onto the cot)",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -371,7 +371,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                 "Repeat step 1 until " +
                                     _currentUserDisplayName +
                                     " is successfully going onto the cot with confidence.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -413,7 +413,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     " has all four paws on the cot. Reward " +
                                     _herHim +
                                     " with each success.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -457,7 +457,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     " starts to lie down without asking. Reward " +
                                     _herHim +
                                     " with each success.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -503,7 +503,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                     " gets on the cot. Reward " +
                                     _herHim +
                                     " with each success.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -597,7 +597,7 @@ class _IntroWidgetState extends State<IntroWidget> {
                                           "\'s hungry so " +
                                           _sheHe +
                                           "\'s extra motivated to earn the treats.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

@@ -259,7 +259,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                         child: Flexible(
                           child: Text(
                             "This is used to keep your pup from engaging an object or individual. It\’s generally used for safety so that he doesn\’t ingest unwanted objects.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -306,7 +306,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                           "Have " +
                               _currentUserDisplayName +
                               " sit in front of you.",
-                          style: getDefaultTextStyle(),
+                          style: getParagraphTextStyle(),
                         ),
                       ],
                     ),
@@ -347,7 +347,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                                 " decides to leave your hand alone. When " +
                                 _sheHe +
                                 " leaves it alone and looks at you instead, reward from your other hand.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -381,7 +381,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                         Flexible(
                           child: Text(
                             "After several repetitions of step 1-2, increase the difficulty by keeping your hand open longer while the treat is in it. Reward with the other hand for leaving the treat alone and maintaining eye contact with you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -419,7 +419,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                                 " is successfully leaving the treat alone while your hand is open 9 out of 10 times, begin giving a verbal cue such as \"Leave it\" when you present the treat in your hand. Reward the moment " +
                                 _sheHe +
                                 " looks at you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -505,7 +505,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                                           " and then ultimately in front of " +
                                           _herHim +
                                           ".",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

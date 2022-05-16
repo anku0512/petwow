@@ -265,7 +265,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                     " know how to crawl forwards? Make it more fun by teaching " +
                                     _herHim +
                                     " how to crawl backwards!",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -321,7 +321,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " lie down in front of you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -353,7 +353,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                 ". This should cause " +
                                 _herHim +
                                 " to look down and scoot backwards trying to get it.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -391,7 +391,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                 " moves backwards, making sure that " +
                                 _sheHe +
                                 " remains in down position.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -429,7 +429,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                     " in order to have " +
                                     _herHim +
                                     " scoot backwards. This will help to phase out the treat as a lure.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -466,7 +466,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                 "\'s about to scoot back. Reward the moment " +
                                 _sheHe +
                                 " successfully scoots back.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -550,7 +550,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                                       "If " +
                                           _currentUserDisplayName +
                                           " keeps standing up after moving backwards, keep the session short and reward more often. Celebrate the small successes!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

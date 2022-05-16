@@ -259,7 +259,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                         child: Flexible(
                           child: Text(
                             'These basics will help prepare you and your dog to being able to play frisbee catch.',
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ),
@@ -315,7 +315,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                 " interested in the frisbee. You can do this by placing food or treats on the frisbee or dragging the frisbee across the floor to get " +
                                 _herHim +
                                 " to follow it.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -357,7 +357,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     " starts going after the frisbee, try and get " +
                                     _herHim +
                                     " to tug it.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -401,7 +401,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     " has an interest in playing with the frisbee, try doing some \"takes\". With frisbee in your hand, raise the frisbee and have " +
                                     _currentUserDisplayName +
                                     " take the frisbee out of your hand. Switch hands and repeat back and forth several times. If you have multiple frisbees, you can hold a frisbee in each hand and alternative.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -443,7 +443,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                 "Repeat step 3 until " +
                                     _currentUserDisplayName +
                                     " is successfully taking the frisbee from your hands.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -495,7 +495,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     " back around your legs. Be sure to reward once " +
                                     _sheHe +
                                     " completes the turn. Do this several times until you can just point and ask for an \"around\".",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -541,7 +541,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     " familiar with chasing after the frisbee. Praise and reward once " +
                                     _currentUserDisplayName +
                                     " chases down the frisbee.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -587,7 +587,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                     " first catch! Cue \'around\' and throw the frisbee a few feet in front of you. " +
                                     _currentUserDisplayName +
                                     " should go out and try to catch it! Reward for any catches.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -629,7 +629,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                 "Repeat step 7 several times until " +
                                     _currentUserDisplayName +
                                     " can make consecutive catches.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -715,7 +715,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                                       "Many make the mistake of just tossing the frisbee out. Take your time for " +
                                           _currentUserDisplayName +
                                           " to develop interest in the frisbee and then make it your goal to get a catch.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

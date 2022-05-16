@@ -265,7 +265,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                 "This is a trick where your dog stands on " +
                                     _herHis +
                                     " hind legs and moves forwards and backwards. It\'s great if you\'re in need of a salsa partner.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -316,7 +316,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                             "Have " +
                                 _currentUserDisplayName +
                                 " sit in front of you.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -350,7 +350,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                 " 2 hind legs. Reward once " +
                                 _sheHe +
                                 " is standing tall and reaching for the reward.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -388,7 +388,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                 " is standing, reward for the behaviour several times. This will help out with building up " +
                                 _herHis +
                                 " muscle memory and building up the duration for the stand.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -420,7 +420,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                 " is comfortable standing, start to lure " +
                                 _herHim +
                                 " forwards and backwards. Reward for any movement.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -460,7 +460,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                 "\'s about to move forwards or backwards. Reward the moment " +
                                 _sheHe +
                                 " finishes moving forwards or backwards.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -548,7 +548,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                           " head so " +
                                           _sheHe +
                                           " can\'t reach your arm for support.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -569,7 +569,7 @@ class _DanceWidgetState extends State<DanceWidget> {
                                   Flexible(
                                     child: Text(
                                       "This trick takes some time to master, but with enough practice and patience you will be successful!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

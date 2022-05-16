@@ -318,7 +318,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                             "Stand close to a cot with " + _currentUserDisplayName +
     " by your side and play a doorbell sound. When " + _currentUserDisplayName + " hears the sound cue the place command. Feel free to give as much help as " + _currentUserDisplayName +
     " needs to complete the behaviour successfully. Reward for every successful behaviour.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -357,7 +357,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                               child: Text(
                                 "Repeat step 1 until " + _currentUserDisplayName +
     " is successfully completing the place behavior 9 out of 10 times with a cue when the doorbell rings.",
-                                style: getDefaultTextStyle()
+                                style: getParagraphTextStyle()
                               ),
                             ),
                           ],
@@ -397,7 +397,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                             Flexible(
                               child: Text(
                                 "Once the above steps are mastered ring the doorbell and wait until " + _currentUserDisplayName + " offers to complete the place behavior without a cue. Reward " + _herHim + " for each success.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -438,7 +438,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                               child: Text(
                                 "After repeating the previous steps slowly increase distance and eventually change locations until " + _currentUserDisplayName +
     " is able to go to the cot from anywhere in the house.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -528,7 +528,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                   Flexible(
                                     child: Text(
                                       "You can also use the steps above for knocking or any similar trigger.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -549,7 +549,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
                                   Flexible(
                                     child: Text(
                                       "If it\'s more convenient you can also use a bluetooth speaker and a recorded doorbell sound for training!",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

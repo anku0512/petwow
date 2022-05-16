@@ -320,7 +320,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                 " to go to " +
                                 _herHis +
                                 " cot and lie down.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -360,7 +360,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                 "Using a leash, attach " +
                                     _currentUserDisplayName +
                                     " to a fixed object. Avoid light objects that can be pulled away.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -404,7 +404,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                     " and quickly return and reward " +
                                     _herHim +
                                     " for staying put.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -454,7 +454,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                     " as this will reward " +
                                     _herHim +
                                     " for unwanted behavior.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -496,7 +496,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                 "Continue repeating the above steps taking farther steps, away from the cot. Reward when " +
                                     _currentUserDisplayName +
                                     " continues to stay put in a down-stay position on the cot.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -535,7 +535,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                     " for staying on the cot. Slowly increase duration and distance over time to get " +
                                     _currentUserDisplayName +
                                     " comfortable with staying on the cot for longer durations. ",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -623,7 +623,7 @@ class _DurationWidgetState extends State<DurationWidget> {
                                           " will want to follow you away from the cot. Take your time with this and keep " +
                                           _herHim +
                                           " leashed for many sessions to help control the training sessions.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

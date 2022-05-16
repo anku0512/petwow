@@ -203,11 +203,12 @@ extension FFStringExt on String {
       maxChars != null && length > maxChars ? replaceRange(maxChars, null, replacement) : this;
 }
 
-TextStyle getDefaultTextStyle() {
+/*@deprecated
+TextStyle getParagraphTextStyle() {
   return TextStyle(
     fontFamily: 'Poppins',
     color: Color(0xFF020202),
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
-}
+}*/

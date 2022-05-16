@@ -153,7 +153,7 @@ class _BrushTeethWidgetState extends State<BrushTeethWidget> {
                           " comfortable with it. Reward every time "
                           + _herHis + " nose touches the brush or " + _sheHe +
                           " licks the toothpaste.",
-                            style: getDefaultTextStyle(),
+                            style: getParagraphTextStyle(),
                           ),
                         ),
                       ],
@@ -193,7 +193,7 @@ class _BrushTeethWidgetState extends State<BrushTeethWidget> {
                                 "Once " + _currentUserDisplayName + " is comfortable with the toothbrush, begin brushing "
                               + _herHis + " tooth in small sections. If " +_sheHe +
                               " starts to become resistant, stop and take a break before continuing. Reward even if " + _sheHe + " lets you brush a small section of " + _herHis + " teeth.",
-                                style: getDefaultTextStyle(),
+                                style: getParagraphTextStyle(),
                               ),
                             ),
                           ],
@@ -283,7 +283,7 @@ class _BrushTeethWidgetState extends State<BrushTeethWidget> {
                                    Flexible(
                                       child: Text(
                                         "Never use human toothpaste on dogs as it can upset their stomach!",
-                                        style: getDefaultTextStyle(),
+                                        style: getParagraphTextStyle(),
                                       ),
                                     ),
                                 ],
@@ -304,7 +304,7 @@ class _BrushTeethWidgetState extends State<BrushTeethWidget> {
                                   Flexible(
                                     child: Text(
                                       "If using a toothbrush isn\'t working out, try using a finger toothbrush. It\'s easier to maneuver inside a dog\'s mouth.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],
@@ -325,7 +325,7 @@ class _BrushTeethWidgetState extends State<BrushTeethWidget> {
                                   Flexible(
                                     child: Text(
                                       "Chew toys and dental dog chews can help prevent tartar buildup in addition to brushings.",
-                                      style: getDefaultTextStyle(),
+                                      style: getParagraphTextStyle(),
                                     ),
                                   ),
                                 ],

@@ -230,29 +230,29 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                   ),
                                 ),
                               ),
-                              Expanded(
-                                child: Align(
-                                  alignment: AlignmentDirectional(-1, -0.15),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0, 4, 0, 0),
-                                    child: AuthUserStreamWidget(
-                                      child: Text(
-                                        dateTimeFormat('relative',
-                                            currentUserDocument?.dob),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF6268A7),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.normal,
-                                            ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              // Expanded(
+                              //   child: Align(
+                              //     alignment: AlignmentDirectional(-1, -0.15),
+                              //     child: Padding(
+                              //       padding: EdgeInsetsDirectional.fromSTEB(
+                              //           0, 4, 0, 0),
+                              //       child: AuthUserStreamWidget(
+                              //         child: Text(
+                              //           dateTimeFormat('relative',
+                              //               currentUserDocument?.dob),
+                              //           style: FlutterFlowTheme.of(context)
+                              //               .bodyText1
+                              //               .override(
+                              //                 fontFamily: 'Lexend Deca',
+                              //                 color: Color(0xFF6268A7),
+                              //                 fontSize: 14,
+                              //                 fontWeight: FontWeight.normal,
+                              //               ),
+                              //         ),
+                              //       ),
+                              //     ),
+                              //   ),
+                              // ),
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.85, 0.85),

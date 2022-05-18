@@ -9,7 +9,6 @@ import '../leave_it/leave_it_widget.dart';
 import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PostPageLeaveItWidget extends StatefulWidget {

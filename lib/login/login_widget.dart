@@ -4,8 +4,8 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
+import '../resetpassowrd/resetpassowrd_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -335,9 +335,42 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                 ),
                                               ),
                                             ),
+                                            FFButtonWidget(
+                                              onPressed: () async {
+                                                await Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ResetpassowrdWidget(),
+                                                  ),
+                                                );
+                                              },
+                                              text: 'Forgot Password?',
+                                              options: FFButtonOptions(
+                                                width: 170,
+                                                height: 40,
+                                                color: Color(0x004B39EF),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .subtitle2
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          color: Colors.black,
+                                                          fontSize: 16,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                elevation: 0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1,
+                                                ),
+                                                borderRadius: 8,
+                                              ),
+                                            ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 24, 0, 0),
+                                                  .fromSTEB(0, 15, 0, 0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
                                                   final user =
@@ -380,38 +413,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     width: 1,
                                                   ),
                                                   borderRadius: 12,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0, 20, 0, 0),
-                                              child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print(
-                                                      'Button-ForgotPassword pressed ...');
-                                                },
-                                                text: 'Forgot Password?',
-                                                options: FFButtonOptions(
-                                                  width: 170,
-                                                  height: 40,
-                                                  color: Color(0xFF4B39EF),
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .subtitle2
-                                                      .override(
-                                                        fontFamily: 'Outfit',
-                                                        color: Colors.white,
-                                                        fontSize: 16,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                      ),
-                                                  elevation: 0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1,
-                                                  ),
-                                                  borderRadius: 8,
                                                 ),
                                               ),
                                             ),
@@ -748,7 +749,6 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       builder: (context) =>
                                                           CompleteProfileWidget(),
                                                     ),
-                                                    //(r) => false,
                                                   );
                                                 },
                                                 text: 'Sign up with Google',

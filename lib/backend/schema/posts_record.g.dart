@@ -61,6 +61,15 @@ class _$PostsRecordSerializer implements StructuredSerializer<PostsRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.likedUsers;
+    if (value != null) {
+      result
+        ..add('liked_users')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(DocumentReference, const [const FullType(Object)])
+            ])));
+    }
     value = object.reference;
     if (value != null) {
       result
@@ -109,6 +118,13 @@ class _$PostsRecordSerializer implements StructuredSerializer<PostsRecord> {
           result.videoUrl = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'liked_users':
+          result.likedUsers.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    DocumentReference, const [const FullType(Object)])
+              ])) as BuiltList<Object>);
+          break;
         case 'Document__Reference__Field':
           result.reference = serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -136,6 +152,8 @@ class _$PostsRecord extends PostsRecord {
   @override
   final String videoUrl;
   @override
+  final BuiltList<DocumentReference<Object>> likedUsers;
+  @override
   final DocumentReference<Object> reference;
 
   factory _$PostsRecord([void Function(PostsRecordBuilder) updates]) =>
@@ -148,6 +166,7 @@ class _$PostsRecord extends PostsRecord {
       this.description,
       this.totalLikes,
       this.videoUrl,
+      this.likedUsers,
       this.reference})
       : super._();
 
@@ -168,6 +187,7 @@ class _$PostsRecord extends PostsRecord {
         description == other.description &&
         totalLikes == other.totalLikes &&
         videoUrl == other.videoUrl &&
+        likedUsers == other.likedUsers &&
         reference == other.reference;
   }
 
@@ -177,11 +197,13 @@ class _$PostsRecord extends PostsRecord {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, imageUrl.hashCode), user.hashCode),
-                        createdAt.hashCode),
-                    description.hashCode),
-                totalLikes.hashCode),
-            videoUrl.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, imageUrl.hashCode), user.hashCode),
+                            createdAt.hashCode),
+                        description.hashCode),
+                    totalLikes.hashCode),
+                videoUrl.hashCode),
+            likedUsers.hashCode),
         reference.hashCode));
   }
 
@@ -194,6 +216,7 @@ class _$PostsRecord extends PostsRecord {
           ..add('description', description)
           ..add('totalLikes', totalLikes)
           ..add('videoUrl', videoUrl)
+          ..add('likedUsers', likedUsers)
           ..add('reference', reference))
         .toString();
   }
@@ -226,6 +249,12 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
   String get videoUrl => _$this._videoUrl;
   set videoUrl(String videoUrl) => _$this._videoUrl = videoUrl;
 
+  ListBuilder<DocumentReference<Object>> _likedUsers;
+  ListBuilder<DocumentReference<Object>> get likedUsers =>
+      _$this._likedUsers ??= new ListBuilder<DocumentReference<Object>>();
+  set likedUsers(ListBuilder<DocumentReference<Object>> likedUsers) =>
+      _$this._likedUsers = likedUsers;
+
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
   set reference(DocumentReference<Object> reference) =>
@@ -244,6 +273,7 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
       _description = $v.description;
       _totalLikes = $v.totalLikes;
       _videoUrl = $v.videoUrl;
+      _likedUsers = $v.likedUsers?.toBuilder();
       _reference = $v.reference;
       _$v = null;
     }
@@ -263,15 +293,29 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
 
   @override
   _$PostsRecord build() {
-    final _$result = _$v ??
-        new _$PostsRecord._(
-            imageUrl: imageUrl,
-            user: user,
-            createdAt: createdAt,
-            description: description,
-            totalLikes: totalLikes,
-            videoUrl: videoUrl,
-            reference: reference);
+    _$PostsRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$PostsRecord._(
+              imageUrl: imageUrl,
+              user: user,
+              createdAt: createdAt,
+              description: description,
+              totalLikes: totalLikes,
+              videoUrl: videoUrl,
+              likedUsers: _likedUsers?.build(),
+              reference: reference);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'likedUsers';
+        _likedUsers?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'PostsRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

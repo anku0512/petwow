@@ -6,7 +6,6 @@ import '../new_dog/new_dog_widget.dart';
 import '../playful/playful_widget.dart';
 import '../skillfull/skillfull_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LessonsWidget extends StatefulWidget {
@@ -95,7 +94,8 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,10 +103,12 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                             children: [
                               Text(
                                 'NEW DOG ESSENTIALS',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -166,18 +168,21 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                'BASICS',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                'BASIC',
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -237,7 +242,8 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -245,10 +251,12 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                             children: [
                               Text(
                                 'SKILLFULL',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -308,7 +316,8 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -316,10 +325,12 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                             children: [
                               Text(
                                 'CHARMING',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -379,7 +390,8 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -387,10 +399,12 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                             children: [
                               Text(
                                 'PLAYFULL',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,

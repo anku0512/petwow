@@ -10,7 +10,6 @@ import '../leg_weaves/leg_weaves_widget.dart';
 import '../main.dart';
 import '../scoot/scoot_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

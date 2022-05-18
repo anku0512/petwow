@@ -7,7 +7,6 @@ import '../intro/intro_widget.dart';
 import '../new_dog/new_dog_widget.dart';
 import '../send_to_place/send_to_place_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 

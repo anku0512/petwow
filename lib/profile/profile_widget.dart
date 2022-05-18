@@ -22,7 +22,6 @@ import '../post_page_tell_secret_badge/post_page_tell_secret_badge_widget.dart';
 import '../post_page_touch_badge/post_page_touch_badge_widget.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
@@ -230,29 +229,6 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                   ),
                                 ),
                               ),
-                              // Expanded(
-                              //   child: Align(
-                              //     alignment: AlignmentDirectional(-1, -0.15),
-                              //     child: Padding(
-                              //       padding: EdgeInsetsDirectional.fromSTEB(
-                              //           0, 4, 0, 0),
-                              //       child: AuthUserStreamWidget(
-                              //         child: Text(
-                              //           dateTimeFormat('relative',
-                              //               currentUserDocument?.dob),
-                              //           style: FlutterFlowTheme.of(context)
-                              //               .bodyText1
-                              //               .override(
-                              //                 fontFamily: 'Lexend Deca',
-                              //                 color: Color(0xFF6268A7),
-                              //                 fontSize: 14,
-                              //                 fontWeight: FontWeight.normal,
-                              //               ),
-                              //         ),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
                               Expanded(
                                 child: Align(
                                   alignment: AlignmentDirectional(0.85, 0.85),

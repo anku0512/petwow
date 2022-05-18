@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'auth/firebase_user_provider.dart';
 import 'auth/auth_util.dart';
@@ -66,7 +65,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'petWow',
       localizationsDelegates: [
         FFLocalizationsDelegate(),

@@ -101,6 +101,9 @@ flutter:
     - family: Newicons
       fonts:
         - asset: assets/fonts/newicons.ttf
+    - family: PawIcons
+      fonts:
+        - asset: assets/fonts/paw-icons.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,12 +1,10 @@
 import '../brush_fur/brush_fur_widget.dart';
 import '../brush_teeth/brush_teeth_widget.dart';
-import '../ear_cleaning/ear_cleaning_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../nail_trimming/nail_trimming_widget.dart';
 import '../new_dog/new_dog_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GroomingWidget extends StatefulWidget {
@@ -110,7 +108,8 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,10 +117,12 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                             children: [
                               Text(
                                 'NAIL TRIMMING',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -181,7 +182,8 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -189,10 +191,12 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                             children: [
                               Text(
                                 'BRUSH FUR',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -252,7 +256,8 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -260,10 +265,12 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                             children: [
                               Text(
                                 'BRUSH TEETH',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -279,70 +286,61 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
-                  child: InkWell(
-                    onTap: () async {
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => EarCleaningWidget(),
-                        ),
-                      );
-                    },
+                  child: Container(
+                    width: double.infinity,
+                    height: 184,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      image: DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        image: Image.network(
+                          'https://images.pexels.com/photos/7470635/pexels-photo-7470635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                        ).image,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 3,
+                          color: Color(0x33000000),
+                          offset: Offset(0, 2),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(8),
+                    ),
                     child: Container(
-                      width: double.infinity,
-                      height: 184,
+                      width: 100,
+                      height: 100,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0x5B39D2C0),
                         image: DecorationImage(
-                          fit: BoxFit.fitWidth,
+                          fit: BoxFit.cover,
                           image: Image.network(
-                            'https://images.pexels.com/photos/7470635/pexels-photo-7470635.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                            '',
                           ).image,
                         ),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 3,
-                            color: Color(0x33000000),
-                            offset: Offset(0, 2),
-                          )
-                        ],
                         borderRadius: BorderRadius.circular(8),
+                        shape: BoxShape.rectangle,
                       ),
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          color: Color(0x5B39D2C0),
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: Image.network(
-                              '',
-                            ).image,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'EAR CLEANING',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
-                              ),
-                              Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.white,
-                                size: 24,
-                              ),
-                            ],
-                          ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'EAR CLEANING',
+                              style:
+                                  FlutterFlowTheme.of(context).title2.override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.white,
+                                      ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.white,
+                              size: 24,
+                            ),
+                          ],
                         ),
                       ),
                     ),

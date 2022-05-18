@@ -32,6 +32,10 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
   String get videoUrl;
 
   @nullable
+  @BuiltValueField(wireName: 'liked_users')
+  BuiltList<DocumentReference> get likedUsers;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -39,7 +43,8 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
     ..imageUrl = ''
     ..description = ''
     ..totalLikes = 0
-    ..videoUrl = '';
+    ..videoUrl = ''
+    ..likedUsers = ListBuilder();
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('posts');
@@ -78,4 +83,5 @@ Map<String, dynamic> createPostsRecordData({
           ..createdAt = createdAt
           ..description = description
           ..totalLikes = totalLikes
-          ..videoUrl = videoUrl));
+          ..videoUrl = videoUrl
+          ..likedUsers = null));

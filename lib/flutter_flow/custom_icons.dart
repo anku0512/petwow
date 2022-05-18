@@ -6,6 +6,7 @@ class FFIcons {
   static const String _icomoonFamily = 'Icomoon';
   static const String _iconsFamily = 'Icons';
   static const String _newiconsFamily = 'Newicons';
+  static const String _pawIconsFamily = 'PawIcons';
 
   // icomoon
   static const IconData knumber = IconData(0xe900, fontFamily: _icomoonFamily);
@@ -83,4 +84,9 @@ class FFIcons {
   static const IconData kmedal3 = IconData(0xe90d, fontFamily: _newiconsFamily);
   static const IconData kmedal4 = IconData(0xe90e, fontFamily: _newiconsFamily);
   static const IconData kmedal5 = IconData(0xe90f, fontFamily: _newiconsFamily);
+
+  // paw-icons
+  static const IconData kunlikePaw =
+      IconData(0xe900, fontFamily: _pawIconsFamily);
+  static const IconData kpaw = IconData(0xe901, fontFamily: _pawIconsFamily);
 }

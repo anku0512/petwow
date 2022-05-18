@@ -4,7 +4,6 @@ import '../grooming/grooming_widget.dart';
 import '../main.dart';
 import '../placework/placework_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewDogWidget extends StatefulWidget {
@@ -108,7 +107,8 @@ class _NewDogWidgetState extends State<NewDogWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,10 +116,12 @@ class _NewDogWidgetState extends State<NewDogWidget> {
                             children: [
                               Text(
                                 'PLACEWORK',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,
@@ -179,7 +181,8 @@ class _NewDogWidgetState extends State<NewDogWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
+                          padding:
+                              EdgeInsetsDirectional.fromSTEB(10, 18, 10, 0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -187,10 +190,12 @@ class _NewDogWidgetState extends State<NewDogWidget> {
                             children: [
                               Text(
                                 'GROOMING',
-                                style: FlutterFlowTheme.of(context).title2.override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.white,
-                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .title2
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                    ),
                               ),
                               Icon(
                                 Icons.arrow_forward_ios,

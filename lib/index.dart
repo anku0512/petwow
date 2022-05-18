@@ -97,10 +97,12 @@ export 'doorbell/doorbell_widget.dart' show DoorbellWidget;
 export 'nail_trimming/nail_trimming_widget.dart' show NailTrimmingWidget;
 export 'brush_fur/brush_fur_widget.dart' show BrushFurWidget;
 export 'brush_teeth/brush_teeth_widget.dart' show BrushTeethWidget;
-export 'ear_cleaning/ear_cleaning_widget.dart' show EarCleaningWidget;
 export 'post_page_dance_badge/post_page_dance_badge_widget.dart'
     show PostPageDanceBadgeWidget;
 export 'post_page_shy_badge/post_page_shy_badge_widget.dart'
     show PostPageShyBadgeWidget;
 export 'post_page_frisbee_badge/post_page_frisbee_badge_widget.dart'
     show PostPageFrisbeeBadgeWidget;
+export 'brush_teeth_copy/brush_teeth_copy_widget.dart'
+    show BrushTeethCopyWidget;
+export 'resetpassowrd/resetpassowrd_widget.dart' show ResetpassowrdWidget;

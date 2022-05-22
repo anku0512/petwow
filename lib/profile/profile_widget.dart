@@ -327,21 +327,6 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                   ).image,
                                                 ),
                                               ),
-                                              child: Visibility(
-                                                visible: currentUserEmailVerified ?? true,
-                                                child: AuthUserStreamWidget(
-                                                  child: Container(
-                                                    width: 100,
-                                                    height: 100,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0x99FFFFFF),
-                                                      border: Border.all(
-                                                        color: Colors.transparent,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
                                             ),
                                           ),
                                           InkWell(

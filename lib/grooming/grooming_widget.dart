@@ -1,3 +1,5 @@
+import 'package:pet_wow/ear_cleaning/ear_cleaning_widget.dart';
+
 import '../brush_fur/brush_fur_widget.dart';
 import '../brush_teeth/brush_teeth_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -286,6 +288,15 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
+                  child: InkWell(
+                  onTap: () async {
+                  await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                  builder: (context) => EarCleaningWidget(),
+                  ),
+                  );
+                  },
                   child: Container(
                     width: double.infinity,
                     height: 184,
@@ -344,6 +355,7 @@ class _GroomingWidgetState extends State<GroomingWidget> {
                         ),
                       ),
                     ),
+                  ),
                   ),
                 ),
               ],

@@ -73,7 +73,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 140,
+                height: 135,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

@@ -97,7 +97,7 @@ class _ShyWidgetState extends State<ShyWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 210,
+                height: 220,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -244,11 +244,9 @@ class _ShyWidgetState extends State<ShyWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'A super charming trick where your dog covers ' + _herHis + ' eyes using one paw. Guaranteed to get a lot of smiles from people!',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'A super charming trick where your dog covers ' + _herHis + ' eyes using one paw. Guaranteed to get a lot of smiles from people!',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

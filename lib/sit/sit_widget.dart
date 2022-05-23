@@ -101,7 +101,7 @@ class _SitWidgetState extends State<SitWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 250,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

@@ -101,7 +101,7 @@ class _ScootWidgetState extends State<ScootWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 220,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

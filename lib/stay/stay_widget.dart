@@ -101,7 +101,7 @@ class _StayWidgetState extends State<StayWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 240,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -256,11 +256,9 @@ class _StayWidgetState extends State<StayWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'Stay is used when you need your dog to stay put. For example, have your dog “stay” in a room while you greet a guest at the outdoor.',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'Stay is used when you need your dog to stay put. For example, have your dog “stay” in a room while you greet a guest at the outdoor.',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

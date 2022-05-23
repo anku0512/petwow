@@ -102,7 +102,7 @@ class _DownWidgetState extends State<DownWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 235,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,13 +257,11 @@ class _DownWidgetState extends State<DownWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "Teaching your dog to lie down on cue will help to re-focus " +
-                                _herHis +
-                                " attention. It\'s also helpful prep for dogs that need to be left alone for long periods of time.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          "Teaching your dog to lie down on cue will help to re-focus " +
+                              _herHis +
+                              " attention. It\'s also helpful prep for dogs that need to be left alone for long periods of time.",
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

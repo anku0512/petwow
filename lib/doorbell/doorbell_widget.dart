@@ -102,7 +102,7 @@ class _DoorbellWidgetState extends State<DoorbellWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 320,
+                height: 310,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

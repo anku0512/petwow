@@ -97,7 +97,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 245,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -244,11 +244,9 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'This is a trick where your dog weaves through your legs as you walk forward. This is a super awesome trick to show off your dogs smartness.',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'This is a trick where your dog weaves through your legs as you walk forward. This is a super awesome trick to show off your dogs smartness.',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],
@@ -323,13 +321,15 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                             size: 26,
                           ),
                         ),
-                        Text(
-                          "Put your right leg forward and lure " +
-                              _currentUserDisplayName +
-                              " through your legs. Reward after " +
-                              _sheHe +
-                              " successfully goes through your legs.",
-                          style: getParagraphTextStyle(),
+                        Flexible(
+                          child: Text(
+                            "Put your right leg forward and lure " +
+                                _currentUserDisplayName +
+                                " through your legs. Reward after " +
+                                _sheHe +
+                                " successfully goes through your legs.",
+                            style: getParagraphTextStyle(),
+                          ),
                         ),
                       ],
                     ),

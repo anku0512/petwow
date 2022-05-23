@@ -76,7 +76,7 @@ class _BrushFurWidgetState extends State<BrushFurWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 90,
+                height: 85,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

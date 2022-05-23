@@ -102,7 +102,7 @@ class _ComeWidgetState extends State<ComeWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 245,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,13 +257,11 @@ class _ComeWidgetState extends State<ComeWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "This is one of the most important lessons to teach your pup! It's the most useful when you want " +
-                                _herHis +
-                                " attention in a busy area like the city or the dog park.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          "This is one of the most important lessons to teach your pup! It's the most useful when you want " +
+                              _herHis +
+                              " attention in a busy area like the city or the dog park.",
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

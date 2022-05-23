@@ -101,7 +101,7 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 240,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,11 +257,9 @@ class _LeaveItWidgetState extends State<LeaveItWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "This is used to keep your pup from engaging an object or individual. It\’s generally used for safety so that he doesn\’t ingest unwanted objects.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          "This is used to keep your pup from engaging an object or individual. It\’s generally used for safety so that he doesn\’t ingest unwanted objects.",
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

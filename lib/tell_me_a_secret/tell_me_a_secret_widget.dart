@@ -102,7 +102,7 @@ class _TellMeASecretWidgetState extends State<TellMeASecretWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 230,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

@@ -256,11 +256,9 @@ class _SpinWidgetState extends State<SpinWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'This is a trick where your dog spins clockwise or counter-clockwise. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'This is a trick where your dog spins clockwise or counter-clockwise. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

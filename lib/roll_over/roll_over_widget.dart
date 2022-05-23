@@ -102,7 +102,7 @@ class _RollOverWidgetState extends State<RollOverWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 245,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -258,11 +258,9 @@ class _RollOverWidgetState extends State<RollOverWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "This is a trick where your dog rolls over. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          "This is a trick where your dog rolls over. It is a great trick to show off your dogs skill to your friends and grab attention at a park or your social media.",
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

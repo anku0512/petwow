@@ -76,7 +76,7 @@ class _EarCleaningWidgetState extends State<EarCleaningWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 100,
+                height: 85,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

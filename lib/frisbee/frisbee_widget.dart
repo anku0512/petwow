@@ -101,7 +101,7 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 220,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,11 +257,9 @@ class _FrisbeeWidgetState extends State<FrisbeeWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'These basics will help prepare you and your dog to being able to play frisbee catch.',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'These basics will help prepare you and your dog to being able to play frisbee catch.',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

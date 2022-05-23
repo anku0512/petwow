@@ -101,7 +101,7 @@ class _Figure8WidgetState extends State<Figure8Widget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 220,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,11 +257,9 @@ class _Figure8WidgetState extends State<Figure8Widget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'A super cool trick where your dog goes back and forth between your legs in a figure 8 motion.',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'A super cool trick where your dog goes back and forth between your legs in a figure 8 motion.',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

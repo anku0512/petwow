@@ -100,7 +100,7 @@ class _IntroWidgetState extends State<IntroWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 400,
+                height: 390,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

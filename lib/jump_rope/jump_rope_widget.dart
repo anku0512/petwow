@@ -101,7 +101,7 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 205,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,11 +257,9 @@ class _JumpRopeWidgetState extends State<JumpRopeWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'Not only is this trick entertaining, it\'s also great exercise for both you and your pet!',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'Not only is this trick entertaining, it\'s also great exercise for both you and your pet!',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

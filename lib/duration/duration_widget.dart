@@ -102,7 +102,7 @@ class _DurationWidgetState extends State<DurationWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 400,
+                height: 340,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

@@ -102,7 +102,7 @@ class _TouchWidgetState extends State<TouchWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 260,
+                height: 215,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,15 +257,13 @@ class _TouchWidgetState extends State<TouchWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "\“Touch\” serves several purposes. It can be used to get your dog\’s attention or direct " +
-                                _herHim +
-                                " to where you want " +
-                                _herHim +
-                                " to go.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          "\“Touch\” serves several purposes. It can be used to get your dog\’s attention or direct " +
+                              _herHim +
+                              " to where you want " +
+                              _herHim +
+                              " to go.",
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

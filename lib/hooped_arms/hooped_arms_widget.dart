@@ -101,7 +101,7 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 245,
+                height: 230,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(
@@ -257,11 +257,9 @@ class _HoopedArmsWidgetState extends State<HoopedArmsWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 30, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            'This is a trick where your dog jumps through your hooped arms. It\'s a fun trick to impress your friends and family with!',
-                            style: getParagraphTextStyle(),
-                          ),
+                        child: Text(
+                          'This is a trick where your dog jumps through your hooped arms. It\'s a fun trick to impress your friends and family with!',
+                          style: getParagraphTextStyle(),
                         ),
                       ),
                     ],

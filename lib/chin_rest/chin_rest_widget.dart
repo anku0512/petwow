@@ -97,7 +97,7 @@ class _ChinRestWidgetState extends State<ChinRestWidget> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 210,
+                height: 195,
                 decoration: BoxDecoration(
                   color: Color(0xFFFFC700),
                   image: DecorationImage(

@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+
+import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
-import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class NailTrimmingWidget extends StatefulWidget {
   const NailTrimmingWidget({Key key}) : super(key: key);
@@ -15,11 +15,9 @@ class NailTrimmingWidget extends StatefulWidget {
 class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final String _herHim =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _herHim = currentUserDocument?.gender == 'Female' ? 'her' : 'him';
   final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
-  final String _herHis =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _herHis = currentUserDocument?.gender == 'Female' ? 'her' : 'his';
   final String _currentUserDisplayName = currentUserDisplayName;
 
   @override
@@ -97,7 +95,11 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                             "It\'s important to keep your dog\'s nails trimmed so " +
                                 _sheHe +
                                 " is able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
-                            style: getParagraphTextStyle(),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ),
                       ),
@@ -116,12 +118,11 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'STEPS',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                       ),
@@ -176,8 +177,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: Icon(
                                 FFIcons.knumber11,
                                 color: Color(0xFFC4C4C4),
@@ -224,8 +224,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: Icon(
                                 FFIcons.knumber12,
                                 color: Color(0xFFC4C4C4),
@@ -304,13 +303,10 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 'TIPS',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 20,
@@ -318,8 +314,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -341,8 +336,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -364,8 +358,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -387,8 +380,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -412,8 +404,7 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,

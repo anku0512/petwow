@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -5,11 +9,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../playful/playful_widget.dart';
 import '../post_page_leg_weaves/post_page_leg_weaves_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LegWeavesWidget extends StatefulWidget {
   const LegWeavesWidget({Key key}) : super(key: key);
@@ -21,11 +20,9 @@ class LegWeavesWidget extends StatefulWidget {
 class _LegWeavesWidgetState extends State<LegWeavesWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final String _herHim =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _herHim = currentUserDocument?.gender == 'Female' ? 'her' : 'him';
   final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
-  final String _herHis =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _herHis = currentUserDocument?.gender == 'Female' ? 'her' : 'his';
   final String _currentUserDisplayName = currentUserDisplayName;
 
   @override
@@ -84,8 +81,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.81, -0.07),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: AuthUserStreamWidget(
                               child: Icon(
                                 FFIcons.kaward4,
@@ -119,11 +115,10 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                         child: Text(
                           'DIFFICULTY',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                              ),
                         ),
                       ),
                       Row(
@@ -187,8 +182,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 final usersUpdateData = createUsersRecordData(
                                   taskLegWeaves: 'In Progress',
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
+                                await currentUserReference.update(usersUpdateData);
                                 await Navigator.push(
                                   context,
                                   PageTransition(
@@ -204,9 +198,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 width: 120,
                                 height: 30,
                                 color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
@@ -223,13 +215,11 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                                 final usersUpdateData = createUsersRecordData(
                                   taskLegWeaves: 'Mastered',
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
+                                await currentUserReference.update(usersUpdateData);
                                 await Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) =>
-                                        PostPageLegWeavesWidget(),
+                                    builder: (context) => PostPageLegWeavesWidget(),
                                   ),
                                 );
                               },
@@ -237,11 +227,8 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                               options: FFButtonOptions(
                                 width: 120,
                                 height: 30,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
+                                color: FlutterFlowTheme.of(context).primaryColor,
+                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.white,
                                     ),
@@ -279,12 +266,11 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'STEPS',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                       ),
@@ -311,9 +297,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                         ),
                         Flexible(
                           child: Text(
-                            "Have " +
-                                _currentUserDisplayName +
-                                " sit on your left side.",
+                            "Have " + _currentUserDisplayName + " sit on your left side.",
                             style: getParagraphTextStyle(),
                           ),
                         ),
@@ -339,15 +323,13 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                             size: 26,
                           ),
                         ),
-                        Flexible(
-                          child: Text(
-                            "Put your right leg forward and lure " +
-                                _currentUserDisplayName +
-                                " through your legs. Reward after " +
-                                _sheHe +
-                                " successfully goes through your legs.",
-                            style: getParagraphTextStyle(),
-                          ),
+                        Text(
+                          "Put your right leg forward and lure " +
+                              _currentUserDisplayName +
+                              " through your legs. Reward after " +
+                              _sheHe +
+                              " successfully goes through your legs.",
+                          style: getParagraphTextStyle(),
                         ),
                       ],
                     ),
@@ -504,13 +486,10 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 'TIPS',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 20,
@@ -518,8 +497,7 @@ class _LegWeavesWidgetState extends State<LegWeavesWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,

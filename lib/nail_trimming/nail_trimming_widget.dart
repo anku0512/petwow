@@ -90,17 +90,15 @@ class _NailTrimmingWidgetState extends State<NailTrimmingWidget> {
                     children: [
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
-                        child: Flexible(
-                          child: Text(
-                            "It\'s important to keep your dog\'s nails trimmed so " +
-                                _sheHe +
-                                " is able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
-                            style: FlutterFlowTheme.of(context).bodyText1.override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
+                        child: Text(
+                          "It\'s important to keep your dog\'s nails trimmed so " +
+                              _sheHe +
+                              " is able to walk and run properly. It helps prevent injuries from running and getting caught in things!",
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                         ),
                       ),
                     ],

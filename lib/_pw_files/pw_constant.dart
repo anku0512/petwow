@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 
 TextStyle getParagraphTextStyle() {
-  return TextStyle(
+  return const TextStyle(
     fontFamily: 'Poppins',
     color: Color(0xFF020202),
     fontSize: 17,

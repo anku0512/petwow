@@ -13,6 +13,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({Key key}) : super(key: key);
@@ -139,18 +140,18 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     currentUserReference),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 50,
-                                        height: 50,
-                                        child: CircularProgressIndicator(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
-                                        ),
-                                      ),
-                                    );
-                                  }
+                                  // if (!snapshot.hasData) {
+                                  //   return Center(
+                                  //     child: SizedBox(
+                                  //       width: 50,
+                                  //       height: 50,
+                                  //       child: CircularProgressIndicator(
+                                  //         color: FlutterFlowTheme.of(context)
+                                  //             .primaryColor,
+                                  //       ),
+                                  //     ),
+                                  //   );
+                                  // }
                                   final circleImageUsersRecord = snapshot.data;
                                   return Container(
                                     width: 90,

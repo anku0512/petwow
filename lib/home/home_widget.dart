@@ -258,16 +258,25 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                         ),
                                         child: InkWell(
                                           onDoubleTap: () async {
-                                            final postsUpdateData = {
-                                              ...createPostsRecordData(
-                                                user: socialFeedPostsRecord.user,
-                                              ),
-                                              'total_likes': FieldValue.increment(1),
-                                            };
-                                            await socialFeedPostsRecord.reference.update(postsUpdateData);
-                                            await (animationsMap['iconOnActionTriggerAnimation'].curvedAnimation.parent
-                                                    as AnimationController)
-                                                .forward(from: 0.0);
+                                            if (socialFeedPostsRecord.likedUsers
+                                                .toList()
+                                                .contains(currentUserReference)) {
+                                              // Unlike post
+
+                                              final postsUpdateData = {
+                                                'liked_users':
+                                                FieldValue.arrayRemove([currentUserReference]),
+                                              };
+                                              await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                            } else {
+                                              // Like post
+
+                                              final postsUpdateData = {
+                                                'liked_users':
+                                                FieldValue.arrayUnion([currentUserReference]),
+                                              };
+                                              await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                            }
                                           },
                                           child: ClipRRect(
                                             borderRadius: BorderRadius.circular(8),

@@ -14,8 +14,8 @@ class ResetpassowrdWidget extends StatefulWidget {
 }
 
 class _ResetpassowrdWidgetState extends State<ResetpassowrdWidget> {
-  final scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController emailAddressController;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {

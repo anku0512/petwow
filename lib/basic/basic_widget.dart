@@ -165,8 +165,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskSit) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskSit,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -284,8 +286,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        if ((currentUserDocument
-                                                                ?.taskSit) ==
+                                                        if ((valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.taskSit,
+                                                                '')) ==
                                                             'In Progress')
                                                           AuthUserStreamWidget(
                                                             child: Icon(
@@ -414,8 +418,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskDown) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskDown,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -528,8 +534,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        if ((currentUserDocument
-                                                                ?.taskDown) ==
+                                                        if ((valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.taskDown,
+                                                                '')) ==
                                                             'In Progress')
                                                           AuthUserStreamWidget(
                                                             child: Icon(
@@ -658,8 +666,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskStay) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskStay,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -767,8 +777,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.end,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskStay) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskStay,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -903,8 +915,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskCome) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskCome,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -1012,8 +1026,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                     mainAxisAlignment:
                                                         MainAxisAlignment.end,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskCome) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskCome,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -1148,8 +1164,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskLeaveIt) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskLeaveIt,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -1255,8 +1273,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskLeaveIt) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskLeaveIt,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -1391,8 +1411,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskTouch) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskTouch,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -1498,8 +1520,10 @@ class _BasicWidgetState extends State<BasicWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskTouch) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskTouch,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:

@@ -11,9 +11,7 @@ import '../flutter_flow/upload_media.dart';
 import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:dropdown_search/dropdown_search.dart';
 
 class EditProfileWidget extends StatefulWidget {
   const EditProfileWidget({Key key}) : super(key: key);
@@ -23,8 +21,8 @@ class EditProfileWidget extends StatefulWidget {
 }
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
-  DateTime datePicked;
   String uploadedFileUrl = '';
+  TextEditingController yourpetsnameController;
   TextEditingController yourNameController;
   String dropDownValue;
   String choiceChipsValue;
@@ -33,7 +31,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   @override
   void initState() {
     super.initState();
-    yourNameController = TextEditingController(text: currentUserDisplayName);
+    yourNameController = TextEditingController(
+        text: valueOrDefault(currentUserDocument?.yourName, ''));
+    yourpetsnameController =
+        TextEditingController(text: currentUserDisplayName);
   }
 
   @override
@@ -140,18 +141,18 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                     currentUserReference),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
-                                  // if (!snapshot.hasData) {
-                                  //   return Center(
-                                  //     child: SizedBox(
-                                  //       width: 50,
-                                  //       height: 50,
-                                  //       child: CircularProgressIndicator(
-                                  //         color: FlutterFlowTheme.of(context)
-                                  //             .primaryColor,
-                                  //       ),
-                                  //     ),
-                                  //   );
-                                  // }
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 50,
+                                        height: 50,
+                                        child: CircularProgressIndicator(
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryColor,
+                                        ),
+                                      ),
+                                    );
+                                  }
                                   final circleImageUsersRecord = snapshot.data;
                                   return Container(
                                     width: 90,
@@ -284,10 +285,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
                   child: AuthUserStreamWidget(
                     child: TextFormField(
-                      controller: yourNameController,
+                      controller: yourpetsnameController,
                       obscureText: false,
                       decoration: InputDecoration(
-                        labelText: 'Full Name',
+                        labelText: 'Your Pet\'s Name',
                         labelStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
                                   fontFamily: 'Lexend Deca',
@@ -333,69 +334,53 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: 335,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black,
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: yourNameController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Your Name',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintText: 'Your full name...',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
                             color: Color(0xFFF1F4F8),
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              AuthUserStreamWidget(
-                                child: Text(
-                                  dateTimeFormat(
-                                      'yMMMd', currentUserDocument?.dob),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Colors.black,
-                                      ),
-                                ),
-                              ),
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 30,
-                                borderWidth: 1,
-                                buttonSize: 60,
-                                icon: Icon(
-                                  FFIcons.kcalendar,
-                                  color: Colors.black,
-                                  size: 30,
-                                ),
-                                onPressed: () async {
-                                  await DatePicker.showDatePicker(
-                                    context,
-                                    showTitleActions: true,
-                                    onConfirm: (date) {
-                                      setState(() => datePicked = date);
-                                    },
-                                    currentTime: getCurrentTimestamp,
-                                    minTime: DateTime(0, 0, 0),
-                                  );
-                                },
-                              ),
-                            ],
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFF1F4F8),
+                            width: 2,
                           ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                       ),
-                    ],
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF090F13),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                    ),
                   ),
                 ),
                 Align(
@@ -435,7 +420,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   : null;
                           return FlutterFlowDropDown(
                             initialOption: dropDownValue ??=
-                                currentUserDocument?.breed,
+                                valueOrDefault(currentUserDocument?.breed, ''),
                             options:
                                 dropDownDogBreedRecord.items.toList().toList(),
                             onChanged: (val) =>
@@ -470,7 +455,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                       child: FlutterFlowChoiceChips(
                         initiallySelected: choiceChipsValue != null
                             ? [choiceChipsValue]
-                            : [currentUserDocument?.gender],
+                            : [valueOrDefault(currentUserDocument?.gender, '')],
                         options: [ChipData('Male'), ChipData('Female')],
                         onChanged: (val) =>
                             setState(() => choiceChipsValue = val.first),
@@ -528,11 +513,11 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                         return FFButtonWidget(
                           onPressed: () async {
                             final usersUpdateData = createUsersRecordData(
-                              displayName: yourNameController.text,
+                              displayName: yourpetsnameController.text,
                               breed: dropDownValue,
                               gender: choiceChipsValue,
                               photoUrl: uploadedFileUrl,
-                              dob: datePicked,
+                              yourName: yourNameController.text,
                             );
                             await buttonUsersRecord.reference
                                 .update(usersUpdateData);

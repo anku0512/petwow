@@ -1,8 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:share_plus/share_plus.dart';
-
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../edit_profile/edit_profile_widget.dart';
@@ -25,6 +20,11 @@ import '../post_page_sit_badge/post_page_sit_badge_widget.dart';
 import '../post_page_stay_badge/post_page_stay_badge_widget.dart';
 import '../post_page_tell_secret_badge/post_page_tell_secret_badge_widget.dart';
 import '../post_page_touch_badge/post_page_touch_badge_widget.dart';
+import '../store/store_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfileWidget extends StatefulWidget {
   const ProfileWidget({Key key}) : super(key: key);
@@ -33,7 +33,8 @@ class ProfileWidget extends StatefulWidget {
   _ProfileWidgetState createState() => _ProfileWidgetState();
 }
 
-class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateMixin {
+class _ProfileWidgetState extends State<ProfileWidget>
+    with TickerProviderStateMixin {
   final animationsMap = {
     'iconOnActionTriggerAnimation': AnimationInfo(
       curve: Curves.bounceOut,
@@ -58,7 +59,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
   void initState() {
     super.initState();
     setupTriggerAnimations(
-      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
       this,
     );
   }
@@ -84,6 +86,302 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
         return Scaffold(
           key: scaffoldKey,
           backgroundColor: Colors.white,
+          endDrawer: Container(
+            width: 260,
+            child: Drawer(
+              elevation: 40,
+              child: Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFFC700),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: Image.asset(
+                      'assets/images/true_health_(2).png',
+                    ).image,
+                  ),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(10, 100, 0, 0),
+                      child: InkWell(
+                        onTap: () async {
+                          if (scaffoldKey.currentState.isDrawerOpen ||
+                              scaffoldKey.currentState.isEndDrawerOpen) {
+                            Navigator.pop(context);
+                          }
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Padding(
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(5, 0, 8, 0),
+                              child: AuthUserStreamWidget(
+                                child: StreamBuilder<UsersRecord>(
+                                  stream: UsersRecord.getDocument(
+                                      currentUserReference),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50,
+                                          height: 50,
+                                          child: CircularProgressIndicator(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    final circleImageUsersRecord =
+                                        snapshot.data;
+                                    return Container(
+                                      width: 130,
+                                      height: 130,
+                                      clipBehavior: Clip.antiAlias,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Image.network(
+                                        currentUserPhoto,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 50, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          FaIcon(
+                            FontAwesomeIcons.dog,
+                            color: Color(0xFF57636C),
+                            size: 30,
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => EditProfileWidget(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Edit Profile',
+                                style: FlutterFlowTheme.of(context).title2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Icon(
+                            Icons.chat,
+                            color: Color(0xFF57636C),
+                            size: 30,
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                await launchURL(
+                                    'https://api.whatsapp.com/send/?phone=919776386164&text&app_absent=0');
+                              },
+                              child: Text(
+                                'Chat with Expert',
+                                style: FlutterFlowTheme.of(context).title2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    // Padding(
+                    //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                    //   child: Row(
+                    //     mainAxisSize: MainAxisSize.max,
+                    //     children: [
+                    //       Icon(
+                    //         Icons.auto_stories,
+                    //         color: Color(0xFF57636C),
+                    //         size: 30,
+                    //       ),
+                    //       Padding(
+                    //         padding:
+                    //             EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                    //         child: Text(
+                    //           'Blog Post',
+                    //           style: FlutterFlowTheme.of(context).title2,
+                    //         ),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Icon(
+                            Icons.store,
+                            color: Color(0xFF57636C),
+                            size: 30,
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => StoreWidget(),
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Store',
+                                style: FlutterFlowTheme.of(context).title2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          InkWell(
+                            onTap: () async {
+                              var confirmDialogResponse =
+                                  await showDialog<bool>(
+                                        context: context,
+                                        builder: (alertDialogContext) {
+                                          return AlertDialog(
+                                            content: Text(
+                                                'Are you sure you want to log out?'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, false),
+                                                child: Text('Cancel'),
+                                              ),
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext, true),
+                                                child: Text('Confirm'),
+                                              ),
+                                            ],
+                                          );
+                                        },
+                                      ) ??
+                                      false;
+                              if (confirmDialogResponse) {
+                                await signOut();
+                              } else {
+                                return;
+                              }
+
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => LoginWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                            child: Icon(
+                              Icons.login,
+                              color: Color(0xFF57636C),
+                              size: 30,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                var confirmDialogResponse =
+                                    await showDialog<bool>(
+                                          context: context,
+                                          builder: (alertDialogContext) {
+                                            return AlertDialog(
+                                              content: Text(
+                                                  'Are you sure you want to log out?'),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          false),
+                                                  child: Text('Cancel'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          alertDialogContext,
+                                                          true),
+                                                  child: Text('Confirm'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        ) ??
+                                        false;
+                                if (confirmDialogResponse) {
+                                  await signOut();
+                                } else {
+                                  return;
+                                }
+
+                                await Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoginWidget(),
+                                  ),
+                                  (r) => false,
+                                );
+                              },
+                              child: Text(
+                                'Log out',
+                                style: FlutterFlowTheme.of(context).title2,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
           body: SafeArea(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -139,42 +437,10 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                   alignment: AlignmentDirectional(1, 0),
                                   child: InkWell(
                                     onTap: () async {
-                                      var confirmDialogResponse = await showDialog<bool>(
-                                            context: context,
-                                            builder: (alertDialogContext) {
-                                              return AlertDialog(
-                                                title: Text('Log out'),
-                                                content: Text('Are you sure you want to log out?'),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                    child: Text('Cancel'),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                    child: Text('Yes'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ) ??
-                                          false;
-                                      if (confirmDialogResponse) {
-                                        await signOut();
-                                      } else {
-                                        return;
-                                      }
-
-                                      await Navigator.pushAndRemoveUntil(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => LoginWidget(),
-                                        ),
-                                        (r) => false,
-                                      );
+                                      scaffoldKey.currentState.openEndDrawer();
                                     },
                                     child: Icon(
-                                      Icons.login,
+                                      Icons.dehaze,
                                       color: Color(0xFF6268A7),
                                       size: 28,
                                     ),
@@ -182,58 +448,29 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1, 1),
+                                    alignment: AlignmentDirectional(-1, -0.9),
                                     child: AuthUserStreamWidget(
                                       child: Text(
                                         currentUserDisplayName,
-                                        style: FlutterFlowTheme.of(context).title3.override(
-                                              fontFamily: 'Lexend Deca',
-                                              color: Color(0xFF6268A7),
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                                        style:
+                                            FlutterFlowTheme.of(context).title2,
                                       ),
                                     ),
                                   ),
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1, -0.15),
+                                    alignment: AlignmentDirectional(-1, -1.5),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 4, 0, 0),
                                       child: AuthUserStreamWidget(
                                         child: Text(
-                                          currentUserDocument?.breed,
-                                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                fontFamily: 'Lexend Deca',
-                                                color: Color(0xFF6268A7),
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.normal,
-                                              ),
+                                          valueOrDefault(
+                                              currentUserDocument?.breed, ''),
+                                          style: FlutterFlowTheme.of(context)
+                                              .subtitle1,
                                         ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.85, 0.85),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        await Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => EditProfileWidget(),
-                                          ),
-                                        );
-                                      },
-                                      child: Text(
-                                        'Edit Profile',
-                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                              fontFamily: 'Poppins',
-                                              color: Color(0xFF6268A7),
-                                              fontSize: 16,
-                                            ),
                                       ),
                                     ),
                                   ),
@@ -255,12 +492,15 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                         TabBar(
                           labelColor: Color(0xFF6268A7),
                           unselectedLabelColor: Color(0x686268A7),
-                          labelPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                          labelStyle: FlutterFlowTheme.of(context).bodyText1.override(
-                                fontFamily: 'Roboto',
-                                fontSize: 18,
-                              ),
-                          indicatorColor: FlutterFlowTheme.of(context).secondaryColor,
+                          labelPadding:
+                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                          labelStyle:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Roboto',
+                                    fontSize: 18,
+                                  ),
+                          indicatorColor:
+                              FlutterFlowTheme.of(context).secondaryColor,
                           tabs: [
                             Tab(
                               text: 'Badges',
@@ -269,7 +509,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                 color: Color(0xFF6268A7),
                                 size: 30,
                               ),
-                              iconMargin: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              iconMargin:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             ),
                             Tab(
                               text: 'My Entries',
@@ -278,7 +519,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                 color: Color(0xFF6268A7),
                                 size: 30,
                               ),
-                              iconMargin: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              iconMargin:
+                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             ),
                           ],
                         ),
@@ -286,16 +528,19 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                           child: TabBarView(
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                 child: ListView(
                                   padding: EdgeInsets.zero,
                                   scrollDirection: Axis.vertical,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           InkWell(
                                             onTap: () async {
@@ -303,11 +548,15 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return AlertDialog(
-                                                    title: Text('Congratulations'),
-                                                    content: Text('Hello Friend!!\nSigned up for an account'),
+                                                    title:
+                                                        Text('Congratulations'),
+                                                    content: Text(
+                                                        'Hello Friend!!\nSigned up for an account'),
                                                     actions: [
                                                       TextButton(
-                                                        onPressed: () => Navigator.pop(alertDialogContext),
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext),
                                                         child: Text('Ok'),
                                                       ),
                                                     ],
@@ -327,36 +576,66 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                   ).image,
                                                 ),
                                               ),
+                                              // child: Visibility(
+                                              //   visible:
+                                              //       currentUserEmailVerified ??
+                                              //           true,
+                                              //   child: AuthUserStreamWidget(
+                                              //     child: Container(
+                                              //       width: 100,
+                                              //       height: 100,
+                                              //       decoration: BoxDecoration(
+                                              //         color: Color(0x99FFFFFF),
+                                              //         border: Border.all(
+                                              //           color:
+                                              //               Colors.transparent,
+                                              //         ),
+                                              //       ),
+                                              //     ),
+                                              //   ),
+                                              // ),
                                             ),
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Smart Doggo'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the sit trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Smart Doggo'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the sit trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageSitBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageSitBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -376,20 +655,30 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (currentUserDocument?.taskSit) != 'Mastered',
+                                                visible: (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskSit,
+                                                        '')) !=
+                                                    'Mastered',
                                                 child: AuthUserStreamWidget(
                                                   child: InkWell(
                                                     onTap: () async {
                                                       await showDialog(
                                                         context: context,
-                                                        builder: (alertDialogContext) {
+                                                        builder:
+                                                            (alertDialogContext) {
                                                           return AlertDialog(
-                                                            title: Text('Smart Doggo'),
-                                                            content: Text('Master the sit trick to earn this badge'),
+                                                            title: Text(
+                                                                'Smart Doggo'),
+                                                            content: Text(
+                                                                'Master the sit trick to earn this badge'),
                                                             actions: [
                                                               TextButton(
-                                                                onPressed: () => Navigator.pop(alertDialogContext),
-                                                                child: Text('Ok'),
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext),
+                                                                child:
+                                                                    Text('Ok'),
                                                               ),
                                                             ],
                                                           );
@@ -400,9 +689,11 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                       width: 100,
                                                       height: 100,
                                                       decoration: BoxDecoration(
-                                                        color: Color(0x9AFFFFFF),
+                                                        color:
+                                                            Color(0x9AFFFFFF),
                                                         border: Border.all(
-                                                          color: Colors.transparent,
+                                                          color: Colors
+                                                              .transparent,
                                                         ),
                                                       ),
                                                     ),
@@ -413,32 +704,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Social Doggo'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the shake hand trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Social Doggo'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the shake hand trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageShakeHandBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageShakeHandBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -458,18 +761,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskShakeHand) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskShakeHand) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Social Doggo'),
-                                                          content: Text('To earn badge: Master shake hand trick'),
+                                                          title: Text(
+                                                              'Social Doggo'),
+                                                          content: Text(
+                                                              'To earn badge: Master shake hand trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -483,7 +793,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -495,39 +806,53 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Obedient Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the down trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Obedient Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the down trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageDowBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageDowBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -547,18 +872,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskDown) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskDown) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Obedient Dog'),
-                                                          content: Text('To earn badge: Master the down trick'),
+                                                          title: Text(
+                                                              'Obedient Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master the down trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -572,7 +904,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -582,32 +915,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Good Doggo'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the stay trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Good Doggo'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the stay trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageStayBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageStayBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -627,18 +972,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskStay) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskStay) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Good Doggo'),
-                                                          content: Text('To earn badge: Master the stay trick'),
+                                                          title: Text(
+                                                              'Good Doggo'),
+                                                          content: Text(
+                                                              'To earn badge: Master the stay trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -652,7 +1004,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x9AFFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -662,32 +1015,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Cute Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the come trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Cute Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the come trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageComeBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageComeBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -707,18 +1072,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskCome) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskCome) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Cute Dog'),
-                                                          content: Text('To earn badge: Master the come trick'),
+                                                          title:
+                                                              Text('Cute Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master the come trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -732,7 +1104,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -744,39 +1117,53 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Intelligent Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the leave it  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Intelligent Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the leave it  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageLeaveBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageLeaveBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -796,18 +1183,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskLeaveIt) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskLeaveIt) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Intelligent Dog'),
-                                                          content: Text('To earn badge: Master the leave it  trick'),
+                                                          title: Text(
+                                                              'Intelligent Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master the leave it  trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -821,7 +1215,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -831,32 +1226,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Wow Doggo'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the touch trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Wow Doggo'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the touch trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageTouchBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageTouchBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -876,18 +1283,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskTouch) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskTouch) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Wow Doggo'),
-                                                          content: Text('To earn badge: Master the touch trick'),
+                                                          title:
+                                                              Text('Wow Doggo'),
+                                                          content: Text(
+                                                              'To earn badge: Master the touch trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -901,7 +1315,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x9AFFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -911,32 +1326,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Great Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the roll over trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Great Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the roll over trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageRollOverBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageRollOverBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -956,18 +1383,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskRollOver) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskRollOver) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Great Dog '),
-                                                          content: Text('To earn badge: Master the roll over  trick'),
+                                                          title: Text(
+                                                              'Great Dog '),
+                                                          content: Text(
+                                                              'To earn badge: Master the roll over  trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -981,7 +1415,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -993,39 +1428,53 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Talking Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering tell me  a secret  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Talking Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering tell me  a secret  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageTellSecretBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageTellSecretBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1045,18 +1494,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskTellMeASecret) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskTellMeASecret) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Talking Dog'),
-                                                          content: Text('To earn badge: Master tell me a secret trick'),
+                                                          title: Text(
+                                                              'Talking Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master tell me a secret trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1070,7 +1526,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1080,32 +1537,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Furfect'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the leg weaves  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title:
+                                                                Text('Furfect'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the leg weaves  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageLegWeavesBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageLegWeavesBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1125,18 +1594,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskLegWeaves) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskLegWeaves) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Furfect'),
-                                                          content: Text('To earn badge: Master the leg weaves trick'),
+                                                          title:
+                                                              Text('Furfect'),
+                                                          content: Text(
+                                                              'To earn badge: Master the leg weaves trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1150,7 +1626,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x9AFFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1160,32 +1637,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Active Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the bar jump trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Active Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the bar jump trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageBarJumpBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageBarJumpBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1205,18 +1694,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskBarJump) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskBarJump) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Active Dog'),
-                                                          content: Text('To earn badge: Master the bar jump  trick'),
+                                                          title: Text(
+                                                              'Active Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master the bar jump  trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1230,7 +1726,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1242,39 +1739,53 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 8, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Dancing Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the dance  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Dancing Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the dance  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageDanceBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageDanceBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1294,19 +1805,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskDance) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskDance) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Dancing Dog'),
+                                                          title: Text(
+                                                              'Dancing Dog'),
                                                           content: Text(
                                                               'To earn badge: Master the dance  trick with your dog'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1320,7 +1837,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1330,32 +1848,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Furfect'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the shy  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title:
+                                                                Text('Furfect'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the shy  trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageShyBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageShyBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1375,18 +1905,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskShy) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskShy) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Charming Doggo'),
-                                                          content: Text('To earn badge: Master the shy trick'),
+                                                          title: Text(
+                                                              'Charming Doggo'),
+                                                          content: Text(
+                                                              'To earn badge: Master the shy trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1400,7 +1937,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x9AFFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1410,32 +1948,44 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           ),
                                           InkWell(
                                             onTap: () async {
-                                              var confirmDialogResponse = await showDialog<bool>(
-                                                    context: context,
-                                                    builder: (alertDialogContext) {
-                                                      return AlertDialog(
-                                                        title: Text('Active Dog'),
-                                                        content: Text(
-                                                            'Congratulations!!!!\nYou have earned this badge for mastering the disc trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
-                                                        actions: [
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                            child: Text('Ok'),
-                                                          ),
-                                                          TextButton(
-                                                            onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                            child: Text('Post'),
-                                                          ),
-                                                        ],
-                                                      );
-                                                    },
-                                                  ) ??
-                                                  false;
+                                              var confirmDialogResponse =
+                                                  await showDialog<bool>(
+                                                        context: context,
+                                                        builder:
+                                                            (alertDialogContext) {
+                                                          return AlertDialog(
+                                                            title: Text(
+                                                                'Active Dog'),
+                                                            content: Text(
+                                                                'Congratulations!!!!\nYou have earned this badge for mastering the disc trick with your doggo. \nDon\'t forget to show off your dogs talent to the world and stand out '),
+                                                            actions: [
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        false),
+                                                                child:
+                                                                    Text('Ok'),
+                                                              ),
+                                                              TextButton(
+                                                                onPressed: () =>
+                                                                    Navigator.pop(
+                                                                        alertDialogContext,
+                                                                        true),
+                                                                child: Text(
+                                                                    'Post'),
+                                                              ),
+                                                            ],
+                                                          );
+                                                        },
+                                                      ) ??
+                                                      false;
                                               if (confirmDialogResponse) {
                                                 await Navigator.push(
                                                   context,
                                                   MaterialPageRoute(
-                                                    builder: (context) => PostPageFrisbeeBadgeWidget(),
+                                                    builder: (context) =>
+                                                        PostPageFrisbeeBadgeWidget(),
                                                   ),
                                                 );
                                               } else {
@@ -1455,18 +2005,25 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord.taskFrisbee) != 'Mastered',
+                                                visible: (profileUsersRecord
+                                                        .taskFrisbee) !=
+                                                    'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
                                                     await showDialog(
                                                       context: context,
-                                                      builder: (alertDialogContext) {
+                                                      builder:
+                                                          (alertDialogContext) {
                                                         return AlertDialog(
-                                                          title: Text('Active Dog'),
-                                                          content: Text('To earn badge: Master the disc  trick'),
+                                                          title: Text(
+                                                              'Active Dog'),
+                                                          content: Text(
+                                                              'To earn badge: Master the disc  trick'),
                                                           actions: [
                                                             TextButton(
-                                                              onPressed: () => Navigator.pop(alertDialogContext),
+                                                              onPressed: () =>
+                                                                  Navigator.pop(
+                                                                      alertDialogContext),
                                                               child: Text('Ok'),
                                                             ),
                                                           ],
@@ -1480,7 +2037,8 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     decoration: BoxDecoration(
                                                       color: Color(0x99FFFFFF),
                                                       border: Border.all(
-                                                        color: Colors.transparent,
+                                                        color:
+                                                            Colors.transparent,
                                                       ),
                                                     ),
                                                   ),
@@ -1495,12 +2053,15 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                                 child: StreamBuilder<List<PostsRecord>>(
                                   stream: queryPostsRecord(
                                     queryBuilder: (postsRecord) => postsRecord
-                                        .where('user', isEqualTo: currentUserReference)
-                                        .orderBy('created_at', descending: true),
+                                        .where('user',
+                                            isEqualTo: currentUserReference)
+                                        .orderBy('created_at',
+                                            descending: true),
                                   ),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
@@ -1510,15 +2071,18 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                           width: 50,
                                           height: 50,
                                           child: CircularProgressIndicator(
-                                            color: FlutterFlowTheme.of(context).primaryColor,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
                                           ),
                                         ),
                                       );
                                     }
-                                    List<PostsRecord> gridViewPostsRecordList = snapshot.data;
+                                    List<PostsRecord> gridViewPostsRecordList =
+                                        snapshot.data;
                                     return GridView.builder(
                                       padding: EdgeInsets.zero,
-                                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                      gridDelegate:
+                                          SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 1,
                                         crossAxisSpacing: 10,
                                         mainAxisSpacing: 10,
@@ -1527,9 +2091,12 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                       scrollDirection: Axis.vertical,
                                       itemCount: gridViewPostsRecordList.length,
                                       itemBuilder: (context, gridViewIndex) {
-                                        final gridViewPostsRecord = gridViewPostsRecordList[gridViewIndex];
+                                        final gridViewPostsRecord =
+                                            gridViewPostsRecordList[
+                                                gridViewIndex];
                                         return Container(
-                                          width: MediaQuery.of(context).size.width,
+                                          width:
+                                              MediaQuery.of(context).size.width,
                                           height: 200,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
@@ -1538,27 +2105,40 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 2, 0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 2, 0),
                                                 child: Row(
-                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
                                                   children: [
                                                     Card(
-                                                      clipBehavior: Clip.antiAliasWithSaveLayer,
+                                                      clipBehavior: Clip
+                                                          .antiAliasWithSaveLayer,
                                                       color: Color(0xFF4B39EF),
-                                                      shape: RoundedRectangleBorder(
-                                                        borderRadius: BorderRadius.circular(20),
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20),
                                                       ),
                                                       child: Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    1, 1, 1, 1),
                                                         child: Container(
                                                           width: 40,
                                                           height: 40,
-                                                          clipBehavior: Clip.antiAlias,
-                                                          decoration: BoxDecoration(
-                                                            shape: BoxShape.circle,
+                                                          clipBehavior:
+                                                              Clip.antiAlias,
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            shape:
+                                                                BoxShape.circle,
                                                           ),
                                                           child: Image.network(
-                                                            profileUsersRecord.photoUrl,
+                                                            profileUsersRecord
+                                                                .photoUrl,
                                                             fit: BoxFit.cover,
                                                           ),
                                                         ),
@@ -1566,58 +2146,89 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     ),
                                                     Expanded(
                                                       child: Row(
-                                                        mainAxisSize: MainAxisSize.max,
-                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
                                                         children: [
                                                           Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12,
+                                                                        0,
+                                                                        0,
+                                                                        0),
                                                             child: Text(
-                                                              profileUsersRecord.displayName,
-                                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                    fontFamily: 'Lexend Deca',
-                                                                    color: Color(0xFF090F13),
-                                                                    fontSize: 14,
-                                                                    fontWeight: FontWeight.normal,
+                                                              profileUsersRecord
+                                                                  .displayName,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodyText1
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Lexend Deca',
+                                                                    color: Color(
+                                                                        0xFF090F13),
+                                                                    fontSize:
+                                                                        14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
                                                                   ),
                                                             ),
                                                           ),
                                                           Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                                            child: FlutterFlowIconButton(
-                                                              borderColor: Colors.transparent,
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        0,
+                                                                        5,
+                                                                        0),
+                                                            child:
+                                                                FlutterFlowIconButton(
+                                                              borderColor: Colors
+                                                                  .transparent,
                                                               borderRadius: 30,
                                                               buttonSize: 46,
                                                               icon: Icon(
                                                                 Icons.delete,
-                                                                color: Color(0xFF262D34),
+                                                                color: Color(
+                                                                    0xFF262D34),
                                                                 size: 20,
                                                               ),
-                                                              onPressed: () async {
-                                                                var confirmDialogResponse = await showDialog<bool>(
-                                                                      context: context,
-                                                                      builder: (alertDialogContext) {
-                                                                        return AlertDialog(
-                                                                          title: Text('Delete Post'),
-                                                                          content: Text(
-                                                                              'You will no longer be able to see this post '),
-                                                                          actions: [
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(
-                                                                                  alertDialogContext, false),
-                                                                              child: Text('Cancel'),
-                                                                            ),
-                                                                            TextButton(
-                                                                              onPressed: () => Navigator.pop(
-                                                                                  alertDialogContext, true),
-                                                                              child: Text('Confirm'),
-                                                                            ),
-                                                                          ],
-                                                                        );
-                                                                      },
-                                                                    ) ??
-                                                                    false;
+                                                              onPressed:
+                                                                  () async {
+                                                                var confirmDialogResponse =
+                                                                    await showDialog<
+                                                                            bool>(
+                                                                          context:
+                                                                              context,
+                                                                          builder:
+                                                                              (alertDialogContext) {
+                                                                            return AlertDialog(
+                                                                              title: Text('Delete Post'),
+                                                                              content: Text('You will no longer be able to see this post '),
+                                                                              actions: [
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, false),
+                                                                                  child: Text('Cancel'),
+                                                                                ),
+                                                                                TextButton(
+                                                                                  onPressed: () => Navigator.pop(alertDialogContext, true),
+                                                                                  child: Text('Confirm'),
+                                                                                ),
+                                                                              ],
+                                                                            );
+                                                                          },
+                                                                        ) ??
+                                                                        false;
                                                                 if (confirmDialogResponse) {
-                                                                  await gridViewPostsRecord.reference.delete();
+                                                                  await gridViewPostsRecord
+                                                                      .reference
+                                                                      .delete();
                                                                 } else {
                                                                   return;
                                                                 }
@@ -1631,35 +2242,52 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 4, 0, 0),
                                                 child: Container(
-                                                  width: MediaQuery.of(context).size.width * 0.96,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.96,
                                                   decoration: BoxDecoration(
                                                     color: Colors.white,
                                                     boxShadow: [
                                                       BoxShadow(
                                                         blurRadius: 6,
-                                                        color: Color(0x3A000000),
+                                                        color:
+                                                            Color(0x3A000000),
                                                         offset: Offset(0, 2),
                                                       )
                                                     ],
-                                                    borderRadius: BorderRadius.circular(8),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
                                                   ),
                                                   child: InkWell(
                                                     onDoubleTap: () async {
                                                       final postsUpdateData = {
-                                                        'total_likes': FieldValue.increment(1),
+                                                        'total_likes':
+                                                            FieldValue
+                                                                .increment(1),
                                                       };
-                                                      await gridViewPostsRecord.reference.update(postsUpdateData);
-                                                      await (animationsMap['iconOnActionTriggerAnimation']
-                                                              .curvedAnimation
-                                                              .parent as AnimationController)
+                                                      await gridViewPostsRecord
+                                                          .reference
+                                                          .update(
+                                                              postsUpdateData);
+                                                      await (animationsMap[
+                                                                      'iconOnActionTriggerAnimation']
+                                                                  .curvedAnimation
+                                                                  .parent
+                                                              as AnimationController)
                                                           .forward(from: 0.0);
                                                     },
                                                     child: ClipRRect(
-                                                      borderRadius: BorderRadius.circular(8),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
                                                       child: Image.network(
-                                                        gridViewPostsRecord.imageUrl,
+                                                        gridViewPostsRecord
+                                                            .imageUrl,
                                                         width: double.infinity,
                                                         height: 300,
                                                         fit: BoxFit.fitHeight,
@@ -1669,40 +2297,67 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 4, 8, 0),
                                                 child: Row(
-                                                  mainAxisSize: MainAxisSize.max,
-                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Padding(
-                                                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10, 0, 0, 0),
                                                       child: Row(
-                                                        mainAxisSize: MainAxisSize.max,
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
                                                         children: [
                                                           Padding(
-                                                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0,
+                                                                        0,
+                                                                        16,
+                                                                        0),
                                                             child: Row(
-                                                              mainAxisSize: MainAxisSize.max,
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
                                                               children: [
                                                                 InkWell(
-                                                                  onTap: () async {
-                                                                    final postsUpdateData = {
-                                                                      'total_likes': FieldValue.increment(1),
+                                                                  onTap:
+                                                                      () async {
+                                                                    final postsUpdateData =
+                                                                        {
+                                                                      'total_likes':
+                                                                          FieldValue.increment(
+                                                                              1),
                                                                     };
-                                                                    await gridViewPostsRecord.reference
-                                                                        .update(postsUpdateData);
-                                                                    await (animationsMap['iconOnActionTriggerAnimation']
-                                                                            .curvedAnimation
-                                                                            .parent as AnimationController)
-                                                                        .forward(from: 0.0);
+                                                                    await gridViewPostsRecord
+                                                                        .reference
+                                                                        .update(
+                                                                            postsUpdateData);
+                                                                    await (animationsMap['iconOnActionTriggerAnimation'].curvedAnimation.parent
+                                                                            as AnimationController)
+                                                                        .forward(
+                                                                            from:
+                                                                                0.0);
                                                                   },
                                                                   child: FaIcon(
-                                                                    FontAwesomeIcons.paw,
-                                                                    color: Color(0xFF95A1AC),
+                                                                    FontAwesomeIcons
+                                                                        .paw,
+                                                                    color: Color(
+                                                                        0xFF95A1AC),
                                                                     size: 24,
                                                                   ),
-                                                                ).animated(
-                                                                    [animationsMap['iconOnActionTriggerAnimation']]),
+                                                                ).animated([
+                                                                  animationsMap[
+                                                                      'iconOnActionTriggerAnimation']
+                                                                ]),
                                                               ],
                                                             ),
                                                           ),
@@ -1711,49 +2366,52 @@ class _ProfileWidgetState extends State<ProfileWidget> with TickerProviderStateM
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        gridViewPostsRecord.totalLikes.toString(),
-                                                        style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                              fontFamily: 'Poppins',
-                                                              color: Color(0xFF95A1AC),
-                                                            ),
+                                                        gridViewPostsRecord
+                                                            .totalLikes
+                                                            .toString(),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyText1
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: Color(
+                                                                      0xFF95A1AC),
+                                                                ),
                                                       ),
-                                                    ),
-                                                    Row(
-                                                      mainAxisSize: MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
-                                                          child: InkWell(
-                                                            onTap: () async {
-                                                              await Share.share('');
-                                                            },
-                                                            child: Icon(
-                                                              Icons.ios_share,
-                                                              color: Color(0xFF95A1AC),
-                                                              size: 24,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
                                                     ),
                                                   ],
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(2, 4, 0, 0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(2, 4, 0, 0),
                                                 child: Row(
-                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
                                                   children: [
                                                     Expanded(
                                                       child: Padding(
-                                                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(10, 0,
+                                                                    10, 0),
                                                         child: Text(
-                                                          gridViewPostsRecord.description,
-                                                          style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                                fontFamily: 'Lexend Deca',
-                                                                color: Color(0xFF090F13),
+                                                          gridViewPostsRecord
+                                                              .description,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyText1
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Lexend Deca',
+                                                                color: Color(
+                                                                    0xFF090F13),
                                                                 fontSize: 14,
-                                                                fontWeight: FontWeight.normal,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
                                                               ),
                                                         ),
                                                       ),

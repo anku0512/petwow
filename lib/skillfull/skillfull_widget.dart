@@ -7,7 +7,6 @@ import '../roll_over/roll_over_widget.dart';
 import '../spin/spin_widget.dart';
 import '../tell_me_a_secret/tell_me_a_secret_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -164,8 +163,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskRollOver) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskRollOver,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -271,8 +272,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskRollOver) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskRollOver,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -407,8 +410,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskSpin) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskSpin,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -514,8 +519,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskSpin) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskSpin,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -650,8 +657,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskTellMeASecret) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskTellMeASecret,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -757,8 +766,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskTellMeASecret) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskTellMeASecret,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -893,8 +904,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskDance) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskDance,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -1000,8 +1013,10 @@ class _SkillfullWidgetState extends State<SkillfullWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskDance) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskDance,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:

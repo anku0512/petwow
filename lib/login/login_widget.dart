@@ -306,7 +306,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       builder: (context) =>
                                                           NavBarPage(
                                                               initialPage:
-                                                                  'home'),
+                                                                  'lessons'),
                                                     ),
                                                   );
                                                 },
@@ -386,7 +386,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                       builder: (context) =>
                                                           NavBarPage(
                                                               initialPage:
-                                                                  'home'),
+                                                                  'lessons'),
                                                     ),
                                                     (r) => false,
                                                   );

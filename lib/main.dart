@@ -8,6 +8,7 @@ import 'auth/auth_util.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'index.dart';
 
@@ -65,7 +66,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'petWow',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -108,7 +108,7 @@ class NavBarPage extends StatefulWidget {
 
 /// This is the private State class that goes with NavBarPage.
 class _NavBarPageState extends State<NavBarPage> {
-  String _currentPage = 'home';
+  String _currentPage = 'lessons';
 
   @override
   void initState() {
@@ -119,8 +119,8 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'home': HomeWidget(),
       'lessons': LessonsWidget(),
+      'home': HomeWidget(),
       'create_post': CreatePostWidget(),
       'profile': ProfileWidget(),
     };
@@ -139,34 +139,34 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
-              size: 24,
+              Icons.book,
+              size: 30,
             ),
-            label: 'Home',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.book,
-              size: 24,
+            icon: FaIcon(
+              FontAwesomeIcons.dog,
+              size: 30,
             ),
-            label: 'Training guide',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.add_circle,
-              size: 24,
+              size: 30,
             ),
-            label: 'Create Post',
+            label: '',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              size: 24,
+              size: 30,
             ),
-            label: 'Profile',
+            label: '',
             tooltip: '',
           )
         ],

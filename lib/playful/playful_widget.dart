@@ -166,8 +166,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskLegWeaves) ==
+                                                if ((valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskLegWeaves,
+                                                        '')) ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -273,8 +275,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskLegWeaves) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskLegWeaves,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -413,8 +417,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskBarJump) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskBarJump,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -523,8 +529,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskBarJump) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskBarJump,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -663,8 +671,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskHoopedArms) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskHoopedArms,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -773,8 +783,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskHoopedArms) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskHoopedArms,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -913,8 +925,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskScoot) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskScoot,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -1023,8 +1037,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskScoot) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskScoot,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -1163,8 +1179,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskJumpRope) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskJumpRope,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -1273,8 +1291,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskJumpRope) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskJumpRope,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -1413,8 +1433,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskFigure8) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskFigure8,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -1523,8 +1545,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskFigure8) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskFigure8,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -1663,8 +1687,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.taskFrisbee) ==
+                                                    if ((valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.taskFrisbee,
+                                                            '')) ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -1773,8 +1799,10 @@ class _PlayfulWidgetState extends State<PlayfulWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskFrisbee) ==
+                                                      if ((valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskFrisbee,
+                                                              '')) ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:

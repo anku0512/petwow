@@ -3,7 +3,6 @@ import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
-import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -11,7 +10,6 @@ import '../flutter_flow/upload_media.dart';
 import '../main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CompleteProfileWidget extends StatefulWidget {
@@ -22,9 +20,9 @@ class CompleteProfileWidget extends StatefulWidget {
 }
 
 class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
-  DateTime datePicked;
   String uploadedFileUrl = '';
-  TextEditingController textController;
+  TextEditingController yourNameController;
+  TextEditingController petNameController;
   String dropDownValue;
   String choiceChipsValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -32,7 +30,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
   @override
   void initState() {
     super.initState();
-    textController = TextEditingController(text: 'Pet\'s name');
+    petNameController = TextEditingController();
+    yourNameController = TextEditingController();
   }
 
   @override
@@ -132,7 +131,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 child: Image.network(
                                   valueOrDefault<String>(
                                     uploadedFileUrl,
-                                    'https://images.unsplash.com/photo-1523626797181-8c5ae80d40c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80',
+                                    'https://i.pinimg.com/originals/8d/7a/ac/8d7aac5e9618fb38e2102fef774c7ba9.gif',
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -212,11 +211,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: textController,
+                                    controller: yourNameController,
                                     obscureText: false,
                                     decoration: InputDecoration(
-                                      labelText: 'Pet\'s name',
-                                      hintText: 'Your pet\'s name',
+                                      labelText: 'Your Name',
+                                      hintText: 'Your Name',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText2
                                           .override(
@@ -258,60 +257,46 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Container(
-                                  width: 360,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black,
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(8),
-                                    border: Border.all(
-                                      color: Color(0xFFF1F4F8),
-                                    ),
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        dateTimeFormat('yMMMd', datePicked),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              color: Colors.black,
-                                            ),
-                                      ),
-                                      FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30,
-                                        borderWidth: 1,
-                                        buttonSize: 60,
-                                        icon: Icon(
-                                          FFIcons.kcalendar,
-                                          color: Colors.black,
-                                          size: 30,
+                                Expanded(
+                                  child: TextFormField(
+                                    controller: petNameController,
+                                    obscureText: false,
+                                    decoration: InputDecoration(
+                                      labelText: 'Your Pet\'s name',
+                                      hintText: 'Your pet\'s name',
+                                      hintStyle: FlutterFlowTheme.of(context)
+                                          .bodyText2
+                                          .override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF95A1AC),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFF1F4F8),
+                                          width: 2,
                                         ),
-                                        onPressed: () async {
-                                          await DatePicker.showDatePicker(
-                                            context,
-                                            showTitleActions: true,
-                                            onConfirm: (date) {
-                                              setState(() => datePicked = date);
-                                            },
-                                            currentTime: getCurrentTimestamp,
-                                            minTime: DateTime(0, 0, 0),
-                                          );
-                                        },
+                                        borderRadius: BorderRadius.circular(8),
                                       ),
-                                    ],
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFF1F4F8),
+                                          width: 2,
+                                        ),
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Lexend Deca',
+                                          color: Color(0xFF090F13),
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                    keyboardType: TextInputType.name,
                                   ),
                                 ),
                               ],
@@ -433,7 +418,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     final usersUpdateData =
                                         createUsersRecordData(
                                       displayName: valueOrDefault<String>(
-                                        textController.text,
+                                        petNameController.text,
                                         'petWow',
                                       ),
                                       breed: valueOrDefault<String>(
@@ -444,8 +429,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                         choiceChipsValue,
                                         'Update Gender',
                                       ),
-                                      dob: datePicked,
                                       photoUrl: uploadedFileUrl,
+                                      yourName: yourNameController.text,
                                     );
                                     await currentUserReference
                                         .update(usersUpdateData);
@@ -453,7 +438,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            NavBarPage(initialPage: 'home'),
+                                            NavBarPage(initialPage: 'lessons'),
                                       ),
                                     );
                                   },
@@ -479,41 +464,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                   ),
                                 );
                               },
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        NavBarPage(initialPage: 'home'),
-                                  ),
-                                );
-                              },
-                              text: 'Skip for now',
-                              options: FFButtonOptions(
-                                width: 230,
-                                height: 50,
-                                color: Color(0xFFADAABC),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Lexend Deca',
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.normal,
-                                    ),
-                                elevation: 3,
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 8,
-                              ),
                             ),
                           ),
                         ],

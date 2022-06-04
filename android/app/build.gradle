@@ -64,7 +64,9 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
         }
     }
 }
@@ -76,4 +78,3 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
-android.buildTypes.release.ndk.debugSymbolLevel = 'FULL'

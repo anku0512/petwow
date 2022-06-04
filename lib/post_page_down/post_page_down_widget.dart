@@ -116,6 +116,8 @@ class _PostPageDownWidgetState extends State<PostPageDownWidget> {
                               context: context,
                               allowPhoto: true,
                               allowVideo: true,
+                              backgroundColor: Color(0xFFE8E8E8),
+                              textColor: Colors.black,
                             );
                             if (selectedMedia != null &&
                                 selectedMedia.every((m) => validateFileFormat(

@@ -280,6 +280,20 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.waitlist;
+    if (value != null) {
+      result
+        ..add('waitlist')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.yourName;
+    if (value != null) {
+      result
+        ..add('your_name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.reference;
     if (value != null) {
       result
@@ -453,6 +467,14 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.placeworkDoorbell = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'waitlist':
+          result.waitlist = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'your_name':
+          result.yourName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
         case 'Document__Reference__Field':
           result.reference = serializers.deserialize(value,
                   specifiedType: const FullType(
@@ -542,6 +564,10 @@ class _$UsersRecord extends UsersRecord {
   @override
   final String placeworkDoorbell;
   @override
+  final String waitlist;
+  @override
+  final String yourName;
+  @override
   final DocumentReference<Object> reference;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder) updates]) =>
@@ -585,6 +611,8 @@ class _$UsersRecord extends UsersRecord {
       this.placeworkDuration,
       this.placeworkSendToPlace,
       this.placeworkDoorbell,
+      this.waitlist,
+      this.yourName,
       this.reference})
       : super._();
 
@@ -636,6 +664,8 @@ class _$UsersRecord extends UsersRecord {
         placeworkDuration == other.placeworkDuration &&
         placeworkSendToPlace == other.placeworkSendToPlace &&
         placeworkDoorbell == other.placeworkDoorbell &&
+        waitlist == other.waitlist &&
+        yourName == other.yourName &&
         reference == other.reference;
   }
 
@@ -659,25 +689,25 @@ class _$UsersRecord extends UsersRecord {
                                                                 $jc(
                                                                     $jc(
                                                                         $jc(
-                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, email.hashCode), password.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode), phoneNumber.hashCode), gender.hashCode), breed.hashCode), dob.hashCode), taskSit.hashCode), taskShakeHand.hashCode), taskDown.hashCode), taskStay.hashCode), taskCome.hashCode), taskLeaveIt.hashCode), taskTouch.hashCode), taskRollOver.hashCode), taskSpin.hashCode),
-                                                                                taskTellMeASecret.hashCode),
-                                                                            taskCrossPaws.hashCode),
-                                                                        taskChinRest.hashCode),
-                                                                    taskHug.hashCode),
-                                                                taskLegWeaves.hashCode),
-                                                            taskBarJump.hashCode),
-                                                        likedPosts.hashCode),
-                                                    taskDance.hashCode),
-                                                taskShy.hashCode),
-                                            taskHoopedArms.hashCode),
-                                        taskScoot.hashCode),
-                                    taskJumpRope.hashCode),
-                                taskFigure8.hashCode),
-                            taskFrisbee.hashCode),
-                        placeworkIntro.hashCode),
-                    placeworkDuration.hashCode),
-                placeworkSendToPlace.hashCode),
-            placeworkDoorbell.hashCode),
+                                                                            $jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc($jc(0, email.hashCode), password.hashCode), displayName.hashCode), photoUrl.hashCode), uid.hashCode), createdTime.hashCode), phoneNumber.hashCode), gender.hashCode), breed.hashCode), dob.hashCode), taskSit.hashCode), taskShakeHand.hashCode), taskDown.hashCode), taskStay.hashCode), taskCome.hashCode), taskLeaveIt.hashCode), taskTouch.hashCode), taskRollOver.hashCode), taskSpin.hashCode), taskTellMeASecret.hashCode), taskCrossPaws.hashCode),
+                                                                                taskChinRest.hashCode),
+                                                                            taskHug.hashCode),
+                                                                        taskLegWeaves.hashCode),
+                                                                    taskBarJump.hashCode),
+                                                                likedPosts.hashCode),
+                                                            taskDance.hashCode),
+                                                        taskShy.hashCode),
+                                                    taskHoopedArms.hashCode),
+                                                taskScoot.hashCode),
+                                            taskJumpRope.hashCode),
+                                        taskFigure8.hashCode),
+                                    taskFrisbee.hashCode),
+                                placeworkIntro.hashCode),
+                            placeworkDuration.hashCode),
+                        placeworkSendToPlace.hashCode),
+                    placeworkDoorbell.hashCode),
+                waitlist.hashCode),
+            yourName.hashCode),
         reference.hashCode));
   }
 
@@ -721,6 +751,8 @@ class _$UsersRecord extends UsersRecord {
           ..add('placeworkDuration', placeworkDuration)
           ..add('placeworkSendToPlace', placeworkSendToPlace)
           ..add('placeworkDoorbell', placeworkDoorbell)
+          ..add('waitlist', waitlist)
+          ..add('yourName', yourName)
           ..add('reference', reference))
         .toString();
   }
@@ -888,6 +920,14 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   set placeworkDoorbell(String placeworkDoorbell) =>
       _$this._placeworkDoorbell = placeworkDoorbell;
 
+  String _waitlist;
+  String get waitlist => _$this._waitlist;
+  set waitlist(String waitlist) => _$this._waitlist = waitlist;
+
+  String _yourName;
+  String get yourName => _$this._yourName;
+  set yourName(String yourName) => _$this._yourName = yourName;
+
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
   set reference(DocumentReference<Object> reference) =>
@@ -937,6 +977,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _placeworkDuration = $v.placeworkDuration;
       _placeworkSendToPlace = $v.placeworkSendToPlace;
       _placeworkDoorbell = $v.placeworkDoorbell;
+      _waitlist = $v.waitlist;
+      _yourName = $v.yourName;
       _reference = $v.reference;
       _$v = null;
     }
@@ -997,6 +1039,8 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
               placeworkDuration: placeworkDuration,
               placeworkSendToPlace: placeworkSendToPlace,
               placeworkDoorbell: placeworkDoorbell,
+              waitlist: waitlist,
+              yourName: yourName,
               reference: reference);
     } catch (_) {
       String _$failedField;

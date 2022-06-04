@@ -1,12 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:share_plus/share_plus.dart';
-
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../edit_profile/edit_profile_widget.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../login/login_widget.dart';
+import '../main.dart';
+import '../store/store_widget.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({Key key}) : super(key: key);
@@ -40,7 +44,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     setupTriggerAnimations(
-      animationsMap.values.where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
       this,
     );
   }
@@ -50,8 +55,302 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF1F4F8),
-      body: SingleChildScrollView(
-        child: SafeArea(
+      endDrawer: Container(
+        width: 260,
+        child: Drawer(
+          elevation: 16,
+          child: Container(
+            width: 100,
+            height: 100,
+            decoration: BoxDecoration(
+              color: Color(0xFFFFC700),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/true_health_(2).png',
+                ).image,
+              ),
+            ),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              scrollDirection: Axis.vertical,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10, 100, 0, 0),
+                  child: InkWell(
+                    onTap: () async {
+                      if (scaffoldKey.currentState.isDrawerOpen ||
+                          scaffoldKey.currentState.isEndDrawerOpen) {
+                        Navigator.pop(context);
+                      }
+                    },
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(5, 0, 8, 0),
+                          child: AuthUserStreamWidget(
+                            child: StreamBuilder<UsersRecord>(
+                              stream:
+                                  UsersRecord.getDocument(currentUserReference),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50,
+                                      height: 50,
+                                      child: CircularProgressIndicator(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryColor,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                final circleImageUsersRecord = snapshot.data;
+                                return InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            NavBarPage(initialPage: 'profile'),
+                                      ),
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 130,
+                                    height: 130,
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Image.network(
+                                      currentUserPhoto,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 50, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      FaIcon(
+                        FontAwesomeIcons.dog,
+                        color: Color(0xFF57636C),
+                        size: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => EditProfileWidget(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Edit Profile',
+                            style: FlutterFlowTheme.of(context).title2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.chat,
+                        color: Color(0xFF57636C),
+                        size: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            await launchURL(
+                                'https://api.whatsapp.com/send/?phone=919776386164&text&app_absent=0');
+                          },
+                          child: Text(
+                            'Chat with Expert',
+                            style: FlutterFlowTheme.of(context).title2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Padding(
+                //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                //   child: Row(
+                //     mainAxisSize: MainAxisSize.max,
+                //     children: [
+                //       Icon(
+                //         Icons.auto_stories,
+                //         color: Color(0xFF57636C),
+                //         size: 30,
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                //         child: Text(
+                //           'Blog Post',
+                //           style: FlutterFlowTheme.of(context).title2,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.store,
+                        color: Color(0xFF57636C),
+                        size: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StoreWidget(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'Store',
+                            style: FlutterFlowTheme.of(context).title2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      InkWell(
+                        onTap: () async {
+                          var confirmDialogResponse = await showDialog<bool>(
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    content: Text(
+                                        'Are you sure you want to log out?'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(
+                                            alertDialogContext, false),
+                                        child: Text('Cancel'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(
+                                            alertDialogContext, true),
+                                        child: Text('Confirm'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ) ??
+                              false;
+                          if (confirmDialogResponse) {
+                            await signOut();
+                          } else {
+                            return;
+                          }
+
+                          await Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginWidget(),
+                            ),
+                            (r) => false,
+                          );
+                        },
+                        child: Icon(
+                          Icons.login,
+                          color: Color(0xFF57636C),
+                          size: 30,
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: InkWell(
+                          onTap: () async {
+                            var confirmDialogResponse = await showDialog<bool>(
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      content: Text(
+                                          'Are you sure you want to log out?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, false),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(
+                                              alertDialogContext, true),
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
+                                false;
+                            if (confirmDialogResponse) {
+                              await signOut();
+                            } else {
+                              return;
+                            }
+
+                            await Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginWidget(),
+                              ),
+                              (r) => false,
+                            );
+                          },
+                          child: Text(
+                            'Log out',
+                            style: FlutterFlowTheme.of(context).title2,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -79,15 +378,18 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(16, 0, 10, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: AuthUserStreamWidget(
                                 child: StreamBuilder<UsersRecord>(
-                                  stream: UsersRecord.getDocument(currentUserReference),
+                                  stream: UsersRecord.getDocument(
+                                      currentUserReference),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
@@ -96,15 +398,17 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           width: 50,
                                           height: 50,
                                           child: CircularProgressIndicator(
-                                            color: FlutterFlowTheme.of(context).primaryColor,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryColor,
                                           ),
                                         ),
                                       );
                                     }
-                                    final circleImageUsersRecord = snapshot.data;
+                                    final circleImageUsersRecord =
+                                        snapshot.data;
                                     return Container(
-                                      width: 40,
-                                      height: 40,
+                                      width: 48,
+                                      height: 48,
                                       clipBehavior: Clip.antiAlias,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
@@ -118,21 +422,35 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                 ),
                               ),
                             ),
-                            Text(
-                              'Welcome',
-                              style: FlutterFlowTheme.of(context).title2.override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF090F13),
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                            ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
+                              padding:
+                                  EdgeInsetsDirectional.fromSTEB(4, 0, 0, 0),
                               child: AuthUserStreamWidget(
                                 child: Text(
                                   currentUserDisplayName,
-                                  style: FlutterFlowTheme.of(context).title2,
+                                  style: FlutterFlowTheme.of(context)
+                                      .title2
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 26,
+                                      ),
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.4, 0),
+                              child: Padding(
+                                padding:
+                                    EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                                child: InkWell(
+                                  onTap: () async {
+                                    scaffoldKey.currentState.openEndDrawer();
+                                  },
+                                  child: Icon(
+                                    Icons.dehaze,
+                                    color: Color(0xFF6268A7),
+                                    size: 28,
+                                  ),
                                 ),
                               ),
                             ),
@@ -147,7 +465,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 32),
                 child: StreamBuilder<List<PostsRecord>>(
                   stream: queryPostsRecord(
-                    queryBuilder: (postsRecord) => postsRecord.orderBy('created_at', descending: true),
+                    queryBuilder: (postsRecord) =>
+                        postsRecord.orderBy('created_at', descending: true),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -165,12 +484,15 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     List<PostsRecord> socialFeedPostsRecordList = snapshot.data;
                     return Column(
                       mainAxisSize: MainAxisSize.max,
-                      children: List.generate(socialFeedPostsRecordList.length, (socialFeedIndex) {
-                        final socialFeedPostsRecord = socialFeedPostsRecordList[socialFeedIndex];
+                      children: List.generate(socialFeedPostsRecordList.length,
+                          (socialFeedIndex) {
+                        final socialFeedPostsRecord =
+                            socialFeedPostsRecordList[socialFeedIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 12),
                           child: StreamBuilder<UsersRecord>(
-                            stream: UsersRecord.getDocument(socialFeedPostsRecord.user),
+                            stream: UsersRecord.getDocument(
+                                socialFeedPostsRecord.user),
                             builder: (context, snapshot) {
                               // Customize what your widget looks like when it's loading.
                               if (!snapshot.hasData) {
@@ -179,7 +501,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                     width: 50,
                                     height: 50,
                                     child: CircularProgressIndicator(
-                                      color: FlutterFlowTheme.of(context).primaryColor,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryColor,
                                     ),
                                   ),
                                 );
@@ -192,18 +515,22 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 2, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 0, 2, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Card(
-                                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
                                             color: Color(0xFF4B39EF),
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(20),
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional.fromSTEB(1, 1, 1, 1),
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(1, 1, 1, 1),
                                               child: Container(
                                                 width: 40,
                                                 height: 40,
@@ -221,17 +548,27 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional.fromSTEB(12, 0, 0, 0),
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(12, 0, 0, 0),
                                                   child: Text(
-                                                    userPostUsersRecord.displayName,
-                                                    style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                          fontFamily: 'Lexend Deca',
-                                                          color: Color(0xFF090F13),
+                                                    userPostUsersRecord
+                                                        .displayName,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyText1
+                                                        .override(
+                                                          fontFamily:
+                                                              'Lexend Deca',
+                                                          color:
+                                                              Color(0xFF090F13),
                                                           fontSize: 14,
-                                                          fontWeight: FontWeight.normal,
+                                                          fontWeight:
+                                                              FontWeight.normal,
                                                         ),
                                                   ),
                                                 ),
@@ -242,9 +579,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 4, 0, 0),
                                       child: Container(
-                                        width: MediaQuery.of(context).size.width * 0.96,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.96,
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           boxShadow: [
@@ -254,32 +594,49 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               offset: Offset(0, 2),
                                             )
                                           ],
-                                          borderRadius: BorderRadius.circular(8),
+                                          borderRadius:
+                                              BorderRadius.circular(8),
                                         ),
                                         child: InkWell(
                                           onDoubleTap: () async {
                                             if (socialFeedPostsRecord.likedUsers
                                                 .toList()
-                                                .contains(currentUserReference)) {
+                                                .contains(
+                                                    currentUserReference)) {
                                               // Unlike post
 
                                               final postsUpdateData = {
                                                 'liked_users':
-                                                FieldValue.arrayRemove([currentUserReference]),
+                                                    FieldValue.arrayRemove(
+                                                        [currentUserReference]),
                                               };
-                                              await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                              await socialFeedPostsRecord
+                                                  .reference
+                                                  .update(postsUpdateData);
                                             } else {
                                               // Like post
 
                                               final postsUpdateData = {
                                                 'liked_users':
-                                                FieldValue.arrayUnion([currentUserReference]),
+                                                    FieldValue.arrayUnion(
+                                                        [currentUserReference]),
                                               };
-                                              await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                              await socialFeedPostsRecord
+                                                  .reference
+                                                  .update(postsUpdateData);
+                                              await (animationsMap[
+                                                              'iconOnActionTriggerAnimation']
+                                                          .curvedAnimation
+                                                          .parent
+                                                      as AnimationController)
+                                                  .forward(from: 0.0);
+
+                                              return;
                                             }
                                           },
                                           child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(8),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
                                             child: Image.network(
                                               socialFeedPostsRecord.imageUrl,
                                               width: double.infinity,
@@ -291,43 +648,80 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(0, 4, 8, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 4, 8, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Row(
                                             mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 16, 0),
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(0, 0, 16, 0),
                                                 child: Row(
-                                                  mainAxisSize: MainAxisSize.max,
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
                                                   children: [
                                                     InkWell(
                                                       onTap: () async {
-                                                        if (socialFeedPostsRecord.likedUsers
+                                                        if (socialFeedPostsRecord
+                                                            .likedUsers
                                                             .toList()
-                                                            .contains(currentUserReference)) {
+                                                            .contains(
+                                                                currentUserReference)) {
                                                           // Unlike post
 
-                                                          final postsUpdateData = {
+                                                          final postsUpdateData =
+                                                              {
                                                             'liked_users':
-                                                                FieldValue.arrayRemove([currentUserReference]),
+                                                                FieldValue
+                                                                    .arrayRemove([
+                                                              currentUserReference
+                                                            ]),
                                                           };
-                                                          await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                                          await socialFeedPostsRecord
+                                                              .reference
+                                                              .update(
+                                                                  postsUpdateData);
                                                         } else {
                                                           // Like post
 
-                                                          final postsUpdateData = {
+                                                          final postsUpdateData =
+                                                              {
                                                             'liked_users':
-                                                                FieldValue.arrayUnion([currentUserReference]),
+                                                                FieldValue
+                                                                    .arrayUnion([
+                                                              currentUserReference
+                                                            ]),
                                                           };
-                                                          await socialFeedPostsRecord.reference.update(postsUpdateData);
+                                                          await socialFeedPostsRecord
+                                                              .reference
+                                                              .update(
+                                                                  postsUpdateData);
+                                                          await (animationsMap[
+                                                                          'iconOnActionTriggerAnimation']
+                                                                      .curvedAnimation
+                                                                      .parent
+                                                                  as AnimationController)
+                                                              .forward(
+                                                                  from: 0.0);
+
+                                                          return;
                                                         }
                                                       },
-                                                      child: getIcon(socialFeedPostsRecord),
-                                                    ).animated([animationsMap['iconOnActionTriggerAnimation']]),
+                                                      child: FaIcon(
+                                                        FontAwesomeIcons.paw,
+                                                        color:
+                                                            Color(0xFF95A1AC),
+                                                        size: 24,
+                                                      ),
+                                                    ).animated([
+                                                      animationsMap[
+                                                          'iconOnActionTriggerAnimation']
+                                                    ]),
                                                   ],
                                                 ),
                                               ),
@@ -336,46 +730,43 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                           Expanded(
                                             child: Text(
                                               valueOrDefault<String>(
-                                                socialFeedPostsRecord.likedUsers.toList().length.toString(),
+                                                socialFeedPostsRecord.likedUsers
+                                                    .toList()
+                                                    .length
+                                                    .toString(),
                                                 '0',
                                               ),
-                                              style: FlutterFlowTheme.of(context).bodyText1.override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Color(0xFF95A1AC),
-                                                  ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyText1
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color:
+                                                            Color(0xFF95A1AC),
+                                                      ),
                                             ),
-                                          ),
-                                          Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              InkWell(
-                                                onTap: () async {
-                                                  await Share.share('');
-                                                },
-                                                child: Icon(
-                                                  Icons.ios_share,
-                                                  color: Color(0xFF95A1AC),
-                                                  size: 24,
-                                                ),
-                                              ),
-                                            ],
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(2, 4, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          2, 4, 0, 0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Expanded(
                                             child: Text(
                                               socialFeedPostsRecord.description,
-                                              style: FlutterFlowTheme.of(context).bodyText1.override(
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyText1
+                                                  .override(
                                                     fontFamily: 'Lexend Deca',
                                                     color: Color(0xFF090F13),
                                                     fontSize: 14,
-                                                    fontWeight: FontWeight.normal,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                             ),
                                           ),
@@ -397,24 +788,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
           ),
         ),
       ),
-    );
-  }
-}
-
-Icon getIcon(var socialFeedPostsRecord) {
-  if (socialFeedPostsRecord.likedUsers.toList().contains(currentUserReference)) {
-    return Icon(
-      FFIcons.kpaw,
-      //FFIcons.kpaw,
-      color: Color(0xFF95A1AC),
-      size: 24,
-    );
-  } else {
-    return Icon(
-      FFIcons.kunlikePaw,
-      //FFIcons.kpaw,
-      color: Color(0xFF95A1AC),
-      size: 24,
     );
   }
 }

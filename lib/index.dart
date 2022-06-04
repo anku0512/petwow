@@ -1,11 +1,11 @@
 // Export pages
 export 'login/login_widget.dart' show LoginWidget;
-export 'home/home_widget.dart' show HomeWidget;
 export 'lessons/lessons_widget.dart' show LessonsWidget;
+export 'home/home_widget.dart' show HomeWidget;
 export 'create_post/create_post_widget.dart' show CreatePostWidget;
 export 'profile/profile_widget.dart' show ProfileWidget;
-export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export 'post_page_sit/post_page_sit_widget.dart' show PostPageSitWidget;
+export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
 export 'complete_profile/complete_profile_widget.dart'
     show CompleteProfileWidget;
 export 'sit/sit_widget.dart' show SitWidget;
@@ -14,8 +14,8 @@ export 'post_page_shake_hand/post_page_shake_hand_widget.dart'
     show PostPageShakeHandWidget;
 export 'post_page_down/post_page_down_widget.dart' show PostPageDownWidget;
 export 'down/down_widget.dart' show DownWidget;
-export 'post_page_stay/post_page_stay_widget.dart' show PostPageStayWidget;
 export 'post_page_come/post_page_come_widget.dart' show PostPageComeWidget;
+export 'post_page_stay/post_page_stay_widget.dart' show PostPageStayWidget;
 export 'stay/stay_widget.dart' show StayWidget;
 export 'come/come_widget.dart' show ComeWidget;
 export 'post_page_leave_it/post_page_leave_it_widget.dart'
@@ -106,3 +106,4 @@ export 'post_page_frisbee_badge/post_page_frisbee_badge_widget.dart'
 export 'brush_teeth_copy/brush_teeth_copy_widget.dart'
     show BrushTeethCopyWidget;
 export 'resetpassowrd/resetpassowrd_widget.dart' show ResetpassowrdWidget;
+export 'store/store_widget.dart' show StoreWidget;

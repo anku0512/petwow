@@ -276,7 +276,7 @@ class _PostPageChinRestWidgetState extends State<PostPageChinRestWidget> {
                         fontSize: 18,
                       ),
                 ),
-                if ((currentUserDocument?.gender) == 'Male')
+                if ((valueOrDefault(currentUserDocument?.gender, '')) == 'Male')
                   AuthUserStreamWidget(
                     child: Text(
                       'his',
@@ -287,7 +287,8 @@ class _PostPageChinRestWidgetState extends State<PostPageChinRestWidget> {
                           ),
                     ),
                   ),
-                if ((currentUserDocument?.gender) == 'Female')
+                if ((valueOrDefault(currentUserDocument?.gender, '')) ==
+                    'Female')
                   AuthUserStreamWidget(
                     child: Text(
                       'her',

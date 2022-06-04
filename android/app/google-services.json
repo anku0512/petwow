@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "623047593884-igqgl1nq0h90h2da691p0f76048vbadl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterflow.petwow",
+            "certificate_hash": "6ed6ae86081ad1ef49f90c7a2dd8e2c5b63cbaf1"
+          }
+        },
+        {
           "client_id": "623047593884-lddkog67qq98tgfjiil7rv4a5pmm72rs.apps.googleusercontent.com",
           "client_type": 3
         }

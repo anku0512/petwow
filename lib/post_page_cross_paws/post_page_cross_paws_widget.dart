@@ -277,7 +277,7 @@ class _PostPageCrossPawsWidgetState extends State<PostPageCrossPawsWidget> {
                         fontSize: 18,
                       ),
                 ),
-                if ((currentUserDocument?.gender) == 'Male')
+                if ((valueOrDefault(currentUserDocument?.gender, '')) == 'Male')
                   AuthUserStreamWidget(
                     child: Text(
                       'his',
@@ -288,7 +288,8 @@ class _PostPageCrossPawsWidgetState extends State<PostPageCrossPawsWidget> {
                           ),
                     ),
                   ),
-                if ((currentUserDocument?.gender) == 'Female')
+                if ((valueOrDefault(currentUserDocument?.gender, '')) ==
+                    'Female')
                   AuthUserStreamWidget(
                     child: Text(
                       'her',

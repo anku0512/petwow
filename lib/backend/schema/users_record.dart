@@ -152,6 +152,13 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
   String get placeworkDoorbell;
 
   @nullable
+  String get waitlist;
+
+  @nullable
+  @BuiltValueField(wireName: 'your_name')
+  String get yourName;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -190,7 +197,9 @@ abstract class UsersRecord implements Built<UsersRecord, UsersRecordBuilder> {
     ..placeworkIntro = ''
     ..placeworkDuration = ''
     ..placeworkSendToPlace = ''
-    ..placeworkDoorbell = '';
+    ..placeworkDoorbell = ''
+    ..waitlist = ''
+    ..yourName = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('users');
@@ -250,6 +259,8 @@ Map<String, dynamic> createUsersRecordData({
   String placeworkDuration,
   String placeworkSendToPlace,
   String placeworkDoorbell,
+  String waitlist,
+  String yourName,
 }) =>
     serializers.toFirestore(
         UsersRecord.serializer,
@@ -290,4 +301,6 @@ Map<String, dynamic> createUsersRecordData({
           ..placeworkIntro = placeworkIntro
           ..placeworkDuration = placeworkDuration
           ..placeworkSendToPlace = placeworkSendToPlace
-          ..placeworkDoorbell = placeworkDoorbell));
+          ..placeworkDoorbell = placeworkDoorbell
+          ..waitlist = waitlist
+          ..yourName = yourName));

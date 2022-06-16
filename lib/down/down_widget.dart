@@ -179,13 +179,16 @@ class _DownWidgetState extends State<DownWidget> {
                         children: [
                           AuthUserStreamWidget(
                             child: FlutterFlowDropDown(
-                              initialOption: dropDownValue ??= valueOrDefault(currentUserDocument?.taskDown, ''),
+                              initialOption: dropDownValue ??= valueOrDefault(currentUserDocument?.taskDown, 'Not in progress'),
                               options: ['Not in progress', 'In Progress', 'Mastered'],
                               onChanged: (val) async {
                                 final usersUpdateData = createUsersRecordData(
                                   taskDown: val,
                                 );
                                 await currentUserReference.update(usersUpdateData);
+                                setState(() {
+
+                                });
                               },
                               width: 180,
                               height: 40,
@@ -194,103 +197,16 @@ class _DownWidgetState extends State<DownWidget> {
                                     color: Colors.black,
                                   ),
                               hintText: 'Please select...',
-                              fillColor: Colors.white,
-                              elevation: 2,
+                              fillColor: FlutterFlowTheme.of(context).lineColor,
+                              elevation: 10,
                               borderColor: Colors.transparent,
                               borderWidth: 0,
                               borderRadius: 8,
-                              margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
+                              margin: EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
                               hidesUnderline: true,
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                            child: InkWell(
-                              onTap: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskDown: dropDownValue,
-                                );
-                                await currentUserReference.update(usersUpdateData);
-                              },
-                              child: Icon(
-                                Icons.check_circle_outline,
-                                color: Colors.black,
-                                size: 32,
-                              ),
-                            ),
-                          ),
                         ],
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskDown: 'In Progress',
-                                );
-                                await currentUserReference.update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: DownWidget(),
-                                  ),
-                                );
-                              },
-                              text: 'In Progress',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskDown: 'Mastered',
-                                );
-                                await currentUserReference.update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PostPageDownWidget(),
-                                  ),
-                                );
-                              },
-                              text: 'Mastered',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
-                              ),
-                            ),
-                          ],
-                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),

@@ -11,6 +11,10 @@ import 'package:flutter/material.dart';
 import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
+import '../down/down_widget.dart';
+
+
 
 class DownWidget extends StatefulWidget {
   const DownWidget({Key key}) : super(key: key);
@@ -20,6 +24,7 @@ class DownWidget extends StatefulWidget {
 }
 
 class _DownWidgetState extends State<DownWidget> {
+  String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final String _herHim =
@@ -177,6 +182,64 @@ class _DownWidgetState extends State<DownWidget> {
                         'STATUS',
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            child: FlutterFlowDropDown(
+                              initialOption: dropDownValue ??=
+                                  valueOrDefault(
+                                      currentUserDocument?.taskDown, ''),
+                              options: [
+                                'Not in progress',
+                                'In Progress',
+                                'Mastered'
+                              ],
+                              onChanged: (val) =>
+                                  setState(() => dropDownValue = val),
+                              width: 180,
+                              height: 40,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .bodyText1
+                                  .override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                              ),
+                              hintText: 'Please select...',
+                              fillColor: Colors.white,
+                              elevation: 2,
+                              borderColor: Colors.transparent,
+                              borderWidth: 0,
+                              borderRadius: 8,
+                              margin: EdgeInsetsDirectional.fromSTEB(
+                                  12, 4, 12, 4),
+                              hidesUnderline: true,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                            EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: InkWell(
+                              onTap: () async {
+                                final usersUpdateData =
+                                createUsersRecordData(
+                                  taskDown: dropDownValue,
+                                );
+                                await currentUserReference
+                                    .update(usersUpdateData);
+
+                                },
+                              child: Icon(
+                                Icons.check_circle_outline,
+                                color: Colors.black,
+                                size: 32,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
                         child: Row(

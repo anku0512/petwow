@@ -453,7 +453,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                           child: Icon(
-                            FFIcons.knumber13,
+                            FFIcons.knumber14,
                             color: Color(0xFFC4C4C4),
                             size: 26,
                           ),

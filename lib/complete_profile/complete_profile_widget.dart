@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
@@ -8,9 +10,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
 import '../main.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class CompleteProfileWidget extends StatefulWidget {
   const CompleteProfileWidget({Key key}) : super(key: key);
@@ -27,8 +26,6 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
   String choiceChipsValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-
-
   @override
   void initState() {
     super.initState();
@@ -40,8 +37,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
   Widget build(BuildContext context) {
     return StreamBuilder<List<DogBreedRecord>>(
       stream: queryDogBreedRecord(
-        queryBuilder: (dogBreedRecord) =>
-            dogBreedRecord.where('title', isEqualTo: 'dog breeds'),
+        queryBuilder: (dogBreedRecord) => dogBreedRecord.where('title', isEqualTo: 'dog breeds'),
         singleRecord: true,
       ),
       builder: (context, snapshot) {
@@ -63,9 +59,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
           return Container();
         }
         final completeProfileDogBreedRecord =
-            completeProfileDogBreedRecordList.isNotEmpty
-                ? completeProfileDogBreedRecordList.first
-                : null;
+            completeProfileDogBreedRecordList.isNotEmpty ? completeProfileDogBreedRecordList.first : null;
         return Scaffold(
           key: scaffoldKey,
           appBar: AppBar(
@@ -121,8 +115,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                           Align(
                             alignment: AlignmentDirectional(0, 0),
                             child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                               child: Container(
                                 width: 140,
                                 height: 140,
@@ -141,37 +134,27 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                             child: FFButtonWidget(
                               onPressed: () async {
-                                final selectedMedia =
-                                    await selectMediaWithSourceBottomSheet(
+                                final selectedMedia = await selectMediaWithSourceBottomSheet(
                                   context: context,
                                   allowPhoto: true,
                                 );
                                 if (selectedMedia != null &&
-                                    selectedMedia.every((m) =>
-                                        validateFileFormat(
-                                            m.storagePath, context))) {
+                                    selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
                                   showUploadMessage(
                                     context,
                                     'Uploading file...',
                                     showLoading: true,
                                   );
                                   final downloadUrls = (await Future.wait(
-                                          selectedMedia.map((m) async =>
-                                              await uploadData(
-                                                  m.storagePath, m.bytes))))
+                                          selectedMedia.map((m) async => await uploadData(m.storagePath, m.bytes))))
                                       .where((u) => u != null)
                                       .toList();
-                                  ScaffoldMessenger.of(context)
-                                      .hideCurrentSnackBar();
-                                  if (downloadUrls != null &&
-                                      downloadUrls.length ==
-                                          selectedMedia.length) {
-                                    setState(() =>
-                                        uploadedFileUrl = downloadUrls.first);
+                                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                  if (downloadUrls != null && downloadUrls.length == selectedMedia.length) {
+                                    setState(() => uploadedFileUrl = downloadUrls.first);
                                     showUploadMessage(
                                       context,
                                       'Success!',
@@ -190,9 +173,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                 width: 130,
                                 height: 40,
                                 color: Color(0xFFF1F4F8),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Lexend Deca',
                                       color: Color(0xFF090F13),
                                       fontSize: 14,
@@ -217,17 +198,14 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Your Name',
-                                      labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF95A1AC),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF95A1AC),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                       hintText: 'Your Name',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2
-                                          .override(
+                                      hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                             fontFamily: 'Lexend Deca',
                                             color: Color(0xFF95A1AC),
                                             fontSize: 14,
@@ -249,19 +227,16 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
-                                      contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                                      contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.of(context).secondaryText,
                                           fontSize: 14,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     keyboardType: TextInputType.name,
-                                      ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -277,13 +252,12 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Your Pet\'s name',
-                                      labelStyle:
-                                      FlutterFlowTheme.of(context).bodyText2.override(
-                                        fontFamily: 'Lexend Deca',
-                                        color: Color(0xFF95A1AC),
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.normal,
-                                      ),
+                                      labelStyle: FlutterFlowTheme.of(context).bodyText2.override(
+                                            fontFamily: 'Lexend Deca',
+                                            color: Color(0xFF95A1AC),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.normal,
+                                          ),
                                       hintText: 'Your pet\'s name',
                                       hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                             fontFamily: 'Lexend Deca',
@@ -307,12 +281,9 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                       ),
                                       filled: true,
                                       fillColor: Colors.white,
-                                      contentPadding:
-                                      EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                                      contentPadding: EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    style: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Lexend Deca',
                                           color: FlutterFlowTheme.of(context).secondaryText,
                                           fontSize: 14,
@@ -331,16 +302,11 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                               children: [
                                 Expanded(
                                   child: FlutterFlowDropDown(
-                                    options: completeProfileDogBreedRecord.items
-                                        .toList()
-                                        .toList(),
-                                    onChanged: (val) =>
-                                        setState(() => dropDownValue = val),
+                                    options: completeProfileDogBreedRecord.items.toList().toList(),
+                                    onChanged: (val) => setState(() => dropDownValue = val),
                                     width: 180,
                                     height: 50,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyText1
-                                        .override(
+                                    textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                           fontFamily: 'Poppins',
                                           color: Colors.black,
                                         ),
@@ -355,8 +321,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     borderColor: Color(0xFFF1F4F8),
                                     borderWidth: 2,
                                     borderRadius: 8,
-                                    margin: EdgeInsetsDirectional.fromSTEB(
-                                        12, 4, 12, 4),
+                                    margin: EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
                                     hidesUnderline: true,
                                   ),
                                 ),
@@ -370,21 +335,14 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5, 0, 0, 0),
+                                    padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                                     child: FlutterFlowChoiceChips(
                                       initiallySelected: [choiceChipsValue],
-                                      options: [
-                                        ChipData('Male'),
-                                        ChipData('Female')
-                                      ],
-                                      onChanged: (val) => setState(
-                                          () => choiceChipsValue = val.first),
+                                      options: [ChipData('Male'), ChipData('Female')],
+                                      onChanged: (val) => setState(() => choiceChipsValue = val.first),
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor: Color(0xFF323B45),
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText1
-                                            .override(
+                                        textStyle: FlutterFlowTheme.of(context).bodyText1.override(
                                               fontFamily: 'Poppins',
                                               color: Colors.white,
                                             ),
@@ -394,9 +352,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                       ),
                                       unselectedChipStyle: ChipStyle(
                                         backgroundColor: Colors.white,
-                                        textStyle: FlutterFlowTheme.of(context)
-                                            .bodyText2
-                                            .override(
+                                        textStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                               fontFamily: 'Poppins',
                                               color: Color(0xFF323B45),
                                             ),
@@ -414,11 +370,9 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                             ),
                           ),
                           Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
                             child: FutureBuilder<UsersRecord>(
-                              future: UsersRecord.getDocumentOnce(
-                                  currentUserReference),
+                              future: UsersRecord.getDocumentOnce(currentUserReference),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
@@ -427,51 +381,56 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                       width: 50,
                                       height: 50,
                                       child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                        color: FlutterFlowTheme.of(context).primaryColor,
                                       ),
                                     ),
                                   );
                                 }
-                                final buttonSecondaryUsersRecord =
-                                    snapshot.data;
+                                final buttonSecondaryUsersRecord = snapshot.data;
                                 return FFButtonWidget(
                                   onPressed: () async {
-                                    final usersUpdateData =
-                                        createUsersRecordData(
-                                      displayName: valueOrDefault<String>(
-                                        petNameController.text,
-                                        'petWow',
-                                      ),
-                                      breed: valueOrDefault<String>(
-                                        dropDownValue,
-                                        'Unknown breed',
-                                      ),
-                                      gender: valueOrDefault<String>(
-                                        choiceChipsValue,
-                                        'Update Gender',
-                                      ),
-                                      photoUrl: uploadedFileUrl,
-                                      yourName: yourNameController.text,
-                                    );
-                                    await currentUserReference
-                                        .update(usersUpdateData);
-                                    await Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            NavBarPage(initialPage: 'lessons'),
-                                      ),
-                                    );
+                                    // if the profile is not completed then show snackbar
+                                    // else save the profile
+                                    if (petNameController.text.isEmpty ||
+                                        yourNameController.text.isEmpty ||
+                                        dropDownValue == null ||
+                                        dropDownValue.isEmpty ||
+                                        choiceChipsValue == null ||
+                                        choiceChipsValue.isEmpty) {
+                                      print(dropDownValue);
+                                      showSnackbar(context, 'Please fill your and your pets name to continue');
+                                    } else {
+                                      final usersUpdateData = createUsersRecordData(
+                                        displayName: valueOrDefault<String>(
+                                          petNameController.text,
+                                          'petWow',
+                                        ),
+                                        breed: valueOrDefault<String>(
+                                          dropDownValue,
+                                          'Unknown breed',
+                                        ),
+                                        gender: valueOrDefault<String>(
+                                          choiceChipsValue,
+                                          'Update Gender',
+                                        ),
+                                        photoUrl: uploadedFileUrl,
+                                        yourName: yourNameController.text,
+                                      );
+                                      await currentUserReference.update(usersUpdateData);
+                                      await Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => NavBarPage(initialPage: 'lessons'),
+                                        ),
+                                      );
+                                    }
                                   },
                                   text: 'Get Started',
                                   options: FFButtonOptions(
                                     width: 230,
                                     height: 50,
                                     color: Color(0xFF4B39EF),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .bodyText2
-                                        .override(
+                                    textStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                           fontFamily: 'Lexend Deca',
                                           color: Colors.white,
                                           fontSize: 14,

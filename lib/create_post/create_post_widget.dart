@@ -1,18 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../edit_profile/edit_profile_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../flutter_flow/upload_media.dart';
-import '../main.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../login/login_widget.dart';
-import '../edit_profile/edit_profile_widget.dart';
+import '../main.dart';
 import '../store/store_widget.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CreatePostWidget extends StatefulWidget {
   const CreatePostWidget({Key key}) : super(key: key);
@@ -61,8 +60,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(10, 100, 0, 0),
                   child: InkWell(
                     onTap: () async {
-                      if (scaffoldKey.currentState.isDrawerOpen ||
-                          scaffoldKey.currentState.isEndDrawerOpen) {
+                      if (scaffoldKey.currentState.isDrawerOpen || scaffoldKey.currentState.isEndDrawerOpen) {
                         Navigator.pop(context);
                       }
                     },
@@ -74,8 +72,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(5, 0, 8, 0),
                           child: AuthUserStreamWidget(
                             child: StreamBuilder<UsersRecord>(
-                              stream:
-                              UsersRecord.getDocument(currentUserReference),
+                              stream: UsersRecord.getDocument(currentUserReference),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
@@ -84,8 +81,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       width: 50,
                                       height: 50,
                                       child: CircularProgressIndicator(
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryColor,
+                                        color: FlutterFlowTheme.of(context).primaryColor,
                                       ),
                                     ),
                                   );
@@ -96,8 +92,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                     await Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            NavBarPage(initialPage: 'profile'),
+                                        builder: (context) => NavBarPage(initialPage: 'profile'),
                                       ),
                                     );
                                   },
@@ -166,8 +161,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                         child: InkWell(
                           onTap: () async {
-                            await launchURL(
-                                'https://api.whatsapp.com/send/?phone=919776386164&text&app_absent=0');
+                            await launchURL('https://api.whatsapp.com/send/?phone=919776386164&text&app_absent=0');
                           },
                           child: Text(
                             'Chat with Expert',
@@ -236,26 +230,23 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                       InkWell(
                         onTap: () async {
                           var confirmDialogResponse = await showDialog<bool>(
-                            context: context,
-                            builder: (alertDialogContext) {
-                              return AlertDialog(
-                                content: Text(
-                                    'Are you sure you want to log out?'),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () => Navigator.pop(
-                                        alertDialogContext, false),
-                                    child: Text('Cancel'),
-                                  ),
-                                  TextButton(
-                                    onPressed: () => Navigator.pop(
-                                        alertDialogContext, true),
-                                    child: Text('Confirm'),
-                                  ),
-                                ],
-                              );
-                            },
-                          ) ??
+                                context: context,
+                                builder: (alertDialogContext) {
+                                  return AlertDialog(
+                                    content: Text('Are you sure you want to log out?'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(alertDialogContext, false),
+                                        child: Text('Cancel'),
+                                      ),
+                                      TextButton(
+                                        onPressed: () => Navigator.pop(alertDialogContext, true),
+                                        child: Text('Confirm'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ) ??
                               false;
                           if (confirmDialogResponse) {
                             await signOut();
@@ -268,7 +259,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                             MaterialPageRoute(
                               builder: (context) => LoginWidget(),
                             ),
-                                (r) => false,
+                            (r) => false,
                           );
                         },
                         child: Icon(
@@ -282,26 +273,23 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                         child: InkWell(
                           onTap: () async {
                             var confirmDialogResponse = await showDialog<bool>(
-                              context: context,
-                              builder: (alertDialogContext) {
-                                return AlertDialog(
-                                  content: Text(
-                                      'Are you sure you want to log out?'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(
-                                          alertDialogContext, false),
-                                      child: Text('Cancel'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(
-                                          alertDialogContext, true),
-                                      child: Text('Confirm'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            ) ??
+                                  context: context,
+                                  builder: (alertDialogContext) {
+                                    return AlertDialog(
+                                      content: Text('Are you sure you want to log out?'),
+                                      actions: [
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(alertDialogContext, false),
+                                          child: Text('Cancel'),
+                                        ),
+                                        TextButton(
+                                          onPressed: () => Navigator.pop(alertDialogContext, true),
+                                          child: Text('Confirm'),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ) ??
                                 false;
                             if (confirmDialogResponse) {
                               await signOut();
@@ -314,7 +302,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                               MaterialPageRoute(
                                 builder: (context) => LoginWidget(),
                               ),
-                                  (r) => false,
+                              (r) => false,
                             );
                           },
                           child: Text(
@@ -369,8 +357,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                               child: AuthUserStreamWidget(
                                 child: StreamBuilder<UsersRecord>(
-                                  stream: UsersRecord.getDocument(
-                                      currentUserReference),
+                                  stream: UsersRecord.getDocument(currentUserReference),
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
@@ -379,8 +366,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                           width: 50,
                                           height: 50,
                                           child: CircularProgressIndicator(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryColor,
+                                            color: FlutterFlowTheme.of(context).primaryColor,
                                           ),
                                         ),
                                       );
@@ -407,9 +393,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                               child: AuthUserStreamWidget(
                                 child: Text(
                                   currentUserDisplayName,
-                                  style: FlutterFlowTheme.of(context)
-                                      .title2
-                                      .override(
+                                  style: FlutterFlowTheme.of(context).title2.override(
                                         fontFamily: 'Poppins',
                                         fontSize: 26,
                                       ),
@@ -419,8 +403,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                             Align(
                               alignment: AlignmentDirectional(0.4, 0),
                               child: Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
+                                padding: EdgeInsetsDirectional.fromSTEB(50, 0, 0, 0),
                                 child: InkWell(
                                   onTap: () async {
                                     scaffoldKey.currentState.openEndDrawer();
@@ -457,8 +440,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                           child: InkWell(
                             onTap: () async {
-                              final selectedMedia =
-                                  await selectMediaWithSourceBottomSheet(
+                              final selectedMedia = await selectMediaWithSourceBottomSheet(
                                 context: context,
                                 allowPhoto: true,
                                 allowVideo: true,
@@ -466,25 +448,19 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                 textColor: Colors.black,
                               );
                               if (selectedMedia != null &&
-                                  selectedMedia.every((m) => validateFileFormat(
-                                      m.storagePath, context))) {
+                                  selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
                                 showUploadMessage(
                                   context,
                                   'Uploading file...',
                                   showLoading: true,
                                 );
                                 final downloadUrls = (await Future.wait(
-                                        selectedMedia.map((m) async =>
-                                            await uploadData(
-                                                m.storagePath, m.bytes))))
+                                        selectedMedia.map((m) async => await uploadData(m.storagePath, m.bytes))))
                                     .where((u) => u != null)
                                     .toList();
-                                ScaffoldMessenger.of(context)
-                                    .hideCurrentSnackBar();
-                                if (downloadUrls != null &&
-                                    downloadUrls.length == selectedMedia.length) {
-                                  setState(
-                                      () => uploadedFileUrl = downloadUrls.first);
+                                ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                if (downloadUrls != null && downloadUrls.length == selectedMedia.length) {
+                                  setState(() => uploadedFileUrl = downloadUrls.first);
                                   showUploadMessage(
                                     context,
                                     'Success!',
@@ -536,9 +512,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                   decoration: InputDecoration(
                                     labelText: 'Description',
                                     hintText: 'Describe your post ',
-                                    hintStyle: FlutterFlowTheme.of(context)
-                                        .bodyText2
-                                        .override(
+                                    hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                           fontFamily: 'Lexend Deca',
                                           color: Color(0xFF95A1AC),
                                           fontSize: 14,
@@ -558,13 +532,9 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                                       ),
                                       borderRadius: BorderRadius.circular(8),
                                     ),
-                                    contentPadding:
-                                        EdgeInsetsDirectional.fromSTEB(
-                                            20, 32, 20, 12),
+                                    contentPadding: EdgeInsetsDirectional.fromSTEB(20, 32, 20, 12),
                                   ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyText1
-                                      .override(
+                                  style: FlutterFlowTheme.of(context).bodyText1.override(
                                         fontFamily: 'Lexend Deca',
                                         color: Colors.black,
                                         fontSize: 14,
@@ -587,20 +557,26 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(0, 16, 0, 0),
               child: FFButtonWidget(
                 onPressed: () async {
-                  final postsCreateData = createPostsRecordData(
-                    imageUrl: uploadedFileUrl,
-                    user: currentUserReference,
-                    createdAt: getCurrentTimestamp,
-                    description: textController.text,
-                    videoUrl: uploadedFileUrl,
-                  );
-                  await PostsRecord.collection.doc().set(postsCreateData);
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => NavBarPage(initialPage: 'home'),
-                    ),
-                  );
+                  // if the pic is not uploaded then show snack bar
+                  // else create the post
+                  if (uploadedFileUrl.isEmpty) {
+                    showSnackbar(context, 'Please upload a photo to create a post.');
+                  } else {
+                    final postsCreateData = createPostsRecordData(
+                      imageUrl: uploadedFileUrl,
+                      user: currentUserReference,
+                      createdAt: getCurrentTimestamp,
+                      description: textController.text,
+                      videoUrl: uploadedFileUrl,
+                    );
+                    await PostsRecord.collection.doc().set(postsCreateData);
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NavBarPage(initialPage: 'home'),
+                      ),
+                    );
+                  }
                 },
                 text: 'Create Post',
                 options: FFButtonOptions(

@@ -1,16 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import '../_pw_files/pw_constant.dart';
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../basic/basic_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../post_page_down/post_page_down_widget.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DownWidget extends StatefulWidget {
   const DownWidget({Key key}) : super(key: key);
@@ -20,14 +19,14 @@ class DownWidget extends StatefulWidget {
 }
 
 class _DownWidgetState extends State<DownWidget> {
+  String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
-  final String _herHim =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'him';
+  final String _herHim = currentUserDocument?.gender == 'Female' ? 'her' : 'him';
   final String _sheHe = currentUserDocument?.gender == 'Female' ? 'she' : 'he';
-  final String _herHis =
-      currentUserDocument?.gender == 'Female' ? 'her' : 'his';
+  final String _herHis = currentUserDocument?.gender == 'Female' ? 'her' : 'his';
   final String _currentUserDisplayName = currentUserDisplayName;
+
 
   @override
   Widget build(BuildContext context) {
@@ -85,8 +84,7 @@ class _DownWidgetState extends State<DownWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.81, -0.07),
                           child: Padding(
-                            padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: AuthUserStreamWidget(
                               child: Icon(
                                 FFIcons.kaward4,
@@ -120,11 +118,10 @@ class _DownWidgetState extends State<DownWidget> {
                         padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                         child: Text(
                           'DIFFICULTY',
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18,
-                                  ),
+                          style: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                fontSize: 18,
+                              ),
                         ),
                       ),
                       Row(
@@ -177,83 +174,45 @@ class _DownWidgetState extends State<DownWidget> {
                         'STATUS',
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            child: FlutterFlowDropDown(
+                              initialOption: dropDownValue ??= valueOrDefault(currentUserDocument?.taskDown, 'Not in progress'),
+                              options: ['Not in progress', 'In Progress', 'Mastered'],
+                              onChanged: (val) async {
                                 final usersUpdateData = createUsersRecordData(
-                                  taskDown: 'In Progress',
+                                  taskDown: val,
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: DownWidget(),
-                                  ),
-                                );
+                                await currentUserReference.update(usersUpdateData);
+                                setState(() {
+
+                                });
                               },
-                              text: 'In Progress',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
-                              ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskDown: 'Mastered',
-                                );
-                                await currentUserReference
-                                    .update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PostPageDownWidget(),
+                              width: 180,
+                              height: 40,
+                              textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.black,
                                   ),
-                                );
-                              },
-                              text: 'Mastered',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
+                              hintText: 'Please select...',
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                                size: 30,
                               ),
+                              fillColor: FlutterFlowTheme.of(context).lineColor,
+                              elevation: 10,
+                              borderColor: Colors.transparent,
+                              borderWidth: 0,
+                              borderRadius: 8,
+                              margin: EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
+                              hidesUnderline: true,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
@@ -279,12 +238,11 @@ class _DownWidgetState extends State<DownWidget> {
                           alignment: AlignmentDirectional(0, 0),
                           child: Text(
                             'STEPS',
-                            style:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: FlutterFlowTheme.of(context).bodyText1.override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                         ),
                       ),
@@ -309,9 +267,7 @@ class _DownWidgetState extends State<DownWidget> {
                           ),
                         ),
                         Text(
-                          "Have " +
-                              _currentUserDisplayName +
-                              " stand in front of you.",
+                          "Have " + _currentUserDisplayName + " stand in front of you.",
                           style: getParagraphTextStyle(),
                         ),
                       ],
@@ -483,13 +439,10 @@ class _DownWidgetState extends State<DownWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(0, 8, 0, 0),
                               child: Text(
                                 'TIPS',
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
+                                style: FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Poppins',
                                       color: Colors.black,
                                       fontSize: 20,
@@ -497,8 +450,7 @@ class _DownWidgetState extends State<DownWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -522,8 +474,7 @@ class _DownWidgetState extends State<DownWidget> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
+                              padding: EdgeInsetsDirectional.fromSTEB(8, 0, 8, 0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,

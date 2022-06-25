@@ -9,6 +9,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../post_page_shy/post_page_shy_widget.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 
 class ShyWidget extends StatefulWidget {
   const ShyWidget({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class ShyWidget extends StatefulWidget {
 }
 
 class _ShyWidgetState extends State<ShyWidget> {
+  String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final String _herHim = currentUserDocument?.gender == 'Female' ? 'her' : 'him';
@@ -171,79 +173,48 @@ class _ShyWidgetState extends State<ShyWidget> {
                         'STATUS',
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            child: FlutterFlowDropDown(
+                              initialOption: dropDownValue ??= valueOrDefault(currentUserDocument?.taskShy, 'Not in progress'),
+                              options: ['Not in progress', 'In Progress', 'Mastered'],
+                              onChanged: (val) async {
                                 final usersUpdateData = createUsersRecordData(
-                                  taskShy: 'In Progress',
+                                  taskShy: val,
                                 );
                                 await currentUserReference.update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: ShyWidget(),
-                                  ),
-                                );
+                                setState(() {
+
+                                });
                               },
-                              text: 'In Progress',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
+                              width: 180,
+                              height: 40,
+                              textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
                               ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskShy: 'Mastered',
-                                );
-                                await currentUserReference.update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PostPageShyWidget(),
-                                  ),
-                                );
-                              },
-                              text: 'Mastered',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
+                              hintText: 'Please select...',
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                                size: 30,
                               ),
+                              fillColor: FlutterFlowTheme.of(context).lineColor,
+                              elevation: 10,
+                              borderColor: Colors.transparent,
+                              borderWidth: 0,
+                              borderRadius: 8,
+                              margin: EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
+                              hidesUnderline: true,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Text(
                           'A super charming trick where your dog covers ' + _herHis + ' eyes using one paw. Guaranteed to get a lot of smiles from people!',
                           style: getParagraphTextStyle(),

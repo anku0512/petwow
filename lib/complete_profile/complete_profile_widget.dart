@@ -27,6 +27,8 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
   String choiceChipsValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+
+
   @override
   void initState() {
     super.initState();
@@ -215,6 +217,13 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Your Name',
+                                      labelStyle:
+                                      FlutterFlowTheme.of(context).bodyText2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xFF95A1AC),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                       hintText: 'Your Name',
                                       hintStyle: FlutterFlowTheme.of(context)
                                           .bodyText2
@@ -238,17 +247,21 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                         ),
                                         borderRadius: BorderRadius.circular(8),
                                       ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF090F13),
+                                          color: FlutterFlowTheme.of(context).secondaryText,
                                           fontSize: 14,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     keyboardType: TextInputType.name,
-                                  ),
+                                      ),
                                 ),
                               ],
                             ),
@@ -264,10 +277,15 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       labelText: 'Your Pet\'s name',
+                                      labelStyle:
+                                      FlutterFlowTheme.of(context).bodyText2.override(
+                                        fontFamily: 'Lexend Deca',
+                                        color: Color(0xFF95A1AC),
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                       hintText: 'Your pet\'s name',
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodyText2
-                                          .override(
+                                      hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
                                             fontFamily: 'Lexend Deca',
                                             color: Color(0xFF95A1AC),
                                             fontSize: 14,
@@ -287,12 +305,16 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                         ),
                                         borderRadius: BorderRadius.circular(8),
                                       ),
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding:
+                                      EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyText1
                                         .override(
                                           fontFamily: 'Lexend Deca',
-                                          color: Color(0xFF090F13),
+                                          color: FlutterFlowTheme.of(context).secondaryText,
                                           fontSize: 14,
                                           fontWeight: FontWeight.normal,
                                         ),

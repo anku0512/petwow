@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../flutter_flow/flutter_flow_drop_down.dart';
 
 class ScootWidget extends StatefulWidget {
   const ScootWidget({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class ScootWidget extends StatefulWidget {
 }
 
 class _ScootWidgetState extends State<ScootWidget> {
+  String dropDownValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final String _herHim =
@@ -176,86 +178,48 @@ class _ScootWidgetState extends State<ScootWidget> {
                         'STATUS',
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(5, 0, 5, 0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            FFButtonWidget(
-                              onPressed: () async {
+                      Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          AuthUserStreamWidget(
+                            child: FlutterFlowDropDown(
+                              initialOption: dropDownValue ??= valueOrDefault(currentUserDocument?.taskScoot, 'Not in progress'),
+                              options: ['Not in progress', 'In Progress', 'Mastered'],
+                              onChanged: (val) async {
                                 final usersUpdateData = createUsersRecordData(
-                                  taskScoot: 'In Progress',
+                                  taskScoot: val,
                                 );
-                                await currentUserReference
-                                    .update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                    reverseDuration: Duration(milliseconds: 0),
-                                    child: ScootWidget(),
-                                  ),
-                                );
+                                await currentUserReference.update(usersUpdateData);
+                                setState(() {
+
+                                });
                               },
-                              text: 'In Progress',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color: Color(0xFFD0D0D0),
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
+                              width: 180,
+                              height: 40,
+                              textStyle: FlutterFlowTheme.of(context).bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
                               ),
-                            ),
-                            FFButtonWidget(
-                              onPressed: () async {
-                                final usersUpdateData = createUsersRecordData(
-                                  taskScoot: 'Mastered',
-                                );
-                                await currentUserReference
-                                    .update(usersUpdateData);
-                                await Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => PostPageScootWidget(),
-                                  ),
-                                );
-                              },
-                              text: 'Mastered',
-                              options: FFButtonOptions(
-                                width: 120,
-                                height: 30,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryColor,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .subtitle2
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.white,
-                                    ),
-                                borderSide: BorderSide(
-                                  color: Colors.transparent,
-                                  width: 1,
-                                ),
-                                borderRadius: 12,
+                              hintText: 'Please select...',
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                                size: 30,
                               ),
+                              fillColor: FlutterFlowTheme.of(context).lineColor,
+                              elevation: 10,
+                              borderColor: Colors.transparent,
+                              borderWidth: 0,
+                              borderRadius: 8,
+                              margin: EdgeInsetsDirectional.fromSTEB(12, 2, 12, 2),
+                              hidesUnderline: true,
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(10, 20, 10, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 10, 10, 0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -453,7 +417,7 @@ class _ScootWidgetState extends State<ScootWidget> {
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(0, 0, 8, 0),
                           child: Icon(
-                            FFIcons.knumber13,
+                            FFIcons.knumber14,
                             color: Color(0xFFC4C4C4),
                             size: 26,
                           ),

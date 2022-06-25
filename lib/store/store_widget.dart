@@ -237,7 +237,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                         ),
                       ),
                       Text(
-                        '* Early subscribers will get spcial discount on store launch.',
+                        '* Early subscribers will get special discount on store launch.',
                         style: FlutterFlowTheme.of(context).bodyText2.override(
                               fontFamily: 'Poppins',
                               fontSize: 12,

@@ -398,7 +398,7 @@ class _CompleteProfileWidgetState extends State<CompleteProfileWidget> {
                                         choiceChipsValue == null ||
                                         choiceChipsValue.isEmpty) {
                                       print(dropDownValue);
-                                      showSnackbar(context, 'Please fill your and your pets name to continue');
+                                      showSnackbar(context, "Please fill your and your pet's details to continue");
                                     } else {
                                       final usersUpdateData = createUsersRecordData(
                                         displayName: valueOrDefault<String>(

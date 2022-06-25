@@ -560,7 +560,7 @@ class _CreatePostWidgetState extends State<CreatePostWidget> {
                   // if the pic is not uploaded then show snack bar
                   // else create the post
                   if (uploadedFileUrl.isEmpty) {
-                    showSnackbar(context, 'Please upload a photo to create a post.');
+                    showSnackbar(context, 'Please upload a pic to create a post');
                   } else {
                     final postsCreateData = createPostsRecordData(
                       imageUrl: uploadedFileUrl,

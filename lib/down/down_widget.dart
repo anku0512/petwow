@@ -27,6 +27,7 @@ class _DownWidgetState extends State<DownWidget> {
   final String _herHis = currentUserDocument?.gender == 'Female' ? 'her' : 'his';
   final String _currentUserDisplayName = currentUserDisplayName;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,6 +198,11 @@ class _DownWidgetState extends State<DownWidget> {
                                     color: Colors.black,
                                   ),
                               hintText: 'Please select...',
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                                size: 30,
+                              ),
                               fillColor: FlutterFlowTheme.of(context).lineColor,
                               elevation: 10,
                               borderColor: Colors.transparent,

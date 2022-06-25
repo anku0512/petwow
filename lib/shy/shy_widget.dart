@@ -197,6 +197,11 @@ class _ShyWidgetState extends State<ShyWidget> {
                                 color: Colors.black,
                               ),
                               hintText: 'Please select...',
+                              icon: Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.black,
+                                size: 30,
+                              ),
                               fillColor: FlutterFlowTheme.of(context).lineColor,
                               elevation: 10,
                               borderColor: Colors.transparent,

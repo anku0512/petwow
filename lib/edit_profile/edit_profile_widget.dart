@@ -28,6 +28,8 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
   String choiceChipsValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+
+
   @override
   void initState() {
     super.initState();
@@ -296,7 +298,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.normal,
                                 ),
-                        hintText: 'Your full name...',
+                        hintText: 'Your pet\'s name ...',
                         hintStyle:
                             FlutterFlowTheme.of(context).bodyText2.override(
                                   fontFamily: 'Lexend Deca',
@@ -561,3 +563,4 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     );
   }
 }
+

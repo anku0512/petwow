@@ -106,11 +106,12 @@ class DarkModeTheme extends FlutterFlowTheme {
   Color alternate = const Color(0xFFFF5963);
   Color primaryBackground = const Color(0xFF1A1F24);
   Color secondaryBackground = const Color(0xFF101213);
-  Color primaryText = const Color(0xFFFFFFFF);
-  Color secondaryText = const Color(0xFF95A1AC);
+  Color primaryText = const Color(0xFF101213);
+  Color secondaryText = const Color(0xFF57636C);
 
   Color primaryBtnText = Color(0xFFFFFFFF);
-  Color lineColor = Color(0xFF22282F);
+  Color lineColor = Color(0xFFE0E3E7);
+
 }
 
 extension TextStyleHelper on TextStyle {

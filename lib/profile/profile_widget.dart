@@ -460,7 +460,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1, -1.5),
+                                    alignment: AlignmentDirectional(-1, -3.5),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 4, 0, 0),

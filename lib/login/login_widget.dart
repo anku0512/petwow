@@ -101,7 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       .override(
                                         fontFamily: 'Outfit',
                                         color: Color(0xFF0F1113),
-                                        fontSize: 18,
+                                        fontSize: 24,
                                         fontWeight: FontWeight.w500,
                                       ),
                                   indicatorColor: Colors.white,
@@ -472,6 +472,17 @@ class _LoginWidgetState extends State<LoginWidget> {
                                                     width: 1,
                                                   ),
                                                   borderRadius: 12,
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                                              child: Text(
+                                                'Already a member? Sign In',
+                                                style: FlutterFlowTheme.of(context).bodyText1.override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Colors.black,
+                                                  decoration: TextDecoration.underline,
                                                 ),
                                               ),
                                             ),

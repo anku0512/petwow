@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key key}) : super(key: key);
 
@@ -51,6 +52,18 @@ class _LoginWidgetState extends State<LoginWidget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            Image.asset(
+                              'assets/images/petwow_logo.png',
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              height: MediaQuery.of(context).size.height * 0.15,
+                              fit: BoxFit.cover,
+                            ),
+                          ],
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
                             Lottie.network(
                               'https://assets6.lottiefiles.com/packages/lf20_2ixzdfvy.json',
                               width: 320,
@@ -67,31 +80,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                             children: [
                               Padding(
                                 padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 40, 0, 50),
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                                 child: PageView(
                                   controller: pageViewController ??=
                                       PageController(initialPage: 0),
                                   scrollDirection: Axis.horizontal,
                                   children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          'assets/images/petwow_logo.png',
-                                          width: MediaQuery.of(context)
-                                              .size
-                                              .width *
-                                              0.6,
-                                          height: MediaQuery.of(context)
-                                              .size
-                                              .height *
-                                              0.15,
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ],
-                                    ),
                                     Container(
                                       width: 100,
                                       height: 100,
@@ -129,6 +123,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         FlutterFlowTheme.of(context).title2,
                                       ),
                                     ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0, 45, 0, 0),
+                                      child: Text(
+                                        'Sign up to save your pet\'s training progress! Keep track of the all the tricks they have mastered.',
+                                        textAlign: TextAlign.center,
+                                        style:
+                                        FlutterFlowTheme.of(context).title2,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -136,7 +140,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 alignment: AlignmentDirectional(0, 0.65),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 10),
+                                      0, 0, 0, 25),
                                   child: SmoothPageIndicator(
                                     controller: pageViewController ??=
                                         PageController(initialPage: 0),

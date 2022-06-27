@@ -1,12 +1,14 @@
-import '../auth/auth_util.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
-import '../flutter_flow/flutter_flow_widgets.dart';
-import '../main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:pet_wow/backend/backend.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../auth/auth_util.dart';
+import '../complete_profile/complete_profile_widget.dart';
+import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
+import '../main.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({Key key}) : super(key: key);
@@ -79,11 +81,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                           child: Stack(
                             children: [
                               Padding(
-                                padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                                padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
                                 child: PageView(
-                                  controller: pageViewController ??=
-                                      PageController(initialPage: 0),
+                                  controller: pageViewController ??= PageController(initialPage: 0),
                                   scrollDirection: Axis.horizontal,
                                   children: [
                                     Container(
@@ -93,44 +93,36 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         color: Color(0x00EEEEEE),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0, 45, 0, 0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                                         child: Text(
                                           'Teach your dog from over 30+ lessons with easy to understand step-by-step video instructions',
                                           textAlign: TextAlign.center,
-                                          style: FlutterFlowTheme.of(context)
-                                              .title2,
+                                          style: FlutterFlowTheme.of(context).title2,
                                         ),
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 45, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                                       child: Text(
                                         'Earn badges for your pets achievement and share their progress with friends!',
                                         textAlign: TextAlign.center,
-                                        style:
-                                        FlutterFlowTheme.of(context).title2,
+                                        style: FlutterFlowTheme.of(context).title2,
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 45, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                                       child: Text(
                                         'Make your pet a social media star! Participate in various competitions.',
                                         textAlign: TextAlign.center,
-                                        style:
-                                        FlutterFlowTheme.of(context).title2,
+                                        style: FlutterFlowTheme.of(context).title2,
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 45, 0, 0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(0, 45, 0, 0),
                                       child: Text(
                                         'Sign up to save your pet\'s training progress! Keep track of the all the tricks they have mastered.',
                                         textAlign: TextAlign.center,
-                                        style:
-                                        FlutterFlowTheme.of(context).title2,
+                                        style: FlutterFlowTheme.of(context).title2,
                                       ),
                                     ),
                                   ],
@@ -139,11 +131,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                               Align(
                                 alignment: AlignmentDirectional(0, 0.65),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 0, 25),
+                                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 25),
                                   child: SmoothPageIndicator(
-                                    controller: pageViewController ??=
-                                        PageController(initialPage: 0),
+                                    controller: pageViewController ??= PageController(initialPage: 0),
                                     count: 4,
                                     axisDirection: Axis.horizontal,
                                     onDotClicked: (i) {
@@ -184,19 +174,41 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       alignment: AlignmentDirectional(0, 0),
                                       child: FFButtonWidget(
                                         onPressed: () async {
-                                          final user =
-                                          await signInWithGoogle(context);
+                                          // the user is the google user, this does not represent
+                                          // if the user is registered with us or not. This will
+                                          // always be not null in case of a successful signUp/signIn
+                                          final user = await signInWithGoogle(context);
                                           if (user == null) {
                                             return;
                                           }
-                                          await Navigator.pushAndRemoveUntil(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => NavBarPage(
-                                                  initialPage: 'lessons'),
-                                            ),
-                                                (r) => false,
-                                          );
+
+                                          // check if the user has filled "yourName" field
+                                          // this check can be on other fields as well
+                                          // if yes - go to lesson
+                                          // else - go to the complete profile screen
+
+                                          String uid = user.uid;
+                                          UsersRecord userRecord;
+                                          if (uid != null && uid.isNotEmpty) {
+                                            userRecord =
+                                                await UsersRecord.getDocumentOnce(UsersRecord.collection.doc(uid));
+                                          }
+
+                                          if (userRecord.yourName != null && userRecord.yourName.isNotEmpty) {
+                                            await Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => NavBarPage(initialPage: 'lessons'),
+                                              ),
+                                              (r) => false,
+                                            );
+                                          } else {
+                                            await Navigator.pushAndRemoveUntil(
+                                              context,
+                                              MaterialPageRoute(builder: (context) => CompleteProfileWidget()),
+                                              (r) => false,
+                                            );
+                                          }
                                         },
                                         text: 'Sign in with Google',
                                         icon: Icon(

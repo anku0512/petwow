@@ -8,7 +8,6 @@ import '../charming/charming_widget.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../post_page_cross_paws/post_page_cross_paws_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 
 class CrossPawsWidget extends StatefulWidget {

@@ -8,7 +8,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../playful/playful_widget.dart';
-import '../post_page_leg_weaves/post_page_leg_weaves_widget.dart';
 import '../flutter_flow/flutter_flow_drop_down.dart';
 
 class LegWeavesWidget extends StatefulWidget {

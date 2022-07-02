@@ -9,7 +9,6 @@ import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
-import '../post_page_down/post_page_down_widget.dart';
 
 class DownWidget extends StatefulWidget {
   const DownWidget({Key key}) : super(key: key);

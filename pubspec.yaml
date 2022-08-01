@@ -73,6 +73,13 @@ dependencies:
   smooth_page_indicator: 1.0.0+2
   timeago: 3.2.2
   url_launcher: 6.1.5
+  flutter_launcher_icons: ^0.9.3
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: "#ffc700"
+  adaptive_icon_foreground: "assets/icon/logo_foreground.png"
 
 
   # The following adds the Cupertino Icons font to your application.

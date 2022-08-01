@@ -104,7 +104,7 @@ class _$DogBreedRecord extends DogBreedRecord {
   final DocumentReference<Object> reference;
 
   factory _$DogBreedRecord([void Function(DogBreedRecordBuilder) updates]) =>
-      (new DogBreedRecordBuilder()..update(updates)).build();
+      (new DogBreedRecordBuilder()..update(updates))._build();
 
   _$DogBreedRecord._({this.dogBreed, this.title, this.items, this.reference})
       : super._();
@@ -136,7 +136,7 @@ class _$DogBreedRecord extends DogBreedRecord {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('DogBreedRecord')
+    return (newBuiltValueToStringHelper(r'DogBreedRecord')
           ..add('dogBreed', dogBreed)
           ..add('title', title)
           ..add('items', items)
@@ -194,7 +194,9 @@ class DogBreedRecordBuilder
   }
 
   @override
-  _$DogBreedRecord build() {
+  DogBreedRecord build() => _build();
+
+  _$DogBreedRecord _build() {
     _$DogBreedRecord _$result;
     try {
       _$result = _$v ??
@@ -210,7 +212,7 @@ class DogBreedRecordBuilder
         _items?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'DogBreedRecord', _$failedField, e.toString());
+            r'DogBreedRecord', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -219,4 +221,4 @@ class DogBreedRecordBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

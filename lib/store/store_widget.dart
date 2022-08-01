@@ -4,7 +4,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
@@ -57,7 +56,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                 child: Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 44, 0, 15),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -77,7 +76,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(20, 32, 0, 0),
+                      padding: EdgeInsetsDirectional.fromSTEB(15, 20, 0, 0),
                       child: InkWell(
                         onTap: () async {
                           Navigator.pop(context);
@@ -85,7 +84,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                         child: Icon(
                           Icons.close,
                           color: Colors.black,
-                          size: 42,
+                          size: 40,
                         ),
                       ),
                     ),
@@ -103,7 +102,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                         child: Container(
                           width: double.infinity,
                           height: 300,
@@ -120,7 +119,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
                         child: Text(
                           'Launching Soon',
                           style: FlutterFlowTheme.of(context).title2.override(
@@ -147,7 +146,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                           controller: emailAddressController,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelText: 'email...',
+                            labelText: 'Email Address',
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Lexend Deca',
@@ -155,6 +154,7 @@ class _StoreWidgetState extends State<StoreWidget> {
                                       fontSize: 14,
                                       fontWeight: FontWeight.normal,
                                     ),
+                            hintText: 'Enter your email...',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Lexend Deca',

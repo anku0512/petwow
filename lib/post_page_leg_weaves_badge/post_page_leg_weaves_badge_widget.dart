@@ -318,7 +318,7 @@ class _PostPageLegWeavesBadgeWidgetState
                   color: Colors.transparent,
                   width: 1,
                 ),
-                borderRadius: 8,
+                borderRadius: BorderRadius.circular(8),
               ),
             ),
           ),

@@ -1,9 +1,12 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
+import '../backend/firebase_storage/storage.dart';
+import '../create_post/create_post_widget.dart';
 import '../edit_profile/edit_profile_widget.dart';
-import '../flutter_flow/flutter_flow_animations.dart';
+import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
+import '../flutter_flow/upload_media.dart';
 import '../login/login_widget.dart';
 import '../main.dart';
 import '../store/store_widget.dart';
@@ -19,42 +22,79 @@ class HomeWidget extends StatefulWidget {
   _HomeWidgetState createState() => _HomeWidgetState();
 }
 
-class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
-  final animationsMap = {
-    'iconOnActionTriggerAnimation': AnimationInfo(
-      curve: Curves.bounceOut,
-      trigger: AnimationTrigger.onActionTrigger,
-      duration: 900,
-      fadeIn: true,
-      initialState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 3,
-        opacity: 0,
-      ),
-      finalState: AnimationState(
-        offset: Offset(0, 0),
-        scale: 1,
-        opacity: 1,
-      ),
-    ),
-  };
+class _HomeWidgetState extends State<HomeWidget> {
+  String uploadedFileUrl = '';
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-  void initState() {
-    super.initState();
-    setupTriggerAnimations(
-      animationsMap.values
-          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
-      this,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFFF1F4F8),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFFFFC700),
+        elevation: 8,
+        child: FlutterFlowIconButton(
+          borderColor: Colors.transparent,
+          borderRadius: 30,
+          borderWidth: 1,
+          buttonSize: 60,
+          icon: Icon(
+            Icons.photo_camera_outlined,
+            color: FlutterFlowTheme.of(context).primaryText,
+            size: 30,
+          ),
+          onPressed: () async {
+            final selectedMedia = await selectMediaWithSourceBottomSheet(
+              context: context,
+              allowPhoto: true,
+            );
+            if (selectedMedia != null &&
+                selectedMedia
+                    .every((m) => validateFileFormat(m.storagePath, context))) {
+              showUploadMessage(
+                context,
+                'Uploading file...',
+                showLoading: true,
+              );
+              final downloadUrls = (await Future.wait(selectedMedia.map(
+                      (m) async => await uploadData(m.storagePath, m.bytes))))
+                  .where((u) => u != null)
+                  .toList();
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              if (downloadUrls != null &&
+                  downloadUrls.length == selectedMedia.length) {
+                setState(() => uploadedFileUrl = downloadUrls.first);
+                showUploadMessage(
+                  context,
+                  'Success!',
+                );
+              } else {
+                showUploadMessage(
+                  context,
+                  'Failed to upload media',
+                );
+                return;
+              }
+            }
+
+            setState(() => FFAppState().imagepost = uploadedFileUrl);
+            if (uploadedFileUrl != null && uploadedFileUrl != '') {
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CreatePostWidget(),
+                ),
+              );
+            } else {
+              return;
+            }
+          },
+        ),
+      ),
       endDrawer: Container(
         width: 260,
         child: Drawer(
@@ -196,26 +236,26 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.max,
-                //     children: [
-                //       Icon(
-                //         Icons.auto_stories,
-                //         color: Color(0xFF57636C),
-                //         size: 30,
-                //       ),
-                //       Padding(
-                //         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                //         child: Text(
-                //           'Blog Post',
-                //           style: FlutterFlowTheme.of(context).title2,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.auto_stories,
+                        color: Color(0xFF57636C),
+                        size: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: Text(
+                          'Blog Post',
+                          style: FlutterFlowTheme.of(context).title2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Row(
@@ -624,13 +664,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                               await socialFeedPostsRecord
                                                   .reference
                                                   .update(postsUpdateData);
-                                              await (animationsMap[
-                                                              'iconOnActionTriggerAnimation']
-                                                          .curvedAnimation
-                                                          .parent
-                                                      as AnimationController)
-                                                  .forward(from: 0.0);
-
                                               return;
                                             }
                                           },
@@ -640,8 +673,8 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                             child: Image.network(
                                               socialFeedPostsRecord.imageUrl,
                                               width: double.infinity,
-                                              height: 300,
-                                              fit: BoxFit.fitHeight,
+                                              height: 350,
+                                              fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -701,14 +734,6 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                               .reference
                                                               .update(
                                                                   postsUpdateData);
-                                                          await (animationsMap[
-                                                                          'iconOnActionTriggerAnimation']
-                                                                      .curvedAnimation
-                                                                      .parent
-                                                                  as AnimationController)
-                                                              .forward(
-                                                                  from: 0.0);
-
                                                           return;
                                                         }
                                                       },
@@ -718,10 +743,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                             Color(0xFF95A1AC),
                                                         size: 24,
                                                       ),
-                                                    ).animated([
-                                                      animationsMap[
-                                                          'iconOnActionTriggerAnimation']
-                                                    ]),
+                                                    ),
                                                   ],
                                                 ),
                                               ),

@@ -171,26 +171,26 @@ class _LessonsWidgetState extends State<LessonsWidget> {
                     ],
                   ),
                 ),
-                // Padding(
-                //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                //   child: Row(
-                //     mainAxisSize: MainAxisSize.max,
-                //     children: [
-                //       Icon(
-                //         Icons.auto_stories,
-                //         color: Color(0xFF57636C),
-                //         size: 30,
-                //       ),
-                //       Padding(
-                //         padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                //         child: Text(
-                //           'Blog Post',
-                //           style: FlutterFlowTheme.of(context).title2,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Icon(
+                        Icons.auto_stories,
+                        color: Color(0xFF57636C),
+                        size: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                        child: Text(
+                          'Blog Post',
+                          style: FlutterFlowTheme.of(context).title2,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                   child: Row(

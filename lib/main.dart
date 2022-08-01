@@ -17,6 +17,8 @@ void main() async {
   await Firebase.initializeApp();
   await FlutterFlowTheme.initialize();
 
+  FFAppState(); // Initialize FFAppState
+
   runApp(MyApp());
 }
 
@@ -66,7 +68,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'petWow',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -122,7 +123,7 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'lessons': LessonsWidget(),
       'home': HomeWidget(),
-      'create_post': CreatePostWidget(),
+      'photoChallenge': PhotoChallengeWidget(),
       'profile': ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPage);
@@ -156,7 +157,7 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.add_circle,
+              FFIcons.ktrophy,
               size: 30,
             ),
             label: '',

@@ -7,7 +7,6 @@ import '../main.dart';
 import '../shake_hand/shake_hand_widget.dart';
 import '../shy/shy_widget.dart';
 import 'package:flutter/material.dart';
-import '../_pw_files/pw_constant.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -164,8 +163,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskShakeHand) ==
+                                                if (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskShakeHand,
+                                                        '') ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -278,8 +279,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        if ((currentUserDocument
-                                                                ?.taskShakeHand) ==
+                                                        if (valueOrDefault(
+                                                                currentUserDocument
+                                                                    ?.taskShakeHand,
+                                                                '') ==
                                                             'In Progress')
                                                           AuthUserStreamWidget(
                                                             child: Icon(
@@ -408,8 +411,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskCrossPaws) ==
+                                                if (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskCrossPaws,
+                                                        '') ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -515,8 +520,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskCrossPaws) ==
+                                                      if (valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskCrossPaws,
+                                                              '') ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -651,8 +658,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskChinRest) ==
+                                                if (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskChinRest,
+                                                        '') ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -758,8 +767,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskChinRest) ==
+                                                      if (valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskChinRest,
+                                                              '') ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:
@@ -894,8 +905,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
-                                                if ((currentUserDocument
-                                                        ?.taskShy) ==
+                                                if (valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.taskShy,
+                                                        '') ==
                                                     'Mastered')
                                                   Padding(
                                                     padding:
@@ -1001,8 +1014,10 @@ class _CharmingWidgetState extends State<CharmingWidget> {
                                                     mainAxisSize:
                                                         MainAxisSize.max,
                                                     children: [
-                                                      if ((currentUserDocument
-                                                              ?.taskShy) ==
+                                                      if (valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.taskShy,
+                                                              '') ==
                                                           'In Progress')
                                                         Padding(
                                                           padding:

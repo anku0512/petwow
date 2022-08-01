@@ -2,13 +2,17 @@
 export 'login/login_widget.dart' show LoginWidget;
 export 'lessons/lessons_widget.dart' show LessonsWidget;
 export 'home/home_widget.dart' show HomeWidget;
+export 'photo_challenge/photo_challenge_widget.dart' show PhotoChallengeWidget;
 export 'create_post/create_post_widget.dart' show CreatePostWidget;
 export 'profile/profile_widget.dart' show ProfileWidget;
 export 'edit_profile/edit_profile_widget.dart' show EditProfileWidget;
+export 'shake_hand/shake_hand_widget.dart' show ShakeHandWidget;
+export 'sit/sit_widget.dart' show SitWidget;
 export 'complete_profile/complete_profile_widget.dart'
     show CompleteProfileWidget;
-export 'sit/sit_widget.dart' show SitWidget;
-export 'shake_hand/shake_hand_widget.dart' show ShakeHandWidget;
+export 'onboarding/onboarding_widget.dart' show OnboardingWidget;
+export 'onboarding2/onboarding2_widget.dart' show Onboarding2Widget;
+export 'onboarding3/onboarding3_widget.dart' show Onboarding3Widget;
 export 'down/down_widget.dart' show DownWidget;
 export 'stay/stay_widget.dart' show StayWidget;
 export 'come/come_widget.dart' show ComeWidget;
@@ -73,3 +77,8 @@ export 'post_page_frisbee_badge/post_page_frisbee_badge_widget.dart'
 export 'brush_teeth_copy/brush_teeth_copy_widget.dart'
     show BrushTeethCopyWidget;
 export 'store/store_widget.dart' show StoreWidget;
+export 'challenge_post/challenge_post_widget.dart' show ChallengePostWidget;
+export 'dog_breed_list/dog_breed_list_widget.dart' show DogBreedListWidget;
+export 'past_challenge/past_challenge_widget.dart' show PastChallengeWidget;
+export 'complete_profile_copy/complete_profile_copy_widget.dart'
+    show CompleteProfileCopyWidget;

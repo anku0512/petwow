@@ -40,6 +40,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
       curve: Curves.bounceOut,
       trigger: AnimationTrigger.onActionTrigger,
       duration: 900,
+      hideBeforeAnimating: false,
       fadeIn: true,
       initialState: AnimationState(
         offset: Offset(0, 0),
@@ -220,27 +221,27 @@ class _ProfileWidgetState extends State<ProfileWidget>
                         ],
                       ),
                     ),
-                    // Padding(
-                    //   padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
-                    //   child: Row(
-                    //     mainAxisSize: MainAxisSize.max,
-                    //     children: [
-                    //       Icon(
-                    //         Icons.auto_stories,
-                    //         color: Color(0xFF57636C),
-                    //         size: 30,
-                    //       ),
-                    //       Padding(
-                    //         padding:
-                    //             EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
-                    //         child: Text(
-                    //           'Blog Post',
-                    //           style: FlutterFlowTheme.of(context).title2,
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Icon(
+                            Icons.auto_stories,
+                            color: Color(0xFF57636C),
+                            size: 30,
+                          ),
+                          Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: Text(
+                              'Blog Post',
+                              style: FlutterFlowTheme.of(context).title2,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 20, 0, 0),
                       child: Row(
@@ -388,7 +389,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
               children: [
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  height: 160,
+                  height: 140,
                   decoration: BoxDecoration(
                     color: Color(0xFFFFC700),
                     image: DecorationImage(
@@ -460,7 +461,7 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                 ),
                                 Expanded(
                                   child: Align(
-                                    alignment: AlignmentDirectional(-1, -3.5),
+                                    alignment: AlignmentDirectional(-1, -1.5),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0, 4, 0, 0),
@@ -576,24 +577,6 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                   ).image,
                                                 ),
                                               ),
-                                              // child: Visibility(
-                                              //   visible:
-                                              //       currentUserEmailVerified ??
-                                              //           true,
-                                              //   child: AuthUserStreamWidget(
-                                              //     child: Container(
-                                              //       width: 100,
-                                              //       height: 100,
-                                              //       decoration: BoxDecoration(
-                                              //         color: Color(0x99FFFFFF),
-                                              //         border: Border.all(
-                                              //           color:
-                                              //               Colors.transparent,
-                                              //         ),
-                                              //       ),
-                                              //     ),
-                                              //   ),
-                                              // ),
                                             ),
                                           ),
                                           InkWell(
@@ -655,10 +638,10 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (valueOrDefault(
+                                                visible: valueOrDefault(
                                                         currentUserDocument
                                                             ?.taskSit,
-                                                        '')) !=
+                                                        '') !=
                                                     'Mastered',
                                                 child: AuthUserStreamWidget(
                                                   child: InkWell(
@@ -761,8 +744,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskShakeHand) !=
+                                                visible: profileUsersRecord
+                                                        .taskShakeHand !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -872,8 +855,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskDown) !=
+                                                visible: profileUsersRecord
+                                                        .taskDown !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -972,8 +955,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskStay) !=
+                                                visible: profileUsersRecord
+                                                        .taskStay !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1072,8 +1055,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskCome) !=
+                                                visible: profileUsersRecord
+                                                        .taskCome !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1183,8 +1166,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskLeaveIt) !=
+                                                visible: profileUsersRecord
+                                                        .taskLeaveIt !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1283,8 +1266,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskTouch) !=
+                                                visible: profileUsersRecord
+                                                        .taskTouch !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1383,8 +1366,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskRollOver) !=
+                                                visible: profileUsersRecord
+                                                        .taskRollOver !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1494,8 +1477,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskTellMeASecret) !=
+                                                visible: profileUsersRecord
+                                                        .taskTellMeASecret !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1594,8 +1577,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskLegWeaves) !=
+                                                visible: profileUsersRecord
+                                                        .taskLegWeaves !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1694,8 +1677,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskBarJump) !=
+                                                visible: profileUsersRecord
+                                                        .taskBarJump !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1805,8 +1788,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskDance) !=
+                                                visible: profileUsersRecord
+                                                        .taskDance !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -1905,8 +1888,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskShy) !=
+                                                visible: profileUsersRecord
+                                                        .taskShy !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -2005,8 +1988,8 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                 ),
                                               ),
                                               child: Visibility(
-                                                visible: (profileUsersRecord
-                                                        .taskFrisbee) !=
+                                                visible: profileUsersRecord
+                                                        .taskFrisbee !=
                                                     'Mastered',
                                                 child: InkWell(
                                                   onTap: () async {
@@ -2265,21 +2248,42 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                   ),
                                                   child: InkWell(
                                                     onDoubleTap: () async {
-                                                      final postsUpdateData = {
-                                                        'total_likes':
-                                                            FieldValue
-                                                                .increment(1),
-                                                      };
-                                                      await gridViewPostsRecord
-                                                          .reference
-                                                          .update(
-                                                              postsUpdateData);
-                                                      await (animationsMap[
-                                                                      'iconOnActionTriggerAnimation']
-                                                                  .curvedAnimation
-                                                                  .parent
-                                                              as AnimationController)
-                                                          .forward(from: 0.0);
+                                                      if (gridViewPostsRecord
+                                                          .likedUsers
+                                                          .toList()
+                                                          .contains(
+                                                              currentUserReference)) {
+                                                        // Unlike post
+
+                                                        final postsUpdateData =
+                                                            {
+                                                          'liked_users':
+                                                              FieldValue
+                                                                  .arrayRemove([
+                                                            currentUserReference
+                                                          ]),
+                                                        };
+                                                        await gridViewPostsRecord
+                                                            .reference
+                                                            .update(
+                                                                postsUpdateData);
+                                                      } else {
+                                                        // Like post
+
+                                                        final postsUpdateData =
+                                                            {
+                                                          'liked_users':
+                                                              FieldValue
+                                                                  .arrayUnion([
+                                                            currentUserReference
+                                                          ]),
+                                                        };
+                                                        await gridViewPostsRecord
+                                                            .reference
+                                                            .update(
+                                                                postsUpdateData);
+                                                        return;
+                                                      }
                                                     },
                                                     child: ClipRRect(
                                                       borderRadius:
@@ -2331,21 +2335,40 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                                 InkWell(
                                                                   onTap:
                                                                       () async {
-                                                                    final postsUpdateData =
-                                                                        {
-                                                                      'total_likes':
-                                                                          FieldValue.increment(
-                                                                              1),
-                                                                    };
-                                                                    await gridViewPostsRecord
-                                                                        .reference
-                                                                        .update(
-                                                                            postsUpdateData);
-                                                                    await (animationsMap['iconOnActionTriggerAnimation'].curvedAnimation.parent
-                                                                            as AnimationController)
-                                                                        .forward(
-                                                                            from:
-                                                                                0.0);
+                                                                    if (gridViewPostsRecord
+                                                                        .likedUsers
+                                                                        .toList()
+                                                                        .contains(
+                                                                            currentUserReference)) {
+                                                                      // Unlike post
+
+                                                                      final postsUpdateData =
+                                                                          {
+                                                                        'liked_users':
+                                                                            FieldValue.arrayRemove([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      };
+                                                                      await gridViewPostsRecord
+                                                                          .reference
+                                                                          .update(
+                                                                              postsUpdateData);
+                                                                    } else {
+                                                                      // Like post
+
+                                                                      final postsUpdateData =
+                                                                          {
+                                                                        'liked_users':
+                                                                            FieldValue.arrayUnion([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      };
+                                                                      await gridViewPostsRecord
+                                                                          .reference
+                                                                          .update(
+                                                                              postsUpdateData);
+                                                                      return;
+                                                                    }
                                                                   },
                                                                   child: FaIcon(
                                                                     FontAwesomeIcons
@@ -2366,9 +2389,14 @@ class _ProfileWidgetState extends State<ProfileWidget>
                                                     ),
                                                     Expanded(
                                                       child: Text(
-                                                        gridViewPostsRecord
-                                                            .totalLikes
-                                                            .toString(),
+                                                        valueOrDefault<String>(
+                                                          gridViewPostsRecord
+                                                              .likedUsers
+                                                              .toList()
+                                                              .length
+                                                              .toString(),
+                                                          '0',
+                                                        ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)

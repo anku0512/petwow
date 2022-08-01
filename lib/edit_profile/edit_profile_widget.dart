@@ -1,8 +1,8 @@
 import '../auth/auth_util.dart';
 import '../backend/backend.dart';
 import '../backend/firebase_storage/storage.dart';
+import '../dog_breed_list/dog_breed_list_widget.dart';
 import '../flutter_flow/flutter_flow_choice_chips.dart';
-import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -22,13 +22,10 @@ class EditProfileWidget extends StatefulWidget {
 
 class _EditProfileWidgetState extends State<EditProfileWidget> {
   String uploadedFileUrl = '';
-  TextEditingController yourpetsnameController;
   TextEditingController yourNameController;
-  String dropDownValue;
+  TextEditingController yourpetsnameController;
   String choiceChipsValue;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-
 
   @override
   void initState() {
@@ -172,8 +169,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               ),
                             ),
                           ),
-                          if ((uploadedFileUrl != null) &&
-                              (uploadedFileUrl != ''))
+                          if (uploadedFileUrl != null && uploadedFileUrl != '')
                             Padding(
                               padding:
                                   EdgeInsetsDirectional.fromSTEB(2, 2, 2, 2),
@@ -277,61 +273,10 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                             color: Colors.transparent,
                             width: 1,
                           ),
-                          borderRadius: 8,
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
-                  child: AuthUserStreamWidget(
-                    child: TextFormField(
-                      controller: yourpetsnameController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText: 'Your Pet\'s Name',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Color(0xFF95A1AC),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                        hintText: 'Your pet\'s name ...',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyText2.override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Color(0xFF95A1AC),
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFF1F4F8),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFF1F4F8),
-                            width: 2,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding:
-                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Lexend Deca',
-                            color: Color(0xFF090F13),
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
                   ),
                 ),
                 Padding(
@@ -385,66 +330,111 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: AlignmentDirectional(-0.75, 0),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
-                    child: AuthUserStreamWidget(
-                      child: StreamBuilder<List<DogBreedRecord>>(
-                        stream: queryDogBreedRecord(
-                          queryBuilder: (dogBreedRecord) => dogBreedRecord
-                              .where('title', isEqualTo: 'dog breeds'),
-                          singleRecord: true,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+                  child: AuthUserStreamWidget(
+                    child: TextFormField(
+                      controller: yourpetsnameController,
+                      obscureText: false,
+                      decoration: InputDecoration(
+                        labelText: 'Your Pet\'s Name',
+                        labelStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        hintText: 'Your full name...',
+                        hintStyle:
+                            FlutterFlowTheme.of(context).bodyText2.override(
+                                  fontFamily: 'Lexend Deca',
+                                  color: Color(0xFF95A1AC),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFF1F4F8),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: CircularProgressIndicator(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryColor,
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Color(0xFFF1F4F8),
+                            width: 2,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding:
+                            EdgeInsetsDirectional.fromSTEB(20, 24, 0, 24),
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Lexend Deca',
+                            color: Color(0xFF090F13),
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                          ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 16),
+                  child: InkWell(
+                    onTap: () async {
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DogBreedListWidget(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(
+                          color: Color(0xFFF1F4F8),
+                          width: 2,
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(14, 0, 10, 0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-0.9, 0),
+                              child: AuthUserStreamWidget(
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    valueOrDefault(
+                                        currentUserDocument?.breed, ''),
+                                    'Your pup\'s breed',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyText1
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF090F13),
+                                        fontWeight: FontWeight.normal,
+                                      ),
                                 ),
                               ),
-                            );
-                          }
-                          List<DogBreedRecord> dropDownDogBreedRecordList =
-                              snapshot.data;
-                          // Return an empty Container when the document does not exist.
-                          if (snapshot.data.isEmpty) {
-                            return Container();
-                          }
-                          final dropDownDogBreedRecord =
-                              dropDownDogBreedRecordList.isNotEmpty
-                                  ? dropDownDogBreedRecordList.first
-                                  : null;
-                          return FlutterFlowDropDown(
-                            initialOption: dropDownValue ??=
-                                valueOrDefault(currentUserDocument?.breed, ''),
-                            options:
-                                dropDownDogBreedRecord.items.toList().toList(),
-                            onChanged: (val) =>
-                                setState(() => dropDownValue = val),
-                            width: MediaQuery.of(context).size.width,
-                            height: 50,
-                            textStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                    ),
-                            hintText: 'Your pup\'s breed',
-                            fillColor: Colors.white,
-                            elevation: 2,
-                            borderColor: Color(0xFFF1F4F8),
-                            borderWidth: 2,
-                            borderRadius: 8,
-                            margin:
-                                EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                            hidesUnderline: true,
-                          );
-                        },
+                            ),
+                            Icon(
+                              Icons.arrow_drop_down,
+                              color: Colors.black,
+                              size: 24,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -516,7 +506,6 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                           onPressed: () async {
                             final usersUpdateData = createUsersRecordData(
                               displayName: yourpetsnameController.text,
-                              breed: dropDownValue,
                               gender: choiceChipsValue,
                               photoUrl: uploadedFileUrl,
                               yourName: yourNameController.text,
@@ -548,7 +537,7 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
                               color: Colors.transparent,
                               width: 1,
                             ),
-                            borderRadius: 8,
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         );
                       },
@@ -563,4 +552,3 @@ class _EditProfileWidgetState extends State<EditProfileWidget> {
     );
   }
 }
-

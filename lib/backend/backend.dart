@@ -6,7 +6,8 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/posts_record.dart';
-import 'schema/dog_breed_record.dart';
+import 'schema/challenge_record.dart';
+import 'schema/sample_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -16,7 +17,8 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/posts_record.dart';
-export 'schema/dog_breed_record.dart';
+export 'schema/challenge_record.dart';
+export 'schema/sample_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord({
@@ -102,42 +104,84 @@ Future<FFFirestorePage<PostsRecord>> queryPostsRecordPage({
       isStream: isStream,
     );
 
-/// Functions to query DogBreedRecords (as a Stream and as a Future).
-Stream<List<DogBreedRecord>> queryDogBreedRecord({
+/// Functions to query ChallengeRecords (as a Stream and as a Future).
+Stream<List<ChallengeRecord>> queryChallengeRecord({
   Query Function(Query) queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      DogBreedRecord.collection,
-      DogBreedRecord.serializer,
+      ChallengeRecord.collection,
+      ChallengeRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<DogBreedRecord>> queryDogBreedRecordOnce({
+Future<List<ChallengeRecord>> queryChallengeRecordOnce({
   Query Function(Query) queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      DogBreedRecord.collection,
-      DogBreedRecord.serializer,
+      ChallengeRecord.collection,
+      ChallengeRecord.serializer,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<FFFirestorePage<DogBreedRecord>> queryDogBreedRecordPage({
+Future<FFFirestorePage<ChallengeRecord>> queryChallengeRecordPage({
   Query Function(Query) queryBuilder,
   DocumentSnapshot nextPageMarker,
   int pageSize,
   bool isStream,
 }) =>
     queryCollectionPage(
-      DogBreedRecord.collection,
-      DogBreedRecord.serializer,
+      ChallengeRecord.collection,
+      ChallengeRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SampleRecords (as a Stream and as a Future).
+Stream<List<SampleRecord>> querySampleRecord({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SampleRecord.collection,
+      SampleRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SampleRecord>> querySampleRecordOnce({
+  Query Function(Query) queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SampleRecord.collection,
+      SampleRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<SampleRecord>> querySampleRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      SampleRecord.collection,
+      SampleRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

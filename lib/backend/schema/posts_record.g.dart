@@ -54,13 +54,6 @@ class _$PostsRecordSerializer implements StructuredSerializer<PostsRecord> {
         ..add('total_likes')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.videoUrl;
-    if (value != null) {
-      result
-        ..add('video_url')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.likedUsers;
     if (value != null) {
       result
@@ -69,6 +62,14 @@ class _$PostsRecordSerializer implements StructuredSerializer<PostsRecord> {
             specifiedType: const FullType(BuiltList, const [
               const FullType(DocumentReference, const [const FullType(Object)])
             ])));
+    }
+    value = object.challenge;
+    if (value != null) {
+      result
+        ..add('challenge')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType(Object)])));
     }
     value = object.reference;
     if (value != null) {
@@ -114,16 +115,18 @@ class _$PostsRecordSerializer implements StructuredSerializer<PostsRecord> {
           result.totalLikes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'video_url':
-          result.videoUrl = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
         case 'liked_users':
           result.likedUsers.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltList, const [
                 const FullType(
                     DocumentReference, const [const FullType(Object)])
               ])) as BuiltList<Object>);
+          break;
+        case 'challenge':
+          result.challenge = serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      DocumentReference, const [const FullType(Object)]))
+              as DocumentReference<Object>;
           break;
         case 'Document__Reference__Field':
           result.reference = serializers.deserialize(value,
@@ -150,14 +153,14 @@ class _$PostsRecord extends PostsRecord {
   @override
   final int totalLikes;
   @override
-  final String videoUrl;
-  @override
   final BuiltList<DocumentReference<Object>> likedUsers;
+  @override
+  final DocumentReference<Object> challenge;
   @override
   final DocumentReference<Object> reference;
 
   factory _$PostsRecord([void Function(PostsRecordBuilder) updates]) =>
-      (new PostsRecordBuilder()..update(updates)).build();
+      (new PostsRecordBuilder()..update(updates))._build();
 
   _$PostsRecord._(
       {this.imageUrl,
@@ -165,8 +168,8 @@ class _$PostsRecord extends PostsRecord {
       this.createdAt,
       this.description,
       this.totalLikes,
-      this.videoUrl,
       this.likedUsers,
+      this.challenge,
       this.reference})
       : super._();
 
@@ -186,8 +189,8 @@ class _$PostsRecord extends PostsRecord {
         createdAt == other.createdAt &&
         description == other.description &&
         totalLikes == other.totalLikes &&
-        videoUrl == other.videoUrl &&
         likedUsers == other.likedUsers &&
+        challenge == other.challenge &&
         reference == other.reference;
   }
 
@@ -202,21 +205,21 @@ class _$PostsRecord extends PostsRecord {
                             createdAt.hashCode),
                         description.hashCode),
                     totalLikes.hashCode),
-                videoUrl.hashCode),
-            likedUsers.hashCode),
+                likedUsers.hashCode),
+            challenge.hashCode),
         reference.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('PostsRecord')
+    return (newBuiltValueToStringHelper(r'PostsRecord')
           ..add('imageUrl', imageUrl)
           ..add('user', user)
           ..add('createdAt', createdAt)
           ..add('description', description)
           ..add('totalLikes', totalLikes)
-          ..add('videoUrl', videoUrl)
           ..add('likedUsers', likedUsers)
+          ..add('challenge', challenge)
           ..add('reference', reference))
         .toString();
   }
@@ -245,15 +248,16 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
   int get totalLikes => _$this._totalLikes;
   set totalLikes(int totalLikes) => _$this._totalLikes = totalLikes;
 
-  String _videoUrl;
-  String get videoUrl => _$this._videoUrl;
-  set videoUrl(String videoUrl) => _$this._videoUrl = videoUrl;
-
   ListBuilder<DocumentReference<Object>> _likedUsers;
   ListBuilder<DocumentReference<Object>> get likedUsers =>
       _$this._likedUsers ??= new ListBuilder<DocumentReference<Object>>();
   set likedUsers(ListBuilder<DocumentReference<Object>> likedUsers) =>
       _$this._likedUsers = likedUsers;
+
+  DocumentReference<Object> _challenge;
+  DocumentReference<Object> get challenge => _$this._challenge;
+  set challenge(DocumentReference<Object> challenge) =>
+      _$this._challenge = challenge;
 
   DocumentReference<Object> _reference;
   DocumentReference<Object> get reference => _$this._reference;
@@ -272,8 +276,8 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
       _createdAt = $v.createdAt;
       _description = $v.description;
       _totalLikes = $v.totalLikes;
-      _videoUrl = $v.videoUrl;
       _likedUsers = $v.likedUsers?.toBuilder();
+      _challenge = $v.challenge;
       _reference = $v.reference;
       _$v = null;
     }
@@ -292,7 +296,9 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
   }
 
   @override
-  _$PostsRecord build() {
+  PostsRecord build() => _build();
+
+  _$PostsRecord _build() {
     _$PostsRecord _$result;
     try {
       _$result = _$v ??
@@ -302,8 +308,8 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
               createdAt: createdAt,
               description: description,
               totalLikes: totalLikes,
-              videoUrl: videoUrl,
               likedUsers: _likedUsers?.build(),
+              challenge: challenge,
               reference: reference);
     } catch (_) {
       String _$failedField;
@@ -312,7 +318,7 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
         _likedUsers?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'PostsRecord', _$failedField, e.toString());
+            r'PostsRecord', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -321,4 +327,4 @@ class PostsRecordBuilder implements Builder<PostsRecord, PostsRecordBuilder> {
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas

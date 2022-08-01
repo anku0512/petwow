@@ -28,12 +28,11 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
   int get totalLikes;
 
   @nullable
-  @BuiltValueField(wireName: 'video_url')
-  String get videoUrl;
-
-  @nullable
   @BuiltValueField(wireName: 'liked_users')
   BuiltList<DocumentReference> get likedUsers;
+
+  @nullable
+  DocumentReference get challenge;
 
   @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
@@ -43,7 +42,6 @@ abstract class PostsRecord implements Built<PostsRecord, PostsRecordBuilder> {
     ..imageUrl = ''
     ..description = ''
     ..totalLikes = 0
-    ..videoUrl = ''
     ..likedUsers = ListBuilder();
 
   static CollectionReference get collection =>
@@ -73,7 +71,7 @@ Map<String, dynamic> createPostsRecordData({
   DateTime createdAt,
   String description,
   int totalLikes,
-  String videoUrl,
+  DocumentReference challenge,
 }) =>
     serializers.toFirestore(
         PostsRecord.serializer,
@@ -83,5 +81,5 @@ Map<String, dynamic> createPostsRecordData({
           ..createdAt = createdAt
           ..description = description
           ..totalLikes = totalLikes
-          ..videoUrl = videoUrl
-          ..likedUsers = null));
+          ..likedUsers = null
+          ..challenge = challenge));

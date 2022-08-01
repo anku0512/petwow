@@ -168,8 +168,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.placeworkIntro) ==
+                                                    if (valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.placeworkIntro,
+                                                            '') ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -298,8 +300,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                               MainAxisAlignment
                                                                   .end,
                                                           children: [
-                                                            if ((currentUserDocument
-                                                                    ?.placeworkIntro) ==
+                                                            if (valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.placeworkIntro,
+                                                                    '') ==
                                                                 'In Progress')
                                                               AuthUserStreamWidget(
                                                                 child: Icon(
@@ -435,8 +439,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.placeworkDuration) ==
+                                                    if (valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.placeworkDuration,
+                                                            '') ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -563,8 +569,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                               MainAxisAlignment
                                                                   .end,
                                                           children: [
-                                                            if ((currentUserDocument
-                                                                    ?.placeworkDuration) ==
+                                                            if (valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.placeworkDuration,
+                                                                    '') ==
                                                                 'In Progress')
                                                               AuthUserStreamWidget(
                                                                 child: Icon(
@@ -700,8 +708,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.placeworkSendToPlace) ==
+                                                    if (valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.placeworkSendToPlace,
+                                                            '') ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -829,8 +839,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                               MainAxisAlignment
                                                                   .end,
                                                           children: [
-                                                            if ((currentUserDocument
-                                                                    ?.placeworkSendToPlace) ==
+                                                            if (valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.placeworkSendToPlace,
+                                                                    '') ==
                                                                 'In Progress')
                                                               AuthUserStreamWidget(
                                                                 child: Icon(
@@ -966,8 +978,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.end,
                                                   children: [
-                                                    if ((currentUserDocument
-                                                            ?.placeworkDoorbell) ==
+                                                    if (valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.placeworkDoorbell,
+                                                            '') ==
                                                         'Mastered')
                                                       Padding(
                                                         padding:
@@ -1095,8 +1109,10 @@ class _PlaceworkWidgetState extends State<PlaceworkWidget> {
                                                               MainAxisAlignment
                                                                   .end,
                                                           children: [
-                                                            if ((currentUserDocument
-                                                                    ?.placeworkDoorbell) ==
+                                                            if (valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.placeworkDoorbell,
+                                                                    '') ==
                                                                 'In Progress')
                                                               AuthUserStreamWidget(
                                                                 child: Icon(

@@ -29,12 +29,16 @@
             <key>CFBundleURLSchemes</key>
             <array>
                 <string>com.googleusercontent.apps.623047593884-0fremd8l09v6q1e5156eqobk2acienn3</string>
-                
+                <string>fb1190714328136872</string>
             </array>
         </dict>
 
     </array>
 
+    <key>FacebookAppID</key>
+    <string>1190714328136872</string>
+    <key>FacebookDisplayName</key>
+    <string>petWow</string>
 
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
@@ -48,6 +52,25 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>In order to upload media, this app requires permission to access the photo library.</string>
 
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fbapi20130214</string>
+      <string>fbapi20130410</string>
+      <string>fbapi20130702</string>
+      <string>fbapi20131010</string>
+      <string>fbapi20131219</string>
+      <string>fbapi20140410</string>
+      <string>fbapi20140116</string>
+      <string>fbapi20150313</string>
+      <string>fbapi20150629</string>
+      <string>fbapi20160328</string>
+      <string>fbauth</string>
+      <string>fb-messenger-share-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+
+    </array>
 
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

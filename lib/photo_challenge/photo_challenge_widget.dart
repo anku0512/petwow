@@ -1150,7 +1150,7 @@ class _PhotoChallengeWidgetState extends State<PhotoChallengeWidget> {
                                                               queryBuilder: (postsRecord) => postsRecord
                                                                   .where('challenge',
                                                                       isEqualTo: pageViewChallengeRecord.reference)
-                                                                  .orderBy('total_likes', descending: true),
+                                                                  .orderBy('liked_users', descending: true),
                                                             ),
                                                             builder: (context, snapshot) {
                                                               // Customize what your widget looks like when it's loading.
@@ -1167,6 +1167,27 @@ class _PhotoChallengeWidgetState extends State<PhotoChallengeWidget> {
                                                               }
                                                               List<PostsRecord> popularFeedPostsRecordList =
                                                                   snapshot.data;
+
+                                                              // adding manual sorting here cause that is not possible in firebase
+                                                              int mySortComparison(PostsRecord a, PostsRecord b) {
+                                                                final propertyA = a != null && a.likedUsers != null
+                                                                    ? a.likedUsers.length
+                                                                    : 0;
+                                                                final propertyB = b != null && b.likedUsers != null
+                                                                    ? b.likedUsers.length
+                                                                    : 0;
+                                                                if (propertyA < propertyB) {
+                                                                  return 1;
+                                                                } else if (propertyA > propertyB) {
+                                                                  return -1;
+                                                                } else {
+                                                                  return 0;
+                                                                }
+                                                              }
+
+                                                              popularFeedPostsRecordList.sort(mySortComparison);
+                                                              // manual sorting ends here
+
                                                               return Column(
                                                                 mainAxisSize: MainAxisSize.max,
                                                                 children:
